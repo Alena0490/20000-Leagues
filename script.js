@@ -83,16 +83,16 @@ document.addEventListener("DOMContentLoaded", function() {
   $('.jq--nav-icon').on('click', function(event) {
     event.preventDefault();
 
-    if ($('.jq--nav-icon').attr('src') === 'img/burger-barw.png') {
+    if ($('.jq--nav-icon').attr('src') === 'img/burger-barw.webp') {
       // Otevření menu
-      $('.jq--nav-icon').attr('src', 'img/closew.png');
+      $('.jq--nav-icon').attr('src', 'img/closew.webp');
       $('header').css('transition', 'background-image 0.5s ease');
       $('header').css('background-image', 'none');
       $('.mobile-nav-back').fadeIn(300); // Okamžité pozadí pro navigaci
       $('nav ul').fadeIn(500);
     } else {
       // Zavření menu
-      $('.jq--nav-icon').attr('src', 'img/burger-barw.png');
+      $('.jq--nav-icon').attr('src', 'img/burger-barw.webp');
       $('nav ul').fadeOut(500); // Skrytí navigace
 
       // Po 500 ms (když zmizí navigace) vrátíme pozadí

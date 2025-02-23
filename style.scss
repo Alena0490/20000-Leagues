@@ -25,7 +25,8 @@ body {
   overflow-x: hidden;
 }
 
-body::-webkit-scrollbar {
+body::-webkit-scroll
+ {
     width: 12px;
 }
 
@@ -282,6 +283,9 @@ a:hover {
   border-radius: inherit; // Pokud máš zakulacené rohy
 }
 
+img {
+  width: auto;
+}
 
 button, a, input[type="submit"] {
     min-height: 44px;
@@ -345,7 +349,7 @@ hr {
   }
   
   .about-content img {
-    // width: 100%;
+    //width: 100%;
     height: auto;
     border-radius: 10px;
     filter: sepia(0.5);
@@ -818,6 +822,11 @@ textarea {
     }
 
 @media screen and (max-width: 480px) {
+
+  .depth-meter {
+    display: none;
+  }
+
   ul li a {
     bottom: 0rem;
   }
