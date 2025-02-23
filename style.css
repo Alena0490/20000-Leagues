@@ -135,15 +135,17 @@ header {
 }
 
 nav {
-  display: flex;
-  justify-content: center;
-  width: 100%;
   margin-bottom: 2rem;
 }
 
 .logo {
   padding-top: 2%;
   margin-left: 10%;
+  transition: transform ease, box-shadow 1s ease;
+}
+
+.logo:hover {
+  scale: 1.03;
 }
 
 .logo img {
@@ -188,6 +190,12 @@ a {
   color: #c1f8fd;
   font-family: "Cormorant", serif;
   font-size: clamp(1rem, 1.8vw, 2rem);
+  transition: transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+a:hover {
+  color: white;
+  scale: 1.05;
 }
 
 .burger-menu {
@@ -238,7 +246,7 @@ button, a, input[type=submit] {
 }
 
 .hero {
-  margin-top: 15vh;
+  margin-top: 5rem;
   width: 100%;
 }
 
@@ -292,7 +300,6 @@ hr {
 }
 
 .about-content img {
-  width: 100%;
   height: auto;
   border-radius: 10px;
   filter: sepia(0.5);
@@ -652,6 +659,9 @@ footer p {
   .about-content {
     grid-template-columns: 1fr 2fr;
   }
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
 }
 @media (max-width: 768px) {
   .logo {
@@ -669,9 +679,8 @@ footer p {
     width: calc(100% - 6px);
     height: 25px;
   }
-  /**/
   .burger-menu {
-    display: inline-block;
+    display: block;
     position: absolute;
     top: 2%;
     left: 10px;
@@ -711,15 +720,19 @@ ul li a {
   padding: 0 1rem;
 }
 
+.about-content img {
+  margin: 0 auto;
+}
+
+#gallery {
+  margin-bottom: 5rem;
+}
+
 .gallery-grid {
   grid-template-columns: repeat(2, 1fr); /* 2 sloupce na menších obrazovkách */
 }
 
 /* Zmenšení mezer */
-.hero {
-  margin-top: 5vh;
-}
-
 hr {
   margin-top: 5vh;
 }

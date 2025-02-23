@@ -91,11 +91,14 @@ document.addEventListener("DOMContentLoaded", function() {
         // Zkontroluj aktuální hodnotu src atributu obrázku
         if ($('.jq--nav-icon').attr('src') === 'img/burger-barw.png') {
     $('.jq--nav-icon').attr('src', 'img/closew.png'); // Absolutní cesta
+    $('header').css('background-image', 'none'); // Odebere pozadí
 } else {
     $('.jq--nav-icon').attr('src', 'img/burger-barw.png'); // Absolutní cesta
+    $('header').css('background-image', 'url(img/top.webp)'); // Vrátí původní pozadí
 }
         // Zobrazí/skryje mobilní pozadí a navigaci
         $('.mobile-nav-back, nav ul').fadeToggle(500);
+
     });
 });
 
