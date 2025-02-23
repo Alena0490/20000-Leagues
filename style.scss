@@ -167,10 +167,11 @@ body::-webkit-scrollbar-track {
     background-repeat: no-repeat;
   }
 
-nav {
+  nav {
     display: flex;
     justify-content: center;
     width: 100%;
+    margin-bottom: 2rem;
 }
 
 .logo {
@@ -221,6 +222,20 @@ a {
     color: $link-color;
     font-family: "Cormorant", serif;
     font-size: clamp(1rem, 1.8vw, 2rem);
+}
+
+.burger-menu {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 83%;
+  width: 15%;
+  height: auto;
+  max-width: 40%;
+  border: none;
+  color: $text-color;
+  box-shadow: none;
+  z-index: 799;
 }
 
 .container {
@@ -405,7 +420,7 @@ button {
 }
 
 .starfish h2 {
-  width: 16rem;
+  width: 200%;
   height: auto;
   position: absolute;
   bottom: 0%;
@@ -662,9 +677,14 @@ textarea {
     .about-content {
         grid-template-columns: 1fr 2fr;
     }
+
 }
 
   @media (max-width: 768px) {
+
+    .logo {
+      display: none;
+    }
 
     .depth-meter {
       position: fixed;
@@ -678,6 +698,41 @@ textarea {
       left: 3px;
       width: calc(100% - 6px);
       height: 25px;
+    }
+/**/
+    .burger-menu {
+      display: inline-block;
+      position: absolute;
+      top: 2%;
+      left: 10px;
+      right: 83%;
+      width: clamp(70px, 11%, 90px);
+      height: auto;
+      max-width: 40%;
+      border: none !important;
+      box-shadow: none;
+      z-index: 799;
+      top: 0;
+    }
+    
+    nav ul {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0;
+      margin: 100px 0 0;
+      text-align: left;
+  }
+
+    nav ul li {
+      text-align: left;
+      font-size: 1.7rem;
+      display: block;
+      line-height: 100%;
+      margin-top: 0rem;
+      width: 40%;      color: $text-color;
+
+  }
     }
 
     ul li a {
@@ -723,7 +778,6 @@ textarea {
     .logo img {
       width: clamp(70px, 15vw, 150px)
     }
-}
 
 @media screen and (max-width: 480px) {
   ul li a {

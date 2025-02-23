@@ -138,6 +138,7 @@ nav {
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-bottom: 2rem;
 }
 
 .logo {
@@ -187,6 +188,20 @@ a {
   color: #c1f8fd;
   font-family: "Cormorant", serif;
   font-size: clamp(1rem, 1.8vw, 2rem);
+}
+
+.burger-menu {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 83%;
+  width: 15%;
+  height: auto;
+  max-width: 40%;
+  border: none;
+  color: #e5e4e2;
+  box-shadow: none;
+  z-index: 799;
 }
 
 .container {
@@ -367,7 +382,7 @@ button:hover {
 }
 
 .starfish h2 {
-  width: 16rem;
+  width: 200%;
   height: auto;
   position: absolute;
   bottom: 0%;
@@ -639,6 +654,9 @@ footer p {
   }
 }
 @media (max-width: 768px) {
+  .logo {
+    display: none;
+  }
   .depth-meter {
     position: fixed;
     right: 0.2rem;
@@ -651,41 +669,83 @@ footer p {
     width: calc(100% - 6px);
     height: 25px;
   }
-  ul li a {
-    bottom: 0.5rem;
-  }
-  .container {
-    width: 95%;
-    padding: 0 1rem;
-  }
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 sloupce na menších obrazovkách */
-  }
-  /* Zmenšení mezer */
-  .hero {
-    margin-top: 5vh;
-  }
-  hr {
-    margin-top: 5vh;
-  }
-  hr {
-    margin-top: 3vh;
-    margin-bottom: 3vh;
-  }
-  .vegetation img {
-    width: clamp(60px, 12%, 200px);
-  }
-  .starfish img {
-    width: clamp(100px, 80%, 550px);
+  /**/
+  .burger-menu {
+    display: inline-block;
+    position: absolute;
+    top: 2%;
+    left: 10px;
+    right: 83%;
+    width: clamp(70px, 11%, 90px);
     height: auto;
+    max-width: 40%;
+    border: none !important;
+    box-shadow: none;
+    z-index: 799;
+    top: 0;
   }
-  .window {
-    padding: 5%;
+  nav ul {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    margin: 100px 0 0;
+    text-align: left;
   }
-  .logo img {
-    width: clamp(70px, 15vw, 150px);
+  nav ul li {
+    text-align: left;
+    font-size: 1.7rem;
+    display: block;
+    line-height: 100%;
+    margin-top: 0rem;
+    width: 40%;
+    color: #e5e4e2;
   }
 }
+ul li a {
+  bottom: 0.5rem;
+}
+
+.container {
+  width: 95%;
+  padding: 0 1rem;
+}
+
+.gallery-grid {
+  grid-template-columns: repeat(2, 1fr); /* 2 sloupce na menších obrazovkách */
+}
+
+/* Zmenšení mezer */
+.hero {
+  margin-top: 5vh;
+}
+
+hr {
+  margin-top: 5vh;
+}
+
+hr {
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+}
+
+.vegetation img {
+  width: clamp(60px, 12%, 200px);
+}
+
+.starfish img {
+  width: clamp(100px, 80%, 550px);
+  height: auto;
+}
+
+.window {
+  padding: 5%;
+}
+
+.logo img {
+  width: clamp(70px, 15vw, 150px);
+}
+
 @media screen and (max-width: 480px) {
   ul li a {
     bottom: 0rem;

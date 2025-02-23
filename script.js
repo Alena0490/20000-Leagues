@@ -81,23 +81,23 @@ updateIndicator();
 
 
 
-// /* Change Hamburger to Cross vice versa */
-// $(document).ready(function () {
-//     $('.jq--nav-icon').click(function (event) {
-//         // Zabraň výchozímu chování odkazu
-//         event.preventDefault();
+/* Change Hamburger to Cross vice versa */
+document.addEventListener("DOMContentLoaded", function() {
+  $('.jq--nav-icon').on('click', function(event) {
+    event.preventDefault();
+        // Zabraň výchozímu chování odkazu
+        event.preventDefault();
 
-//         // Zkontroluj aktuální hodnotu src atributu obrázku
-//         if ($('.jq--nav-icon').attr('src') === 'img/burger-barw.png') {
-//     $('.jq--nav-icon').attr('src', 'img/closew.png'); // Absolutní cesta
-// } else {
-//     $('.jq--nav-icon').attr('src', 'img/burger-barw.png'); // Absolutní cesta
-// }
-//         // Zobrazí/skryje mobilní pozadí a navigaci
-//         $('.mobile-nav-back').fadeToggle(500);
-//         $('.first').fadeToggle(500);
-//     });
-// });
+        // Zkontroluj aktuální hodnotu src atributu obrázku
+        if ($('.jq--nav-icon').attr('src') === 'img/burger-barw.png') {
+    $('.jq--nav-icon').attr('src', 'img/closew.png'); // Absolutní cesta
+} else {
+    $('.jq--nav-icon').attr('src', 'img/burger-barw.png'); // Absolutní cesta
+}
+        // Zobrazí/skryje mobilní pozadí a navigaci
+        $('.mobile-nav-back, nav ul').fadeToggle(500);
+    });
+});
 
 /*Zobrazení galerie*/
 //   $(function() {
