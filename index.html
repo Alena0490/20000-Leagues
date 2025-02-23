@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="lightbox.css" rel="stylesheet">
+    <link href="lightbox.css.map" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="depth-meter-container">
+        <div class="content">
+    <header>
+
+        <nav>
+            
+            <ul>
+                <li>
+                    <div class="logo">
+                        <img src="img/compass.svg" alt="logo Nautilus">
+                    </div>
+                </li>
+                <li>
+                    <a onclick="scrollToSection('#about')" href="#">About</a>
+                </li>
+
+                <li>
+                    <a onclick="scrollToSection('#features')" href="#">Discover</a>
+                </li>
+
+                <li>
+                    <a onclick="scrollToSection('#gallery')" href="#">Gallery</a>
+                </li>
+
+                <li>
+                    <a onclick="scrollToSection('#contact')" href="#">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+
+    <section id="about" class="hero">
+        <span class="starfish">
+            <h2>About the project</h2>
+            <img class="left" src="img/starfish.webp" alt="mořská hvězice">
+       </span> 
+        <p>Discover the story of Captain Nemo's legendary submarine.</p>
+        <div class="two">
+            <div class="about-content">
+                <img src="img/nautilus.webp" alt="Nautilus Image">
+                <div class="description">
+                    <p>The Nautilus is a masterpiece of engineering, designed to explore the uncharted depths of the ocean...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="features" class="section features">
+        <h2>Features of the Nautilus</h2>
+        <div class="feature-cards">
+          <div class="card">
+            <h3>Advanced Navigation</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae, quis sapiente quo asperiores quam cum rem officia quos nulla ipsa itaque quod est, eum quisquam, ratione voluptatum ad iure necessitatibus?</p>
+          </div>
+          <div class="card">
+            <h3>Steampunk Aesthetics</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, ullam omnis! Distinctio quam nihil similique magni eligendi sapiente nam sequi animi autem quae, placeat explicabo eaque, veritatis, itaque officia fuga.</p>
+          </div>
+          <div class="card">
+            <h3>Discover the Depths</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione, quae sunt laborum beatae reiciendis mollitia expedita, enim facere quibusdam voluptatibus aliquam dignissimos, facilis voluptas inventore deserunt veritatis illum voluptates modi?</p>
+          </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="gallery" class="content">
+        <div class="black">
+            <div class="card">
+            <h2>Treasures of the Deep</h2>
+            <p>Behold the Legendary Vessel of Captain Nemo, a marvel of the deep and a testament to boundless exploration</p>
+            <div class="gallery-grid">
+                <a href="img/divers.webp" data-lightbox="roadtrip" data-title="Scuba divers in a hidden cave"><img src="img/divers.webp" alt="Scuba divers in a hidden cave"></a>
+                <a aria-label="lightbox" href="img/nautilus1.webp" data-lightbox="roadtrip" data-title="The Nautillus submarine"><img src="img/nautilus1.webp" data-lightbox="my-gallery" alt="The Nautillus submarine"></a>
+                <a aria-label="lightbox" href="img/room.webp" data-lightbox="roadtrip" data-title="Captain Nemo's cabin"><img src="img/room.webp" data-lightbox="my-gallery" alt="Captain Nemo's cabin"></a>
+                <a aria-label="lightbox" href="img/octopus.webp" data-lightbox="roadtrip" data-title="A friendly octopus"><img src="img/octopus.webp" alt="A friendly octopus">
+                <a aria-label="lightbox" href="img/table.webp" data-lightbox="roadtrip" data-title="Captain Nemo's belongings"><img src="img/table.webp" data-lightbox="my-gallery"alt="Captain Nemo's belongings"></a>
+                <a aria-label="lightbox" href="img/cracatit.webp" data-lightbox="roadtrip" data-title="The tentacle monster"><img src="img/cracatit.webp" alt="The tentacle monster">
+                <a aria-label="lightbox" href="img/sketch.webp" data-lightbox="roadtrip" data-title="Nautil's plans"><img src="img/sketch.webp" alt="Nautil's plans"></a>
+                <a aria-label="lightbox" href="img/nautilus1.webp" data-lightbox="roadtrip" data-title="The Nautilus"><img src="img/nautilus1.webp" alt="The Nautilus">
+                <a aria-label="lightbox" href="img/monster.webp" data-lightbox="roadtrip" data-title="Monster attacks"><img src="img/monster.webp" alt="Monster attacks"></a>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="contact" class="section contact">
+       <span class="starfish">
+            <h2>Signal the Nautilus</h2>
+            <img src="img/starfish.webp" alt="mořská hvězice">
+       </span> 
+    <div class="window">
+        <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                
+                <input type="submit" value="Submit">
+        </form>
+    </div>
+      </section>
+
+      <hr>
+
+      <div id="cookie-banner">
+        Ahoy, explorer! This site uses cookies to guide your journey through these digital depths. Do you consent to proceed?
+        <button id="accept-cookies">Aye, I consent!</button>
+    </div>
+</div>
+
+<footer>
+    <div id="overlay"></div>
+    <video id="foot-video" autoplay muted controls src="img/AdobeStock_695308146.mov"></video>
+    <div class="vegetation">
+        <img src="img/plant1.webp" alt="vodní rostlina">
+        <img src="img/plant2.webp" alt="vodní rostlina">
+        <img src="img/plant3.webp" alt="vodní rostlina">
+        <img src="img/plant4.webp" alt="vodní rostlina">
+        <img src="img/plant5.webp" alt="vodní rostlina">
+    </div>
+
+    <div class="vegetation vegetation-background">
+        <img src="img/plant8.webp" alt="vodní rostlina">
+        <img src="img/plant10.webp" alt="vodní rostlina">
+        <img src="img/plant3.webp" alt="vodní rostlina">
+        <img src="img/plant7.webp" alt="vodní rostlina">
+        <img src="img/plant5.webp" alt="vodní rostlina">
+        <img src="img/plant10.webp" alt="vodní rostlina">
+        <img src="img/plant9.webp" alt="vodní rostlina">
+    </div>
+
+    <div class="sea-bottom">
+        <img src="img/sea-bottom.webp" alt="">
+    </div>
+    <p>Copyright Alena Pumprová</p>
+</footer>
+
+    </div>
+    <div class="depth-meter">
+    <div class="depth-indicator"></div>
+    <div class="depth-marks"></div>
+    </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

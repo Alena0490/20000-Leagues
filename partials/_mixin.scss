@@ -1,0 +1,15 @@
+@mixin contact-form {
+    background-color: rgba(255, 255, 255, 0.432);
+    border-radius: 3px;
+    border: 1px $secondary-color solid;
+    color: #594000;
+    padding: 0.8rem;
+    outline: none;
+}
+
+@mixin text-basic {
+    color: $text-color;
+    font-family: "Cormorant", serif;
+    font-size: clamp(1.5rem, 3vw, 1.5rem);
+    text-shadow: #1c1c1c 1px 1px 2px;
+}
