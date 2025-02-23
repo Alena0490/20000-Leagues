@@ -165,6 +165,8 @@ body::-webkit-scrollbar-track {
     background-image: url(img/top.webp);
     background-size: cover;
     background-repeat: no-repeat;
+    transition: background-image 1s ease;
+    opacity: 1;
   }
 
   nav {
@@ -696,6 +698,23 @@ textarea {
 
   @media (max-width: 768px) {
 
+    header {
+      background-image: url(img/top.webp);
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 8rem;
+    }
+
+    .mobile-nav-back {
+      height: 20rem;
+      position: absolute;
+      top: 40px;
+      width: 50%;
+      background-color: rgba(0, 0, 0, 0.502);
+      z-index: -1;
+      display: none;
+  }
+
     .logo {
       display: none;
     }
@@ -744,8 +763,8 @@ textarea {
       display: block;
       line-height: 100%;
       margin-top: 0rem;
-      width: 40%;      color: $text-color;
-
+      width: 50%;      
+      color: $text-color;
   }
     }
 

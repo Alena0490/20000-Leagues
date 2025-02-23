@@ -78,29 +78,33 @@ updateIndicator();
 //         }
 //     }
 // });
-
-
-
-/* Change Hamburger to Cross vice versa */
+/***  Change burger menu ***/
 document.addEventListener("DOMContentLoaded", function() {
   $('.jq--nav-icon').on('click', function(event) {
     event.preventDefault();
-        // Zabraň výchozímu chování odkazu
-        event.preventDefault();
 
-        // Zkontroluj aktuální hodnotu src atributu obrázku
-        if ($('.jq--nav-icon').attr('src') === 'img/burger-barw.png') {
-    $('.jq--nav-icon').attr('src', 'img/closew.png'); // Absolutní cesta
-    $('header').css('background-image', 'none'); // Odebere pozadí
-} else {
-    $('.jq--nav-icon').attr('src', 'img/burger-barw.png'); // Absolutní cesta
-    $('header').css('background-image', 'url(img/top.webp)'); // Vrátí původní pozadí
-}
-        // Zobrazí/skryje mobilní pozadí a navigaci
-        $('.mobile-nav-back, nav ul').fadeToggle(500);
+    if ($('.jq--nav-icon').attr('src') === 'img/burger-barw.png') {
+      // Otevření menu
+      $('.jq--nav-icon').attr('src', 'img/closew.png');
+      $('header').css('transition', 'background-image 0.5s ease');
+      $('header').css('background-image', 'none');
+      $('.mobile-nav-back').fadeIn(300); // Okamžité pozadí pro navigaci
+      $('nav ul').fadeIn(500);
+    } else {
+      // Zavření menu
+      $('.jq--nav-icon').attr('src', 'img/burger-barw.png');
+      $('nav ul').fadeOut(500); // Skrytí navigace
 
-    });
+      // Po 500 ms (když zmizí navigace) vrátíme pozadí
+      setTimeout(function() {
+        $('header').css('background-image', 'url(img/top.webp)');
+      }, 500);
+
+      $('.mobile-nav-back').fadeOut(300);
+    }
+  });
 });
+
 
 /*Zobrazení galerie*/
 //   $(function() {
