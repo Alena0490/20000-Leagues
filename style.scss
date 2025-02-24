@@ -196,7 +196,7 @@ filter:invert(1);
 animation: gear-spin 5s linear infinite;
 }
 
-ul {
+ul:not(.medium ul) {
     width: 80%;
     list-style: none;
     text-decoration: none;
@@ -619,12 +619,68 @@ textarea {
     z-index: -10;
 }
 
-  footer p {
+.foot-contact {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  gap: 10rem;
+  color: #e5e4e2;
+  position: absolute;
+  top: .5rem;
+  left: 10%;
+  width: 80%;
+  height: 60%;
+  z-index: 100;
+}
+
+.medium {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  justify-content: center;
+}
+
+.medium ul li {
+  display: flex;
+  align-items: center;
+  list-style-type: georgian;
+  cursor: pointer;
+  word-wrap: break-word;
+  list-style-position: outside;
+}
+
+.medium ul li a {
+  text-align: left;
+  margin-bottom: 0% !important;
+  padding-left: 0;
+}
+
+.icon {
+  position: relative;
+  bottom: 0%;
+  padding-right: 5px;
+  width: 35px;
+  height: auto;
+}
+
+
+.bottom-foot {
+  background: linear-gradient(180deg, #00000000, rgba(0, 0, 0, 0.719));
+  display: flex;
+    padding: 2rem;
+    justify-content: end;
+    align-items: center;
     position: absolute;
-    bottom: 10vh;
-    right: 10%;
+    bottom: 0%;
+    width: 100%;
+    z-index: 20;
+}
+  footer p {
+    position: relative;
+    right: 3%;
     font-weight: 600;
     z-index: 100;
+    margin-bottom: 0;
   }
  
   #overlay {
@@ -639,41 +695,47 @@ textarea {
     pointer-events: none;
 }
 
-  .vegetation {
-    background: linear-gradient(#1c1c1c00,#1c1c1c00, #1c1c1c00,#1c1c1c);
-    width: 100%;
-    height: auto;
-    min-height: 20em;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    position: absolute;
-    bottom: 0;
-    overflow: hidden;
-    z-index: 20;
-  }
+.vegetation {
+  background: linear-gradient(rgba(28, 28, 28, 0), rgba(28, 28, 28, 0), rgba(28, 28, 28, 0), #1c1c1c);
+  width: 100%;
+  height: auto;
+  min-height: 20em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  position: absolute;
+  bottom: -15%;
+  overflow: hidden;
+  z-index: 20;
+}
 
   .vegetation img {
-    width: clamp(80px, 15%, 400px); /* Responzivní velikost */
+    width: clamp(80px, 18%, 400px);
     height: auto;
+    -o-object-fit: contain;
     object-fit: contain;
     position: relative;
-    bottom: 0%;
+    bottom: -10%;
     max-width: 20rem;
   }
 
   .vegetation-background {
     width: 100%;
-    background: linear-gradient(#1c1c1c00,#1c1c1c);
-    height: 12rem ;
+    background: linear-gradient(rgba(28, 28, 28, 0), #1c1c1c);
+    height: 12rem;
     z-index: 10;
+    position: absolute;
+    bottom: -2rem;
+    filter: blur(1.2px);
   }
 
   .vegetation-background img {
     position: relative;
-    bottom: 0%;
-    opacity: .5;
-    filter: blur (2px);
+    height: 10rem;
+    bottom: -35%;
+    opacity: 0.5;
+    filter: blur 2px !important;
+    left: 12%;
   }
 
   .sea-bottom {
@@ -807,7 +869,7 @@ textarea {
   }
 
   .vegetation img {
-      width: clamp(60px, 12%, 200px);
+      width: clamp(60px, 15%, 200px);
   }
 
   .starfish img {
