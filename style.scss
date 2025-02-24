@@ -612,9 +612,11 @@ textarea {
 }
 
 #foot-video {
+    position: relative;
     width: 100%;
     object-fit: cover;
     overflow: hidden;
+    z-index: -10;
 }
 
   footer p {
