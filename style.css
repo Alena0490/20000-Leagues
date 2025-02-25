@@ -19,8 +19,29 @@ body {
   scroll-behavior: smooth;
   color: #e5e4e2;
   width: 100%;
+  height: 100%;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow: hidden;
+  cursor: none;
+}
+
+/* Základní styl vlastního kurzoru */
+#customCursor {
+  width: 37px;
+  height: 37px;
+  background: url("img/submarine.webp") no-repeat center center;
+  background-size: cover;
+  position: fixed; /* Pevná pozice pro plynulost */
+  pointer-events: none; /* Nezasahuje do interakce */
+  transform: translate(-50%, -50%); /* Zarovná kurzor na střed */
+  transition: transform 0.6s ease, background 0.3s ease, opacity 0.3s ease;
+  z-index: 10000;
+  opacity: 1;
+}
+
+/* Efekt při hoveru na tlačítka (změna na pointer) */
+.pointer {
+  cursor: pointer !important; /* Standardní kurzor pointer */
 }
 
 body::-webkit-scroll {
@@ -257,6 +278,7 @@ button, a, input[type=submit] {
 }
 
 h2 {
+  width: 100%;
   color: #f3a760;
   text-shadow: #013220 3px 3px 3px;
   font-family: "Cinzel", serif;
@@ -387,7 +409,7 @@ button:hover {
 }
 
 .starfish {
-  width: 16rem;
+  width: 100%;
   height: auto;
   margin-top: 10vh;
   display: flex;
@@ -395,7 +417,7 @@ button:hover {
 }
 
 .starfish h2 {
-  width: 200%;
+  width: 100%;
   height: auto;
   position: absolute;
   bottom: 0%;
@@ -403,6 +425,7 @@ button:hover {
 }
 
 .starfish img {
+  width: 16rem;
   position: absolute;
   right: 0%;
   left: 60%;
@@ -621,6 +644,8 @@ footer {
 }
 
 .medium ul li a {
+  position: relative;
+  width: auto;
   text-align: left;
   margin-bottom: 0% !important;
   padding-left: 0;
@@ -831,7 +856,7 @@ hr {
 }
 
 .starfish img {
-  width: clamp(100px, 80%, 550px);
+  width: clamp(100px, 24%, 550px);
   height: auto;
 }
 

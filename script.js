@@ -52,151 +52,132 @@ window.addEventListener('resize', updateIndicator);
 updateIndicator();
 
 
+/*** Cursor */
+// Vytvoření vlastního kurzoru
+const cursor = document.createElement('div');
+cursor.id = 'customCursor';
+document.body.appendChild(cursor);
+
+let mouseX = 0, mouseY = 0;
+let cursorX = 0, cursorY = 0; // Oprava: Přidáno
+
+// Sledování pozice myši
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    // Nastavení pozice kurzoru
+    cursor.style.left = `${mouseX}px`;
+    cursor.style.top = `${mouseY}px`;
+});
+
+// Plynulý pohyb kurzoru
+function animateCursor() {
+    // Plynulé přibližování k pozici myši
+    cursorX += (mouseX - cursorX) * 0.2;
+    cursorY += (mouseY - cursorY) * 0.2;
+
+    // Umístění kurzoru podle souřadnic
+    cursor.style.left = `${cursorX}px`;
+    cursor.style.top = `${cursorY}px`;
+
+    requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// Hover efekt: Skrývání kurzoru při najetí na tlačítko nebo odkaz
+document.querySelectorAll('button, a, input, textarea').forEach((el) => {
+    el.addEventListener('mouseenter', () => {
+        cursor.style.opacity = '0'; // Skrytí kurzoru
+    });
+
+    el.addEventListener('mouseleave', () => {
+        cursor.style.opacity = '1'; // Znovuzobrazení kurzoru
+    });
+});
+
 /*** Bubbles */
 (function bubblesCursor() {
+    const particles = [];
+    let lastTime = 0;
 
-  let lastTime = 0;
-function onMouseMove(e) {
-    const now = Date.now();
-    if (now - lastTime > 700) { // Generuje bublinu maximálně každých 100 ms
-        cursor.x = e.clientX;
-        cursor.y = e.clientY;
-        addParticle(cursor.x, cursor.y);
-        lastTime = now;
+    // Generování bublin na pozici kurzoru
+    document.addEventListener('mousemove', () => {
+        const now = Date.now();
+        if (now - lastTime > 150) { // Generování každých 150 ms
+            addParticle(cursorX-500, cursorY); // Použití stejné pozice jako kurzor
+            lastTime = now;
+        }
+    });
+
+    // Vytvoření bubliny
+    function addParticle(x, y) {
+        const particle = new Particle();
+        particle.init(x, y);
+        particles.push(particle);
     }
-}
-  
-  var width = window.innerWidth;
-  var height = window.innerHeight;
-  var cursor = {x: width/2, y: width/2};
-  var particles = [];
-  
-  function init() {
-    bindEvents();
+
+    function updateParticles() {
+        for (let i = particles.length - 1; i >= 0; i--) {
+            particles[i].update();
+            if (particles[i].lifeSpan < 0) {
+                particles[i].die();
+                particles.splice(i, 1);
+            }
+        }
+    }
+
+    function loop() {
+        requestAnimationFrame(loop);
+        updateParticles();
+    }
+
+    // Vlastnosti bubliny
+    function Particle() {
+        this.lifeSpan = 500; // Délka života bubliny (ms)
+        this.initialStyles = {
+            position: "absolute",
+            display: "block",
+            "z-index": "9999",
+            width: "12px",
+            height: "12px",
+            "will-change": "transform",
+            "background": "#e6f1f750",
+            "box-shadow": "-1px 0px rgba(160, 220, 255, 0.67), 0px -1px rgba(107, 173, 211, 0.71), 1px 0px rgba(58, 146, 197, 0.69), 0px 1px rgba(58, 146, 197, 0.69)",
+            "border-radius": "50%",
+            "z-index": "-1",
+            opacity: 1
+        };
+
+        this.init = function (x, y) {
+            this.velocity = {
+                x: (Math.random() - 0.5) * 2,
+                y: (Math.random() - 0.5) * 2
+            };
+
+            this.position = { x, y };
+            this.element = document.createElement('span');
+            Object.assign(this.element.style, this.initialStyles);
+            this.update();
+
+            document.body.appendChild(this.element);
+        };
+
+        this.update = function () {
+            this.position.x += this.velocity.x;
+            this.position.y += this.velocity.y;
+            this.lifeSpan--;
+
+            this.element.style.transform = `translate(${this.position.x}px, ${this.position.y}px)`;
+            this.element.style.opacity = this.lifeSpan / 800;
+        };
+
+        this.die = function () {
+            this.element.remove();
+        };
+    }
+
     loop();
-  }
-  
-  // Bind events that are needed
-  function bindEvents() {
-    document.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('resize', onWindowResize);
-  }
-  
-  function onWindowResize(e) {
-    width = window.innerWidth;
-    height = window.innerHeight;
-  }
-  
-  function onTouchMove(e) {
-    if( e.touches.length > 0 ) {
-      for( var i = 0; i < e.touches.length; i++ ) {
-        addParticle(e.touches[i].clientX, e.touches[i].clientY);
-      }
-    }
-  }
-  
-  function onMouseMove(e) {    
-    cursor.x = e.clientX;
-    cursor.y = e.clientY;
-    
-    addParticle( cursor.x, cursor.y);
-  }
-  
-  function addParticle(x, y) {
-    var particle = new Particle();
-    particle.init(x, y);
-    particles.push(particle);
-  }
-  
-  function updateParticles() {
-    
-    // Update
-    for( var i = 0; i < particles.length; i++ ) {
-      particles[i].update();
-    }
-    
-    // Remove dead particles
-    for( var i = particles.length - 1; i >= 0; i-- ) {
-      if( particles[i].lifeSpan < 0 ) {
-        particles[i].die();
-        particles.splice(i, 1);
-      }
-    }
-    
-  }
-  
-  function loop() {
-    requestAnimationFrame(loop);
-    updateParticles();
-  }
-  
-  /**
-   * Particles
-   */
-  
-  function Particle() {
-
-    this.lifeSpan = 600; //ms
-    this.initialStyles ={
-      "position": "absolute",
-      "display": "block",
-      // "pointerEvents": "none",
-      "z-index": "10000000",
-      "width": "15px",
-      "height": "15px",
-      "will-change": "transform",
-      "background": "#e6f1f710",
-      "box-shadow": "-1px 0px 3px rgba(160, 220, 255, 0.20), 0px -1px 3px rgba(107, 173, 211, 0.20), 1px 0px 1px rgba(58, 146, 197, 0.20), 0px 1px rgba(58, 146, 197, 0.57)",
-       "border-radius": "50%",
-      "overflow": "hidden"
-    };
-
-    // Init, and set properties
-    this.init = function(x, y) {
-
-      this.velocity = {
-        x:  (Math.random() < 0.5 ? -1 : 1) * (Math.random() / 20),
-        y: (-.4 + (Math.random() * -1))
-      };
-      
-      this.position = {x: x - 10, y: y - 10};
-
-      this.element = document.createElement('span');
-      applyProperties(this.element, this.initialStyles);
-      this.update();
-      
-      document.body.appendChild(this.element);
-    };
-    
-    this.update = function() {
-      this.position.x += this.velocity.x;
-      this.position.y += this.velocity.y;
-      
-      // Update velocities
-      this.velocity.x += (Math.random() < 0.5 ? -1 : 1) * 1 / 100;
-      this.velocity.y -= Math.random() / 1000;
-      this.lifeSpan--;
-      
-      this.element.style.transform = "translate3d(" + this.position.x + "px," + this.position.y + "px,0) scale(" + ( 0.2 + (250 - this.lifeSpan) / 250) + ")";
-    }
-    
-    this.die = function() {
-      this.element.parentNode.removeChild(this.element);
-    }
-  }
-  
-  /**
-   * Utils
-   */
-  
-  // Applies css `properties` to an element.
-  function applyProperties( target, properties ) {
-    for( var key in properties ) {
-      target.style[ key ] = properties[ key ];
-    }
-  }
-  
-  init();
 })();
 
 // /*Scrolování k formuláři*/
