@@ -139,8 +139,8 @@ document.querySelectorAll('button, a, input, textarea').forEach((el) => {
             position: "absolute",
             display: "block",
             "z-index": "9999",
-            width: "12px",
-            height: "12px",
+            width: "10px",
+            height: "10px",
             "will-change": "transform",
             "background": "#e6f1f750",
             "box-shadow": "-1px 0px rgba(160, 220, 255, 0.67), 0px -1px rgba(107, 173, 211, 0.71), 1px 0px rgba(58, 146, 197, 0.69), 0px 1px rgba(58, 146, 197, 0.69)",
@@ -169,7 +169,7 @@ document.querySelectorAll('button, a, input, textarea').forEach((el) => {
             this.lifeSpan--;
 
             this.element.style.transform = `translate(${this.position.x}px, ${this.position.y}px)`;
-            this.element.style.opacity = this.lifeSpan / 800;
+            this.element.style.opacity = this.lifeSpan / 400;
         };
 
         this.die = function () {
