@@ -105,7 +105,7 @@ document.querySelectorAll('button, a, input, textarea').forEach((el) => {
     document.addEventListener('mousemove', () => {
         const now = Date.now();
         if (now - lastTime > 150) { // Generování každých 150 ms
-            addParticle(cursorX-500, cursorY); // Použití stejné pozice jako kurzor
+            addParticle(cursorX-700, cursorY); // Použití stejné pozice jako kurzor
             lastTime = now;
         }
     });
@@ -126,12 +126,10 @@ document.querySelectorAll('button, a, input, textarea').forEach((el) => {
             }
         }
     }
-
     function loop() {
         requestAnimationFrame(loop);
         updateParticles();
     }
-
     // Vlastnosti bubliny
     function Particle() {
         this.lifeSpan = 500; // Délka života bubliny (ms)
@@ -139,8 +137,8 @@ document.querySelectorAll('button, a, input, textarea').forEach((el) => {
             position: "absolute",
             display: "block",
             "z-index": "9999",
-            width: "10px",
-            height: "10px",
+            width: "clamp(7px, .5rem, 15px)",
+            height: "clamp(7px, .5rem, 15px)",
             "will-change": "transform",
             "background": "#e6f1f750",
             "box-shadow": "-1px 0px rgba(160, 220, 255, 0.67), 0px -1px rgba(107, 173, 211, 0.71), 1px 0px rgba(58, 146, 197, 0.69), 0px 1px rgba(58, 146, 197, 0.69)",

@@ -209,6 +209,14 @@ ul li a {
   margin-bottom: 2rem;
 }
 
+.net {
+  position: relative;
+  top: 0.35rem;
+  width: 2.3rem !important;
+  height: auto;
+  margin-right: 0.12rem;
+}
+
 a {
   color: #c1f8fd;
   font-family: "Cormorant", serif;
