@@ -29,8 +29,8 @@ body {
 
 /* Základní styl vlastního kurzoru */
 #customCursor {
-  width: 37px;
-  height: 37px;
+  width: 38px;
+  height: 38px;
   background: url('img/submarine.webp') no-repeat center center;
   background-size: cover;
   position: fixed; /* Pevná pozice pro plynulost */
@@ -968,4 +968,13 @@ textarea {
         0% { transform: translate(0,0) rotate(0deg); }
         50% { transform: translate(-30%, -20%) rotate(15deg); }
         100% { transform: translate(0,0) rotate(0deg); }  
+  }
+
+  @keyframes cursorAnimation {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: -384px 0;
+    }
   }

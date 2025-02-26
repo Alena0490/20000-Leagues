@@ -52,32 +52,35 @@ window.addEventListener('resize', updateIndicator);
 updateIndicator();
 
 
-/*** Cursor */
 // Vytvoření vlastního kurzoru
 const cursor = document.createElement('div');
 cursor.id = 'customCursor';
 document.body.appendChild(cursor);
 
 let mouseX = 0, mouseY = 0;
-let cursorX = 0, cursorY = 0; // Oprava: Přidáno
+let cursorX = 0, cursorY = 0;
+let lastX = 0; // Ukládání předchozí X pozice
 
 // Sledování pozice myši
 document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
 
-    // Nastavení pozice kurzoru
-    cursor.style.left = `${mouseX}px`;
-    cursor.style.top = `${mouseY}px`;
+    // Otočení kurzoru podle směru pohybu
+    if (mouseX > lastX) {
+        cursor.style.transform = "translate(-50%, -50%) scaleX(1)"; // Normální směr (doprava)
+    } else if (mouseX < lastX) {
+        cursor.style.transform = "translate(-50%, -50%) scaleX(-1)"; // Otočení doleva
+    }
+
+    lastX = mouseX; // Uložení aktuální X pozice pro příští srovnání
 });
 
 // Plynulý pohyb kurzoru
 function animateCursor() {
-    // Plynulé přibližování k pozici myši
     cursorX += (mouseX - cursorX) * 0.2;
     cursorY += (mouseY - cursorY) * 0.2;
 
-    // Umístění kurzoru podle souřadnic
     cursor.style.left = `${cursorX}px`;
     cursor.style.top = `${cursorY}px`;
 
@@ -95,6 +98,7 @@ document.querySelectorAll('button, a, input, textarea').forEach((el) => {
         cursor.style.opacity = '1'; // Znovuzobrazení kurzoru
     });
 });
+
 
 /*** Bubbles */
 (function bubblesCursor() {
