@@ -27,8 +27,8 @@ body {
 
 /* Základní styl vlastního kurzoru */
 #customCursor {
-  width: 37px;
-  height: 37px;
+  width: 38px;
+  height: 38px;
   background: url("img/submarine.webp") no-repeat center center;
   background-size: cover;
   position: fixed; /* Pevná pozice pro plynulost */
@@ -547,6 +547,10 @@ input {
   cursor: pointer;
 }
 
+input:focus {
+  background-color: rgba(255, 255, 255, 0.732);
+}
+
 textarea {
   background-color: rgba(255, 255, 255, 0.432);
   border-radius: 3px;
@@ -554,6 +558,10 @@ textarea {
   color: #594000;
   padding: 0.8rem;
   outline: none;
+}
+
+textarea:focus {
+  background-color: rgba(255, 255, 255, 0.732);
 }
 
 input[type=submit] {
@@ -919,5 +927,13 @@ hr {
   }
   100% {
     transform: translate(0, 0) rotate(0deg);
+  }
+}
+@keyframes cursorAnimation {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -384px 0;
   }
 }/*# sourceMappingURL=style.css.map */
