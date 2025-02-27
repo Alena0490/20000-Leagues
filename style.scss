@@ -20,11 +20,12 @@ body {
   background-attachment: fixed;
   scroll-behavior: smooth;
   color: $text-color;
-  width: 100%;
-  height:  100%;
+  height: auto;
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   cursor: none;
+  @include hide-scrollbar;
 }
 
 /* Základní styl vlastního kurzoru */
@@ -44,20 +45,6 @@ body {
 /* Efekt při hoveru na tlačítka (změna na pointer) */
 .pointer {
   cursor: pointer !important; /* Standardní kurzor pointer */
-}
-
-body::-webkit-scroll
- {
-    width: 12px;
-}
-
-body::-webkit-scrollbar-thumb {
-    background-color: $secondarry-color-dark;
-    border-radius: 7px;
-}
-
-body::-webkit-scrollbar-track {
-    background-color: rgba(255, 255, 255, 0.63);
 }
 
 /*** Hloubkoměr ***/
@@ -655,17 +642,27 @@ textarea:focus {
   footer {
     position: relative;
     width: 95%;
-    max-width: 1400px;
+    height: 100vh;
+    background-color: $dark-color;
+    max-width: 140$dark-color;
     margin: 0 auto;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    perspective: 100px;
+    transform-style: preserve-3d;
+    @include hide-scrollbar
 }
+
 
 #foot-video {
     position: relative;
     width: 100%;
+    height: 100vh;
     object-fit: cover;
     overflow: hidden;
     z-index: -10;
+    transform: translateZ(-100px) scale(2);
+    border-bottom: solid 50px $dark-color;
 }
 
 .foot-contact {
@@ -716,7 +713,7 @@ textarea:focus {
 
 
 .bottom-foot {
-  background: linear-gradient(180deg, #00000000, rgba(0, 0, 0, 0.719));
+  background: linear-gradient(180deg, #00000000, $dark-color);
   display: flex;
     padding: 2rem;
     justify-content: end;
@@ -725,6 +722,7 @@ textarea:focus {
     bottom: 0%;
     width: 100%;
     z-index: 20;
+    // transform: translateZ(-100px) scale(2);
 }
   footer p {
     position: relative;
@@ -733,7 +731,7 @@ textarea:focus {
     z-index: 100;
     margin-bottom: 0;
   }
- 
+
   #overlay {
     position: absolute;
     top: 0;
@@ -755,13 +753,17 @@ textarea:focus {
   flex-direction: row;
   flex-wrap: nowrap;
   position: absolute;
-  bottom: -15%;
+  bottom: -0%;
   overflow: hidden;
+  max-height: 100vh;
   z-index: 20;
+  transform: translateZ(-0px) scale(1);
+  // transform: translateY(var(--translateY));
+  // will-change: transform;
 }
 
   .vegetation img {
-    width: clamp(80px, 18%, 400px);
+    width: clamp(80px, 19%, 400px);
     height: auto;
     -o-object-fit: contain;
     object-fit: contain;
@@ -776,8 +778,13 @@ textarea:focus {
     height: 12rem;
     z-index: 10;
     position: absolute;
-    bottom: -2rem;
+    bottom: -0rem;
     filter: blur(1.2px);
+    transform: translateZ(-30px) scale(1.3);
+    overflow: hidden;
+    max-height: 100vh;
+    // transform: translateY(var(--translateY));
+    // will-change: transform;
   }
 
   .vegetation-background img {
@@ -791,7 +798,13 @@ textarea:focus {
 
   .sea-bottom {
     position: absolute;
+    width: 100%;
     bottom: 0%;
+    transform: translateY(var(--translateY));
+    will-change: transform;
+    transform: translateZ(-50px) scale(1.5);
+    overflow-x: hidden;
+    max-height: 100vh;
   }
 
   .sea-bottom img {
@@ -816,6 +829,24 @@ textarea:focus {
 }
 
   @media (max-width: 768px) {
+
+    .vegetation, .vegetation-background, .sea-bottom {
+      transform: none; /* Na mobilech vypne paralax efekt */
+  }
+
+  footer {
+    perspective: none; /* Zruší efekt 3D transformací */
+}
+
+.vegetation, 
+.vegetation-background, 
+.sea-bottom, 
+#foot-video, 
+.bottom-foot {
+    transform: none !important; /* Zruší `translateZ()` */
+    scale: 1 !important; /* Vrátí původní velikost */
+}
+
 
     header {
       background-image: url(img/top.webp);
@@ -920,7 +951,7 @@ textarea:focus {
   }
 
   .vegetation img {
-      width: clamp(60px, 15%, 200px);
+      width: clamp(60px, 16%, 200px);
   }
 
   .starfish img {

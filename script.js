@@ -182,6 +182,10 @@ document.querySelectorAll('button, a, input, textarea').forEach((el) => {
     loop();
 })();
 
+/***Parallax */
+
+
+
 // /*Scrolování k formuláři*/
 // $(document).ready(function () {
 //     $('.jq--scroll-form').click(function (e) {
