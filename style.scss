@@ -278,16 +278,6 @@ a:hover {
   width: 95%;
 }
 
-// .info {
-//   width: 100%;
-//   font-family: monospace;
-//   position: absolute;
-//   line-height: 60px;
-//   font-size: 26px;
-//   left: 50px;
-//   bottom: 0px;
-// }
-
 .container::before {
   content: "";
   position: absolute;
@@ -302,7 +292,8 @@ a:hover {
       $first-color,
       $first-color,
       $bacrkground-color-dark,
-      $bacrkground-color-dark
+      $bacrkground-color-dark,
+      $dark-blue
   );
   opacity: 0.7; // Průhlednost jen pro pozadí
   z-index: -1; // Za obsah
@@ -644,13 +635,14 @@ textarea:focus {
     width: 95%;
     height: 100vh;
     background-color: $dark-color;
-    max-width: 140$dark-color;
+    max-width: 1400px;
     margin: 0 auto;
     overflow-y: auto;
     overflow-x: hidden;
     perspective: 100px;
     transform-style: preserve-3d;
-    @include hide-scrollbar
+    @include hide-scrollbar;
+
 }
 
 
@@ -662,7 +654,11 @@ textarea:focus {
     overflow: hidden;
     z-index: -10;
     transform: translateZ(-100px) scale(2);
-    border-bottom: solid 50px $dark-color;
+    border-bottom: solid 50px $dark-color-08;
+    opacity: 0.8;
+
+  
+
 }
 
 .foot-contact {
@@ -713,7 +709,7 @@ textarea:focus {
 
 
 .bottom-foot {
-  background: linear-gradient(180deg, #00000000, $dark-color);
+  background: linear-gradient(180deg, #00000000, $dark-color-08);
   display: flex;
     padding: 2rem;
     justify-content: end;
@@ -739,7 +735,7 @@ textarea:focus {
     transform: translateX(-50%); /* Přidá se transform pro vycentrování */
     width: 100%; /* Změní se na 100% protože je uvnitř footeru */
     height: 100%;
-    background: radial-gradient(transparent, transparent, rgba(0, 0, 0, 0.463), transparent, black);
+    background: radial-gradient(transparent, transparent, rgba(0, 0, 0, 0.463), black);
     opacity: 0.8;
     pointer-events: none;
 }
@@ -763,7 +759,7 @@ textarea:focus {
 }
 
   .vegetation img {
-    width: clamp(80px, 19%, 400px);
+    width: clamp(80px, 25%, 400px);
     height: auto;
     -o-object-fit: contain;
     object-fit: contain;
@@ -951,7 +947,7 @@ textarea:focus {
   }
 
   .vegetation img {
-      width: clamp(60px, 16%, 200px);
+      width: clamp(60px, 20%, 200px);
   }
 
   .starfish img {

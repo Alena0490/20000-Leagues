@@ -253,7 +253,7 @@ a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0), #0a1a1a, #1C8C8C, #1C8C8C, #0a1a1a, #0a1a1a);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), #0a1a1a, #1C8C8C, #1C8C8C, #0a1a1a, #0a1a1a, #050c1d);
   opacity: 0.7;
   z-index: -1;
   border-radius: inherit;
@@ -610,7 +610,7 @@ footer {
   width: 95%;
   height: 100vh;
   background-color: #1c1c1c;
-  max-width: 140 #1c1c1c;
+  max-width: 1400px;
   margin: 0 auto;
   overflow-y: auto;
   overflow-x: hidden;
@@ -633,7 +633,8 @@ footer::-webkit-scrollbar {
   overflow: hidden;
   z-index: -10;
   transform: translateZ(-100px) scale(2);
-  border-bottom: solid 50px #1c1c1c;
+  border-bottom: solid 50px rgba(28, 28, 28, 0.7490196078);
+  opacity: 0.8;
 }
 
 .foot-contact {
@@ -683,7 +684,7 @@ footer::-webkit-scrollbar {
 }
 
 .bottom-foot {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0), #1c1c1c);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(28, 28, 28, 0.7490196078));
   display: flex;
   padding: 2rem;
   justify-content: end;
@@ -709,7 +710,7 @@ footer p {
   transform: translateX(-50%); /* Přidá se transform pro vycentrování */
   width: 100%; /* Změní se na 100% protože je uvnitř footeru */
   height: 100%;
-  background: radial-gradient(transparent, transparent, rgba(0, 0, 0, 0.463), transparent, black);
+  background: radial-gradient(transparent, transparent, rgba(0, 0, 0, 0.463), black);
   opacity: 0.8;
   pointer-events: none;
 }
@@ -731,7 +732,7 @@ footer p {
 }
 
 .vegetation img {
-  width: clamp(80px, 19%, 400px);
+  width: clamp(80px, 25%, 400px);
   height: auto;
   -o-object-fit: contain;
   object-fit: contain;
@@ -900,7 +901,7 @@ hr {
 }
 
 .vegetation img {
-  width: clamp(60px, 16%, 200px);
+  width: clamp(60px, 20%, 200px);
 }
 
 .starfish img {
