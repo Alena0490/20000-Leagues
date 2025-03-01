@@ -432,7 +432,7 @@ button:hover {
   left: 60%;
   bottom: -7%;
   width: 16rem;
-  height: 16rem;
+  height: auto;
   z-index: -1;
   animation: starfish 10s ease reverse infinite;
 }
@@ -936,7 +936,7 @@ hr {
   /* Další úpravy pro velmi malé obrazovky */
   .starfish img {
     width: 12rem;
-    height: 12rem;
+    height: auto;
   }
 }
 /*** Keyframes ***/
