@@ -16,14 +16,24 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preload" as="image" href="img/nautilus.webp" type="image/webp">
     <link href="lightbox.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant:ital,wght@0,400;1,400&family=Merriweather+Sans:wght@400;700&display=swap" as="style" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant:ital,wght@0,400;1,400&family=Merriweather+Sans:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" crossorigin="anonymous">
+  
+    <!-- Preconnect pro rychlejší DNS -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Preload hlavních fontů -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant:ital,wght@0,400;1,400&family=Merriweather+Sans:wght@400;700&display=swap" as="style">
+
+<!-- Styl Google Fonts s optimalizací -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant:ital,wght@0,400;1,400&family=Merriweather+Sans:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.onload=null;this.media='all'">
+
+<!-- Fallback pro uživatele bez JS -->
 <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant:ital,wght@0,400;1,400&family=Merriweather+Sans:wght@400;700&display=swap" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant:ital,wght@0,400;1,400&family=Merriweather+Sans:wght@400;700&display=swap" rel="stylesheet">
 </noscript>
+
+<!-- jQuery (defer kvůli výkonu) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
+
 
 </head>
 <body>
@@ -109,15 +119,15 @@
             <h2>Treasures of the Deep</h2>
             <p>Behold the Legendary Vessel of Captain Nemo, a marvel of the deep and a testament to boundless exploration</p>
             <div class="gallery-grid">
-                <a href="img/divers.webp" data-lightbox="roadtrip" data-title="Scuba divers in a hidden cave"><img src="img/diversa.webp" alt="Scuba divers in a hidden cave" width="400" height="267"></a>
-                <a aria-label="lightbox" href="img/nautilus1.webp" data-lightbox="roadtrip" data-title="The Nautillus submarine"><img src="img/nautilus1a.webp" data-lightbox="my-gallery" alt="The Nautillus submarine" width="400" height="267"></a>
-                <a aria-label="lightbox" href="img/room.webp" data-lightbox="roadtrip" data-title="Captain Nemo's cabin"><img src="img/rooma.webp" data-lightbox="my-gallery" alt="Captain Nemo's cabin" width="400" height="267"></a>
-                <a aria-label="lightbox" href="img/octopus.webp" data-lightbox="roadtrip" data-title="A friendly octopus"><img src="img/octopusa.webp" alt="A friendly octopus" width="400" height="514"></a>
-                <a aria-label="lightbox" href="img/table.webp" data-lightbox="roadtrip" data-title="Captain Nemo's belongings"><img src="img/tablea.webp" data-lightbox="my-gallery"alt="Captain Nemo's belongings" width="400" height="514"></a>
-                <a aria-label="lightbox" href="img/cracatit.webp" data-lightbox="roadtrip" data-title="The tentacle monster"><img src="img/cracatita.webp" alt="The tentacle monster" width="400" height="514"></a>
-                <a aria-label="lightbox" href="img/sketch.webp" data-lightbox="roadtrip" data-title="Nautilus' plans"><img src="img/sketcha.webp" alt="Nautilus' plans" width="400" height="267"></a>
-                <a aria-label="lightbox" href="img/nautilus1.webp" data-lightbox="roadtrip" data-title="The Nautilus"><img src="img/nautilus1a.webp" alt="The Nautilus" width="400" height="267"></a>
-                <a aria-label="lightbox" href="img/monster.webp" data-lightbox="roadtrip" data-title="Monster attacks"><img src="img/monstera.webp" alt="Monster attacks" width="400" height="267"></a>
+                <a href="img/divers.webp" data-lightbox="roadtrip" data-title="Scuba divers in a hidden cave"><img src="img/diversa.webp" alt="Scuba divers in a hidden cave" width="400" height="267" loading="lazy"></a>
+                <a aria-label="lightbox" href="img/nautilus1.webp" data-lightbox="roadtrip" data-title="The Nautillus submarine"><img src="img/nautilus1a.webp" data-lightbox="my-gallery" alt="The Nautillus submarine" width="400" height="267" loading="lazy"></a>
+                <a aria-label="lightbox" href="img/room.webp" data-lightbox="roadtrip" data-title="Captain Nemo's cabin"><img src="img/rooma.webp" data-lightbox="my-gallery" alt="Captain Nemo's cabin" width="400" height="267" loading="lazy"></a>
+                <a aria-label="lightbox" href="img/octopus.webp" data-lightbox="roadtrip" data-title="A friendly octopus"><img src="img/octopusa.webp" alt="A friendly octopus" width="400" height="514" loading="lazy"></a>
+                <a aria-label="lightbox" href="img/table.webp" data-lightbox="roadtrip" data-title="Captain Nemo's belongings"><img src="img/tablea.webp" data-lightbox="my-gallery"alt="Captain Nemo's belongings" width="400" height="514" loading="lazy"></a>
+                <a aria-label="lightbox" href="img/cracatit.webp" data-lightbox="roadtrip" data-title="The tentacle monster"><img src="img/cracatita.webp" alt="The tentacle monster" width="400" height="514" loading="lazy"></a>
+                <a aria-label="lightbox" href="img/sketch.webp" data-lightbox="roadtrip" data-title="Nautilus' plans"><img src="img/sketcha.webp" alt="Nautilus' plans" width="400" height="267" loading="lazy"></a>
+                <a aria-label="lightbox" href="img/nautilus1.webp" data-lightbox="roadtrip" data-title="The Nautilus"><img src="img/nautilus1a.webp" alt="The Nautilus" width="400" height="267" loading="lazy"></a>
+                <a aria-label="lightbox" href="img/monster.webp" data-lightbox="roadtrip" data-title="Monster attacks"><img src="img/monstera.webp" alt="Monster attacks" width="400" height="267" loading="lazy"></a>
             </div>
             </div>
         </div>
@@ -128,7 +138,7 @@
     <section id="contact" class="section contact">
        <span class="starfish">
             <h2>Signal the Nautilus</h2>
-            <img src="img/starfish.webp" alt="a starfish" width="400" height="383">
+            <img src="img/starfish.webp" alt="a starfish" width="400" height="383" loading="lazy">
        </span> 
     <div class="window">
         <form>
@@ -156,13 +166,13 @@
 
 <footer>
     <div id="overlay"></div>
-        <video id="foot-video" autoplay muted controls playsinline src="img/AdobeStock_695308146.mov" aria-label="A monster in the deeps"></video>
+        <video id="foot-video" autoplay muted controls playsinline src="img/AdobeStock_695308146.mov" aria-label="A monster in the deeps" loading="lazy"></video>
     <div class="foot-contact scene"data-modifier="12">
         <div class="social medium">
             <h3>Social media:</h3>
             <ul>
-                <li><a href="https://www.linkedin.com/in/alena-pumprov%C3%A1-274234107/"><img class="icon net" src="img/li.svg" alt="a social network icon" width="100" height="100">LinkedIn</a></li>
-                <li><a href="https://www.facebook.com/alena.pumprova/"><img class="icon net"  src="img/fb.svg" alt="a social network icon" width="100" height="100">Facebook</a></li>
+                <li><a href="https://www.linkedin.com/in/alena-pumprov%C3%A1-274234107/"><img class="icon net" src="img/li.svg" alt="a social network icon" width="100" height="100" loading="lazy">LinkedIn</a></li>
+                <li><a href="https://www.facebook.com/alena.pumprova/"><img class="icon net"  src="img/fb.svg" alt="a social network icon" width="100" height="100" loading="lazy">Facebook</a></li>
             </ul>
         </div>
 
@@ -170,31 +180,31 @@
             
             <h3>Contact:</h3>
             <ul>
-                <li><a href="tel:+420732746628"><img class="icon"  src="img/phone.webp" alt="Phone icon" width="250" height="250">Phone: +420 732 746 628</a></li>
-                <li><a href="mailto:alenapumprova@seznam.cz"><img class="icon"  src="img/envelope.webp" alt="E-mail icon" width="250" height="250">E-mail: alenapumprova@seznam.cz</a></li>
+                <li><a href="tel:+420732746628"><img class="icon"  src="img/phone.webp" alt="Phone icon" width="250" height="250" loading="lazy">Phone: +420 732 746 628</a></li>
+                <li><a href="mailto:alenapumprova@seznam.cz"><img class="icon"  src="img/envelope.webp" alt="E-mail icon" width="250" height="250" loading="lazy">E-mail: alenapumprova@seznam.cz</a></li>
             </ul>
         </div>
     </div>
     <div class="vegetation">
         <img src="img/plant1.webp" alt="water plant silhouette" width="320" height="320">
-        <img src="img/plant2.webp" alt="water plant silhouette" width="320" height="320">
-        <img src="img/plant3.webp" alt="water plant silhouette" width="291" height="320">
-        <img src="img/plant4.webp" alt="water plant silhouette"width="320" height="320" >
-        <img src="img/plant5.webp" alt="water plant silhouette" width="320" height="320">
+        <img src="img/plant2.webp" alt="water plant silhouette" width="320" height="320" loading="lazy" loading="lazy">
+        <img src="img/plant3.webp" alt="water plant silhouette" width="291" height="320" loading="lazy">
+        <img src="img/plant4.webp" alt="water plant silhouette"width="320" height="320" loading="lazy">
+        <img src="img/plant5.webp" alt="water plant silhouette" width="320" height="320" loading="lazy">
     </div>
 
     <div class="vegetation vegetation-background">
-        <img src="img/plant8.webp" alt="water plant silhouette" width="320" height="320">
-        <img src="img/plant6.webp" alt="water plant silhouette" width="320" height="320">
-        <img src="img/plant3.webp" alt="water plant silhouette" width="291" height="320">
-        <img src="img/plant7.webp" alt="water plant silhouette" width="320" height="320">
-        <img src="img/plant5.webp" alt="water plant silhouette" width="320" height="320">
-        <img src="img/plant10.webp" alt="water plant silhouette" width="228" height="320">
-        <img src="img/plant9.webp" alt="water plant silhouette" width="234" height="320">
+        <img src="img/plant8.webp" alt="water plant silhouette" width="320" height="320" loading="lazy">
+        <img src="img/plant6.webp" alt="water plant silhouette" width="320" height="320" loading="lazy">
+        <img src="img/plant3.webp" alt="water plant silhouette" width="291" height="320" loading="lazy">
+        <img src="img/plant7.webp" alt="water plant silhouette" width="320" height="320" loading="lazy">
+        <img src="img/plant5.webp" alt="water plant silhouette" width="320" height="320" loading="lazy">
+        <img src="img/plant10.webp" alt="water plant silhouette" width="228" height="320" loading="lazy">
+        <img src="img/plant9.webp" alt="water plant silhouette" width="234" height="320" loading="lazy">
     </div>
 
     <div  class="sea-bottom">
-        <img src="img/sea-bottom.webp" alt="the sea bottom" width="1141" height="375">
+        <img src="img/sea-bottom.webp" alt="the sea bottom" width="1141" height="375" loading="lazy">
     </div>
     <div class="bottom-foot">
       <p>Copyright Alena Pumprová</p>
