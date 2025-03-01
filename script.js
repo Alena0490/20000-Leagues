@@ -213,31 +213,35 @@ document.querySelectorAll('button, a, input, textarea').forEach((el) => {
 // });
 /***  Change burger menu ***/
 document.addEventListener("DOMContentLoaded", function() {
-  $('.jq--nav-icon').on('click', function(event) {
-    event.preventDefault();
-
-    if ($('.jq--nav-icon').attr('src') === 'img/burger-barw.webp') {
-      // Otevření menu
-      $('.jq--nav-icon').attr('src', 'img/closew.webp');
-      $('header').css('transition', 'background-image 0.5s ease');
-      $('header').css('background-image', 'none');
-      $('.mobile-nav-back').fadeIn(300); // Okamžité pozadí pro navigaci
-      $('nav ul').fadeIn(500);
-    } else {
-      // Zavření menu
-      $('.jq--nav-icon').attr('src', 'img/burger-barw.webp');
-      $('nav ul').fadeOut(500); // Skrytí navigace
-
-      // Po 500 ms (když zmizí navigace) vrátíme pozadí
-      setTimeout(function() {
-        $('header').css('background-image', 'url(img/top.webp)');
-      }, 500);
-
-      $('.mobile-nav-back').fadeOut(300);
-    }
+    // Zajistíme, že při načtení je menu zavřené
+    $('.mobile-nav-back').hide();
+    $('nav ul').hide();
+  
+    // Burger menu toggle
+    $('.jq--nav-icon').on('click', function(event) {
+      event.preventDefault();
+  
+      let isOpen = $('.mobile-nav-back').is(':visible'); // Kontrolujeme, zda je menu otevřené
+  
+      if (!isOpen) {
+        // Otevření menu
+        $('.jq--nav-icon').attr('src', 'img/closew.webp');
+        $('header').css('transition', 'background-image 0.5s ease');
+        $('header').css('background-image', 'none');
+        $('.mobile-nav-back').fadeIn(300);
+        $('nav ul').fadeIn(500);
+      } else {
+        // Zavření menu
+        $('.jq--nav-icon').attr('src', 'img/burger-barw.webp');
+        $('nav ul').fadeOut(500);
+        setTimeout(function() {
+          $('header').css('background-image', 'url(img/top.webp)');
+        }, 500);
+        $('.mobile-nav-back').fadeOut(300);
+      }
+    });
   });
-});
-
+  
 
 /*Zobrazení galerie*/
 //   $(function() {
