@@ -315,6 +315,8 @@ button, a, input[type="submit"] {
 }
 
 .hero {
+  content-visibility: auto;
+  contain-intrinsic-size: 475px 475px;
     margin-top: 5rem;
     width: 100%;
 }
@@ -368,6 +370,7 @@ hr {
   
   .about-content img {
     //width: 100%;
+    will-change: transform, opacity;
     height: auto;
     border-radius: 10px;
     filter: sepia(0.5);
