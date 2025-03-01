@@ -213,6 +213,15 @@ document.querySelectorAll('button, a, input, textarea').forEach((el) => {
 // });
 /***  Change burger menu ***/
 document.addEventListener("DOMContentLoaded", function() {
+    if (window.innerWidth <= 768) { // Pouze pro mobilní zařízení
+        let img = document.querySelector('img[src="img/nautilus.webp"]');
+        if (img) {
+            img.removeAttribute("fetchpriority");
+        }
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
     // Zajistíme, že při načtení je menu zavřené
     $('.mobile-nav-back').hide();
     $('nav ul').hide();
