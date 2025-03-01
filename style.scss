@@ -360,6 +360,9 @@ hr {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     max-width: 100%;
+    content-visibility: auto;
+
+  
   }
 
   .two {
