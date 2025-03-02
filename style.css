@@ -643,6 +643,35 @@ footer::-webkit-scrollbar {
   height: 0;
 }
 
+.form-result {
+  border-radius: 5px;
+  font-weight: 600;
+  text-shadow: 2px 1px #00040a;
+  transition: 0.5s;
+  cursor: pointer;
+  text-align: center;
+  color: #e5e4e2;
+  font-family: "Cormorant", serif;
+  font-size: clamp(1.5rem, 3vw, 1.5rem);
+  text-shadow: #1c1c1c 1px 1px 2px;
+  margin: 5px;
+  padding: 7px;
+}
+
+.success {
+  border: 1px solid rgba(36, 241, 6, 0.46);
+  background-color: rgba(6, 48, 48, 0.5411764706);
+  box-shadow: 0px 0px 2px #259c08;
+  color: #0ad406;
+}
+
+.error {
+  border: 1px solid rgba(241, 6, 6, 0.81);
+  background-color: rgba(44, 16, 0, 0.7254901961);
+  box-shadow: 0px 0px 2px #ff0303;
+  color: #ff0303;
+}
+
 #foot-video {
   position: relative;
   width: 100%;

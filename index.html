@@ -141,6 +141,19 @@
             <img src="img/starfish.webp" alt="a starfish" width="400" height="383" loading="lazy">
        </span> 
     <div class="window">
+        <!-- <?php
+if (isset($_GET['success'])) {
+    if ($_GET['success'] === "1") {
+        echo '<div class="form-result success">Message received. The Nautilus acknowledges.</div>';
+    } elseif ($_GET['success'] === "-1") {
+        echo '<div class="form-result error">Signal lost. Try again later.</div>';
+    }
+}
+?> -->
+
+<div class="form-result success">Message received. The Nautilus acknowledges.</div>
+<div class="form-result error">Signal lost. Try again later.</div>
+
         <form>
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
