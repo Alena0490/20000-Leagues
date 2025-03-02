@@ -212,45 +212,37 @@ document.querySelectorAll('button, a, input, textarea').forEach((el) => {
 //     }
 // });
 /***  Change burger menu ***/
-document.addEventListener("DOMContentLoaded", function() {
-    if (window.innerWidth <= 768) { // Pouze pro mobilní zařízení
-        let img = document.querySelector('img[src="img/nautilus.webp"]');
-        if (img) {
-            img.removeAttribute("fetchpriority");
+document.addEventListener("DOMContentLoaded", () => {
+    const navIcon = document.querySelector(".jq--nav-icon");
+    const mobileNav = document.querySelector(".mobile-nav-back");
+    const menu = document.querySelector(".first");
+
+    if (!navIcon || !mobileNav || !menu) return; // Ověří, že prvky existují
+
+    // Zajistíme, že při načtení stránky bude menu zavřené
+    mobileNav.style.display = "none";
+    menu.style.display = "none";
+
+    navIcon.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        // Přepínání obrázku ikonky menu
+        if (navIcon.src.includes("img/burger-barw.png")) {
+            navIcon.src = "img/closew.png";
+        } else {
+            navIcon.src = "img/burger-barw.png";
         }
-    }
+
+        // Přepínání viditelnosti menu
+        mobileNav.classList.toggle("visible");
+        menu.classList.toggle("visible");
+
+        // Přepínání animace
+        mobileNav.style.display = mobileNav.classList.contains("visible") ? "block" : "none";
+        menu.style.display = menu.classList.contains("visible") ? "block" : "none";
+    });
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Zajistíme, že při načtení je menu zavřené
-    $('.mobile-nav-back').hide();
-    $('nav ul').hide();
-  
-    // Burger menu toggle
-    $('.jq--nav-icon').on('click', function(event) {
-      event.preventDefault();
-  
-      let isOpen = $('.mobile-nav-back').is(':visible'); // Kontrolujeme, zda je menu otevřené
-  
-      if (!isOpen) {
-        // Otevření menu
-        $('.jq--nav-icon').attr('src', 'img/closew.webp');
-        $('header').css('transition', 'background-image 0.5s ease');
-        $('header').css('background-image', 'none');
-        $('.mobile-nav-back').fadeIn(300);
-        $('nav ul').fadeIn(500);
-      } else {
-        // Zavření menu
-        $('.jq--nav-icon').attr('src', 'img/burger-barw.webp');
-        $('nav ul').fadeOut(500);
-        setTimeout(function() {
-          $('header').css('background-image', 'url(img/top.webp)');
-        }, 500);
-        $('.mobile-nav-back').fadeOut(300);
-      }
-    });
-  });
-  
 
 /*Zobrazení galerie*/
 //   $(function() {

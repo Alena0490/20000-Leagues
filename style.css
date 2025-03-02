@@ -797,6 +797,12 @@ footer p {
   }
 }
 @media (max-width: 768px) {
+  .about-content img {
+    filter: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
   .vegetation, .vegetation-background, .sea-bottom {
     transform: none; /* Na mobilech vypne paralax efekt */
   }

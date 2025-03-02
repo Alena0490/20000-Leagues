@@ -830,7 +830,14 @@ textarea:focus {
 
 }
 
-  @media (max-width: 768px) {
+  // @media (max-width: 768px) {
+
+  //   .about-content img {
+  //     filter: none !important;
+  //     box-shadow: none !important;
+  //     transform: none !important;
+  //     opacity: 1 !important;
+  //   }
 
     .vegetation, .vegetation-background, .sea-bottom {
       transform: none; /* Na mobilech vypne paralax efekt */
@@ -918,8 +925,7 @@ textarea:focus {
       width: 50%;      
       color: $text-color;
   }
-    }
-
+    
     ul li a {
       bottom: .5rem;
     }
