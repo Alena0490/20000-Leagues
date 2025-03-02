@@ -171,18 +171,28 @@ body {
   }
 
   header {
-    background-image: url(img/top.webp);
-    background-size: cover;
-    background-repeat: no-repeat;
-    transition: background-image 1s ease;
-    opacity: 1;
-  }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4.5rem; /* Výška navigace, uprav podle potřeby */
+    background-color: rgba(0, 0, 0, 0.8); /* Lehké ztmavení */
+    z-index: 1000; /* Aby byla vždy nahoře */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 101;
+    background-image: url(img/top.webp); 
+}
 
   nav {
-    // display: flex;
-    // justify-content: center;
-    // width: 100%;
-    margin-bottom: 2rem;
+      position: relative;
+      width: 100%;
+      height: 11rem; /* Přizpůsob podle potřeby */
+      // background-color: rgba(0, 0, 0, 0.85); /* Lehké ztmavení pro viditelnost */ 
+      background-image: url(img/top.webp); 
+      background-size: cover;
+      z-index: 100;  
 }
 
 .logo {
@@ -205,7 +215,7 @@ animation: gear-spin 5s linear infinite;
 }
 
 ul:not(.medium ul) {
-    width: 80%;
+    width: 100%;
     list-style: none;
     text-decoration: none;
     display: flex;
@@ -271,11 +281,13 @@ a:hover {
 .container {
   position: relative;
   padding: 2rem;
+  // padding-top: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
   width: 95%;
+  z-index: 0;
 }
 
 .container::before {
@@ -316,8 +328,10 @@ button, a, input[type="submit"] {
 
 .hero {
   content-visibility: auto;
+  position: relative;
+  top: 0;
   contain-intrinsic-size: 475px 475px;
-    margin-top: 5rem;
+    // margin-top: 5rem;
     width: 100%;
 }
 
@@ -455,7 +469,7 @@ button {
   .starfish {
     width: 100%;
     height: auto;
-    margin-top: 10vh;
+    margin-top: 10rem;
     display: flex;
     position: relative;
 }
@@ -464,8 +478,8 @@ button {
   width: 100%;
   height: auto;
   position: absolute;
-  bottom: 0%;
   left: 0;
+  bottom: 0rem;
 }
 
   .starfish img {
@@ -473,6 +487,7 @@ button {
     position: absolute;
     right: 0%;
     left: 60%;
+    top: -5rem;
     bottom: -7%;
     width: 16rem;
     height: auto;
@@ -614,7 +629,7 @@ textarea:focus {
     left: 0;
     background-color: $dark-color;
     padding: 15px 20px;
-    z-index: 1000;
+    z-index: 1005;
     font-size: clamp(1.5rem, 1.5vw, 2rem);
 }
 
@@ -820,7 +835,31 @@ textarea:focus {
 
   /** Queries **/
 
+  @media (min-width: 868px) {
+    nav {
+      padding-top: 7rem;
+      height: 20rem;
+    }
+
+    .container {
+      position: relative;
+      top: 10rem !important;
+    }
+  }
+
   @media (min-width: 768px) {
+
+    .container {
+      position: relative;
+      top: 7rem;
+    }
+
+    .hero {
+      position: relative;
+      // top: 7rem;
+      z-index: -1;
+    }
+
     .about-content {
         grid-template-columns: 1fr 2fr;
     }
@@ -828,16 +867,29 @@ textarea:focus {
       grid-template-columns: repeat(3, 1fr) !important;
   }
 
+  .burger-menu {
+    display: none !important;
 }
 
-  // @media (max-width: 768px) {
+nav ul {
+    display: flex !important;
+}
 
-  //   .about-content img {
-  //     filter: none !important;
-  //     box-shadow: none !important;
-  //     transform: none !important;
-  //     opacity: 1 !important;
-  //   }
+}
+
+  @media (max-width: 768px) {
+
+    // .about-content img {
+    //   filter: none !important;
+    //   box-shadow: none !important;
+    //   opacity: 1 !important;
+    // }
+
+  nav {
+    position: absolute;
+    top: 0;
+    height: 0rem;
+  }
 
     .vegetation, .vegetation-background, .sea-bottom {
       transform: none; /* Na mobilech vypne paralax efekt */
@@ -857,21 +909,28 @@ textarea:focus {
 }
 
 
-    header {
-      background-image: url(img/top.webp);
-      background-size: cover;
-      background-repeat: no-repeat;
-      height: 8rem;
-    }
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4.5rem; /* Výška navigace, uprav podle potřeby */
+  background-color: rgba(0, 0, 0, 0.8); /* Lehké ztmavení */
+  z-index: 1000; /* Aby byla vždy nahoře */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
     .mobile-nav-back {
       height: 20rem;
       position: absolute;
       top: 40px;
       width: 50%;
+      left: 0px;
       background-color: rgba(0, 0, 0, 0.502);
-      z-index: -1;
       display: none;
+      z-index: -1;
   }
 
     .logo {
@@ -883,6 +942,7 @@ textarea:focus {
       right: .2rem;
       top: 50%;
       width: 30px;
+      z-index: 1000;
     }
 
     .depth-indicator {
@@ -903,7 +963,7 @@ textarea:focus {
       max-width: 40%;
       border: none !important;
       box-shadow: none;
-      z-index: 799;
+      z-index: 1000;
       top: 0;
     }
     
@@ -914,6 +974,7 @@ textarea:focus {
       padding: 0;
       margin: 100px 0 0;
       text-align: left;
+      z-index: 1000;
   }
 
     nav ul li {
@@ -932,7 +993,8 @@ textarea:focus {
 
     .container {
       width: 95%;
-      padding: 0 1rem;
+      padding: 1rem;
+      padding-top: 0;
   }
 
   .about-content img {
@@ -974,6 +1036,7 @@ textarea:focus {
     .logo img {
       width: clamp(70px, 15vw, 150px)
     }
+  }
 
 @media screen and (max-width: 480px) {
 
@@ -1002,6 +1065,19 @@ textarea:focus {
       width: 12rem;
       height: auto;
   }
+}
+
+@media (max-width: 350px) {
+ .container {
+  padding-top: 3rem;
+ }
+
+ .foot-contact {
+  gap: 3rem;
+}
+.mobile-nav-back {
+  width: 70%;
+}
 }
 
 /*** Keyframes ***/

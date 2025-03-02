@@ -143,15 +143,27 @@ body::-webkit-scrollbar {
 }
 
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4.5rem; /* Výška navigace, uprav podle potřeby */
+  background-color: rgba(0, 0, 0, 0.8); /* Lehké ztmavení */
+  z-index: 1000; /* Aby byla vždy nahoře */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 101;
   background-image: url(img/top.webp);
-  background-size: cover;
-  background-repeat: no-repeat;
-  transition: background-image 1s ease;
-  opacity: 1;
 }
 
 nav {
-  margin-bottom: 2rem;
+  position: relative;
+  width: 100%;
+  height: 11rem; /* Přizpůsob podle potřeby */
+  background-image: url(img/top.webp);
+  background-size: cover;
+  z-index: 100;
 }
 
 .logo {
@@ -174,7 +186,7 @@ nav {
 }
 
 ul:not(.medium ul) {
-  width: 80%;
+  width: 100%;
   list-style: none;
   text-decoration: none;
   display: flex;
@@ -244,6 +256,7 @@ a:hover {
   justify-content: center;
   margin: 0 auto;
   width: 95%;
+  z-index: 0;
 }
 
 .container::before {
@@ -275,8 +288,9 @@ button, a, input[type=submit] {
 
 .hero {
   content-visibility: auto;
+  position: relative;
+  top: 0;
   contain-intrinsic-size: 475px 475px;
-  margin-top: 5rem;
   width: 100%;
 }
 
@@ -416,7 +430,7 @@ button:hover {
 .starfish {
   width: 100%;
   height: auto;
-  margin-top: 10vh;
+  margin-top: 10rem;
   display: flex;
   position: relative;
 }
@@ -425,8 +439,8 @@ button:hover {
   width: 100%;
   height: auto;
   position: absolute;
-  bottom: 0%;
   left: 0;
+  bottom: 0rem;
 }
 
 .starfish img {
@@ -434,6 +448,7 @@ button:hover {
   position: absolute;
   right: 0%;
   left: 60%;
+  top: -5rem;
   bottom: -7%;
   width: 16rem;
   height: auto;
@@ -587,7 +602,7 @@ input[type=submit]:hover {
   left: 0;
   background-color: #1c1c1c;
   padding: 15px 20px;
-  z-index: 1000;
+  z-index: 1005;
   font-size: clamp(1.5rem, 1.5vw, 2rem);
 }
 
@@ -788,20 +803,43 @@ footer p {
 }
 
 /** Queries **/
+@media (min-width: 868px) {
+  nav {
+    padding-top: 7rem;
+    height: 20rem;
+  }
+  .container {
+    position: relative;
+    top: 10rem !important;
+  }
+}
 @media (min-width: 768px) {
+  .container {
+    position: relative;
+    top: 7rem;
+  }
+  .hero {
+    position: relative;
+    z-index: -1;
+  }
   .about-content {
     grid-template-columns: 1fr 2fr;
   }
   .gallery-grid {
     grid-template-columns: repeat(3, 1fr) !important;
   }
+  .burger-menu {
+    display: none !important;
+  }
+  nav ul {
+    display: flex !important;
+  }
 }
 @media (max-width: 768px) {
-  .about-content img {
-    filter: none !important;
-    box-shadow: none !important;
-    transform: none !important;
-    opacity: 1 !important;
+  nav {
+    position: absolute;
+    top: 0;
+    height: 0rem;
   }
   .vegetation, .vegetation-background, .sea-bottom {
     transform: none; /* Na mobilech vypne paralax efekt */
@@ -818,19 +856,26 @@ footer p {
     scale: 1 !important; /* Vrátí původní velikost */
   }
   header {
-    background-image: url(img/top.webp);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 8rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4.5rem; /* Výška navigace, uprav podle potřeby */
+    background-color: rgba(0, 0, 0, 0.8); /* Lehké ztmavení */
+    z-index: 1000; /* Aby byla vždy nahoře */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .mobile-nav-back {
     height: 20rem;
     position: absolute;
     top: 40px;
     width: 50%;
+    left: 0px;
     background-color: rgba(0, 0, 0, 0.502);
-    z-index: -1;
     display: none;
+    z-index: -1;
   }
   .logo {
     display: none;
@@ -840,6 +885,7 @@ footer p {
     right: 0.2rem;
     top: 50%;
     width: 30px;
+    z-index: 1000;
   }
   .depth-indicator {
     position: absolute;
@@ -858,7 +904,7 @@ footer p {
     max-width: 40%;
     border: none !important;
     box-shadow: none;
-    z-index: 799;
+    z-index: 1000;
     top: 0;
   }
   nav ul {
@@ -868,6 +914,7 @@ footer p {
     padding: 0;
     margin: 100px 0 0;
     text-align: left;
+    z-index: 1000;
   }
   nav ul li {
     text-align: left;
@@ -878,55 +925,45 @@ footer p {
     width: 50%;
     color: #e5e4e2;
   }
+  ul li a {
+    bottom: 0.5rem;
+  }
+  .container {
+    width: 95%;
+    padding: 1rem;
+    padding-top: 0;
+  }
+  .about-content img {
+    margin: 0 auto;
+  }
+  #gallery {
+    margin-bottom: 5rem;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 sloupce na menších obrazovkách */
+  }
+  /* Zmenšení mezer */
+  hr {
+    margin-top: 5vh;
+  }
+  hr {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+  }
+  .vegetation img {
+    width: clamp(60px, 20%, 200px);
+  }
+  .starfish img {
+    width: clamp(100px, 24%, 550px);
+    height: auto;
+  }
+  .window {
+    padding: 5%;
+  }
+  .logo img {
+    width: clamp(70px, 15vw, 150px);
+  }
 }
-ul li a {
-  bottom: 0.5rem;
-}
-
-.container {
-  width: 95%;
-  padding: 0 1rem;
-}
-
-.about-content img {
-  margin: 0 auto;
-}
-
-#gallery {
-  margin-bottom: 5rem;
-}
-
-.gallery-grid {
-  grid-template-columns: repeat(2, 1fr); /* 2 sloupce na menších obrazovkách */
-}
-
-/* Zmenšení mezer */
-hr {
-  margin-top: 5vh;
-}
-
-hr {
-  margin-top: 3vh;
-  margin-bottom: 3vh;
-}
-
-.vegetation img {
-  width: clamp(60px, 20%, 200px);
-}
-
-.starfish img {
-  width: clamp(100px, 24%, 550px);
-  height: auto;
-}
-
-.window {
-  padding: 5%;
-}
-
-.logo img {
-  width: clamp(70px, 15vw, 150px);
-}
-
 @media screen and (max-width: 480px) {
   .depth-meter {
     display: none;
@@ -947,6 +984,17 @@ hr {
   .starfish img {
     width: 12rem;
     height: auto;
+  }
+}
+@media (max-width: 350px) {
+  .container {
+    padding-top: 3rem;
+  }
+  .foot-contact {
+    gap: 3rem;
+  }
+  .mobile-nav-back {
+    width: 70%;
   }
 }
 /*** Keyframes ***/

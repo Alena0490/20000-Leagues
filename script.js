@@ -184,8 +184,6 @@ document.querySelectorAll('button, a, input, textarea').forEach((el) => {
 
 /***Parallax */
 
-
-
 // /*Scrolování k formuláři*/
 // $(document).ready(function () {
 //     $('.jq--scroll-form').click(function (e) {
@@ -212,34 +210,44 @@ document.querySelectorAll('button, a, input, textarea').forEach((el) => {
 //     }
 // });
 /***  Change burger menu ***/
-document.addEventListener("DOMContentLoaded", () => {
-    const navIcon = document.querySelector(".jq--nav-icon");
-    const mobileNav = document.querySelector(".mobile-nav-back");
-    const menu = document.querySelector(".first");
+document.addEventListener("DOMContentLoaded", function() {
+    const navIcon = document.querySelector('.jq--nav-icon');
+    const mobileNavBack = document.querySelector('.mobile-nav-back');
+    const navMenu = document.querySelector('nav ul');
 
-    if (!navIcon || !mobileNav || !menu) return; // Ověří, že prvky existují
+    // Skrytí menu na začátku
+    mobileNavBack.style.display = "none";
+    navMenu.style.display = "none";
 
-    // Zajistíme, že při načtení stránky bude menu zavřené
-    mobileNav.style.display = "none";
-    menu.style.display = "none";
+    // Zajistíme, že burger menu nebude na desktopu
+    function checkWindowSize() {
+        if (window.innerWidth > 768) {
+            navIcon.style.display = "none"; // Skryje burger menu na desktopu
+            navMenu.style.display = "flex"; // Zajistí, že navigace bude viditelná
+        } else {
+            navIcon.style.display = "block"; // Zobrazí burger menu na mobilu
+            navMenu.style.display = "none"; // Navigace zůstane skrytá
+        }
+    }
 
-    navIcon.addEventListener("click", (event) => {
+    checkWindowSize(); // Spustí kontrolu při načtení stránky
+    window.addEventListener('resize', checkWindowSize); // Sleduje změnu velikosti okna
+
+    // Toggle menu po kliknutí
+    navIcon.addEventListener("click", function(event) {
         event.preventDefault();
 
-        // Přepínání obrázku ikonky menu
-        if (navIcon.src.includes("img/burger-barw.png")) {
-            navIcon.src = "img/closew.png";
+        const isOpen = navMenu.style.display === "block";
+
+        if (!isOpen) {
+            navIcon.src = "img/closew.webp"; // Změna na křížek
+            mobileNavBack.style.display = "block";
+            navMenu.style.display = "block";
         } else {
-            navIcon.src = "img/burger-barw.png";
+            navIcon.src = "img/burger-barw.webp"; // Zpět na burger menu
+            mobileNavBack.style.display = "none";
+            navMenu.style.display = "none";
         }
-
-        // Přepínání viditelnosti menu
-        mobileNav.classList.toggle("visible");
-        menu.classList.toggle("visible");
-
-        // Přepínání animace
-        mobileNav.style.display = mobileNav.classList.contains("visible") ? "block" : "none";
-        menu.style.display = menu.classList.contains("visible") ? "block" : "none";
     });
 });
 
