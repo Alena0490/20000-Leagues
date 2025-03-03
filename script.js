@@ -9,47 +9,39 @@ video.addEventListener('ended', () => {
 });
 
 
-/* Hloubkoměr */
-/* Hloubkoměr */
-const container = document.querySelector('.depth-meter-container');
-const indicator = document.querySelector('.depth-indicator');
+/*Hlobkověr*/
+document.addEventListener('DOMContentLoaded', function () {
+    const indicator = document.querySelector('.depth-indicator');
+    const depthMeter = document.querySelector('.depth-meter');
 
-function updateIndicator() {
-    // Výška hloubkoměru je 95vh, převedeme ji na pixely
-    const depthMeterHeight = window.innerHeight * 0.95;
+    function updateDepthMeter() {
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercentage = window.scrollY / scrollHeight;
 
-    // Maximální pohyb indikátoru: 95vh mínus jeho výška
-    const maxMove = depthMeterHeight - indicator.offsetHeight;
+        const depthMeterHeight = depthMeter.offsetHeight - indicator.offsetHeight;
+        let newPosition = scrollPercentage * depthMeterHeight;
 
-    // Procento scrollování (0–100 %)
-    const scrollPercentage = (container.scrollTop / (container.scrollHeight - container.clientHeight)) * 100;
+        // Aktualizace polohy indikátoru
+        indicator.style.top = `${newPosition}px`;
 
-    // Výpočet nové pozice
-    let newPosition = (scrollPercentage * maxMove) / 100;
+        // Dynamické zmenšování indikátoru (až na 75 % původní velikosti)
+        let newScale = 1 - (scrollPercentage * 0.25);
+        indicator.style.transform = `scale(${newScale})`;
 
-    // 🔒 Zajištění, že indikátor nepřesáhne hranice
-    newPosition = Math.max(0, Math.min(newPosition, maxMove));
+        // Přechod z oranžové do tmavě měděné (nutno přepsat celý `background`)
+        let lightness = 70 - (scrollPercentage * 40); // Od světlé 70% po tmavou 30%
+        indicator.style.background = `radial-gradient(circle, hsl(30, 100%, ${lightness}%) 20%, hsl(20, 80%, ${lightness - 10}%) 70%)`;
 
-    // Nastavení pozice indikátoru
-    indicator.style.top = `${newPosition}px`;
+        // Plynulý přechod
+        indicator.style.transition = 'background 0.2s linear, transform 0.2s linear';
+    }
 
-    // Efekt stlačení (scaleY)
-    const squeeze = Math.max(0.3, 1 - (scrollPercentage / 100) * 0.2);
+    window.addEventListener('scroll', updateDepthMeter);
+    window.addEventListener('resize', updateDepthMeter);
 
-    // Efekt ztmavnutí (brightness)
-    const brightness = Math.max(30, 100 - (scrollPercentage * 0.7));
+    updateDepthMeter();
+});
 
-    // Aplikace transformace a filtru
-    indicator.style.transform = `scaleY(${squeeze})`;
-    indicator.style.filter = `brightness(${brightness}%)`;
-}
-
-// Eventy pro scroll a resize
-container.addEventListener('scroll', updateIndicator);
-window.addEventListener('resize', updateIndicator);
-
-// Spuštění při načtení stránky
-updateIndicator();
 
 
 // Vytvoření vlastního kurzoru
@@ -183,32 +175,61 @@ document.querySelectorAll('button, a, input, textarea').forEach((el) => {
 })();
 
 /***Parallax */
+/***Scrolování na stránce */
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof jQuery !== 'undefined') {
+        (function($) {
+            $(function() {
+                function smoothScroll(target) {
+                    if ($(target).length) {
+                        $("html, body").animate({
+                            scrollTop: $(target).offset().top - 90
+                        }, 1000);
+                        
+                        // Odebrání # z URL, aby stránka neskočila zpět
+                        history.replaceState(null, null, ' ');
+                    } else {
+                        console.warn("Sekce " + target + " nebyla nalezena.");
+                    }
+                }
 
-// /*Scrolování k formuláři*/
-// $(document).ready(function () {
-//     $('.jq--scroll-form').click(function (e) {
-//         e.preventDefault(); // Zabrání výchozímu chování odkazu
+                $(".jq--scroll-about").click(function(event) {
+                    event.preventDefault();
+                    smoothScroll(".jq--about");
+                });
 
-//         $('html, body').animate({
-//             scrollTop: $('#contact-form').offset().top - 90 // Upraveno pro pevné menu
-//         }, 1000); // Plynulý přechod za 1 sekundu
-//     });
-// });
+                $(".jq--scroll-features").click(function(event) {
+                    event.preventDefault();
+                    smoothScroll(".jq--features");
+                });
+
+                $(".jq--scroll-gallery").click(function(event) {
+                    event.preventDefault();
+                    smoothScroll(".jq--gallery");
+                });
+
+                $(".jq--scroll-contact").click(function(event) {
+                    event.preventDefault();
+                    smoothScroll(".jq--contact");
+                });
+            });
+        })(jQuery);
+    } else {
+        console.error("jQuery nebylo načteno.");
+    }
+});
 
 
-// /*Scrolování k adrese*/
-// $(document).ready(function () {
-//     // Detekuj kotvu z URL při načtení stránky
-//     const hash = window.location.hash;
-//     if (hash) {
-//         const target = $(hash);
-//         if (target.length) {
-//             $('html, body').animate({
-//                 scrollTop: target.offset().top - 90 // Posun s ohledem na pevné menu
-//             }, 1000); // Plynulý přechod za 1 sekundu
-//         }
+// Vrácení stránky nahoru
+// $(window).on("load", function() {
+//     if (window.location.hash !== "#contact-form") {
+//         setTimeout(function() {
+//             $("html, body").scrollTop(0);
+//         }, 10);
 //     }
 // });
+
+
 /***  Change burger menu ***/
 document.addEventListener("DOMContentLoaded", function() {
     const navIcon = document.querySelector('.jq--nav-icon');

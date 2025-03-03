@@ -7,6 +7,12 @@
 
 html {
   font-size: 16px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 body {
@@ -51,13 +57,30 @@ body::-webkit-scrollbar {
 }
 
 /*** Hloubkoměr ***/
+.content {
+  overflow-y: scroll !important; /* Umožní skrytý scrollbar */
+  scroll-behavior: smooth;
+  position: relative;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer a Edge */
+}
+
+.content::-webkit-scrollbar {
+  display: none !important;
+}
+
 .depth-meter-container {
-  position: absolute;
-  height: 100vh;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  overflow: auto;
+  position: fixed;
+  top: 5%;
+  right: 10px;
+  width: 40px;
+  height: 90vh;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
   scrollbar-width: none; /* Skryje původní scrollbar ve Firefoxu */
   -ms-overflow-style: none; /* Skryje původní scrollbar v IE/Edge */
 }
@@ -83,13 +106,14 @@ body::-webkit-scrollbar {
           backdrop-filter: blur(6px);
   opacity: 0.95;
   overflow: hidden; /* Zabrání přesahu */
+  pointer-events: none;
 }
 
 /* Indikátor uvnitř baňky */
 .depth-indicator {
   position: absolute;
-  left: 6px;
-  width: calc(100% - 12px);
+  left: 3px;
+  width: calc(100% - 6px);
   height: 35px;
   background: radial-gradient(circle, #ff6f00 20%, #d35400 70%, rgba(0, 0, 0, 0.6) 100%);
   border-radius: 50%;
@@ -254,8 +278,10 @@ a:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
   margin: 0 auto;
   width: 95%;
+  height: auto;
   z-index: 0;
 }
 
@@ -304,15 +330,17 @@ h2 {
 }
 
 h3 {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   font-family: "Cinzel", serif;
+  font-size: clamp(1.4rem, 1.8vw, 2.3rem);
 }
 
 p {
   color: #e5e4e2;
   font-family: "Cormorant", serif;
-  font-size: clamp(1.5rem, 3vw, 1.5rem);
+  font-size: clamp(1.2rem, 1.5vw, 2.5rem);
   text-shadow: #1c1c1c 1px 1px 2px;
+  text-align: justify;
   margin-bottom: 1.3rem;
 }
 
@@ -357,17 +385,34 @@ hr {
   height: auto;
   width: auto;
   border-radius: 10px;
-  background-image: url(img/copper3.webp);
+  background-image: url(img/steel.jpeg);
+  filter: sepia(0.4);
+  background-size: contain;
+  background-repeat: repeat;
+  padding: 20px;
+}
+
+.shoal {
+  position: absolute;
+  top: 0rem;
+  left: -15vw;
+  background-image: url(img/shoal.png);
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 10px;
+  width: 100%;
+  height: 110vh;
+  opacity: 0.8;
+  filter: blur(2px) brightness(0.8) contrast(0.9);
+  animation: shoal-move 40s infinite ease-in-out alternate;
+  z-index: -2;
 }
 
 .features {
   color: #e5e4e2;
   font-family: "Cormorant", serif;
-  font-size: clamp(1.5rem, 3vw, 1.5rem);
+  font-size: clamp(1.2rem, 1.5vw, 2.5rem);
   text-shadow: #1c1c1c 1px 1px 2px;
+  text-align: justify;
   background: #1c1c1c;
   padding: 10px;
   border-radius: 10px;
@@ -382,9 +427,10 @@ hr {
 }
 
 .card {
-  background-image: url(img/copper3.webp);
-  background-size: cover;
-  background-repeat: no-repeat;
+  filter: sepia(0.4);
+  background-image: url(img/steel.jpeg);
+  background-size: contain;
+  background-repeat: repeat;
   padding: 1.5rem;
   border: #1c1c1c 5px dotted;
   border-radius: 10px;
@@ -411,12 +457,17 @@ button:hover {
   cursor: pointer;
 }
 
+.gallery {
+  background-image: url(img/steel2.webp);
+  background-size: cover;
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(100px, 1fr)); /* Vždy 3 sloupce */
   gap: 1rem;
   width: 100%;
-  max-width: 100%;
+  overflow: visible;
   margin: 0 auto;
 }
 
@@ -461,6 +512,16 @@ button:hover {
   bottom: -10% !important;
 }
 
+.octopus img {
+  width: 22%;
+  height: auto;
+  filter: invert(0.95) sepia(0.5);
+  top: 77rem;
+  position: absolute;
+  right: 4rem;
+  z-index: 100;
+}
+
 .gallery-grid img {
   width: 100%;
   max-height: auto; /* Neomezuj výšku */
@@ -490,10 +551,9 @@ button:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("img/room.webp");
-  background-size: cover;
+  background-image: url("img/engine-room.webp");
+  background-size: contain;
   background-repeat: no-repeat;
-  filter: blur(1px);
   border-radius: inherit;
   z-index: -3; /* Pod vším */
 }
@@ -511,6 +571,12 @@ button:hover {
           backdrop-filter: blur(2px);
   border-radius: inherit;
   z-index: -2; /* Mezi obrázkem a obsahem */
+}
+
+#contact {
+  display: block;
+  margin-bottom: 5rem;
+  position: relative;
 }
 
 .contact form {
@@ -652,8 +718,9 @@ footer::-webkit-scrollbar {
   text-align: center;
   color: #e5e4e2;
   font-family: "Cormorant", serif;
-  font-size: clamp(1.5rem, 3vw, 1.5rem);
+  font-size: clamp(1.2rem, 1.5vw, 2.5rem);
   text-shadow: #1c1c1c 1px 1px 2px;
+  text-align: justify;
   margin: 5px;
   padding: 7px;
 }
@@ -863,6 +930,9 @@ footer p {
   nav ul {
     display: flex !important;
   }
+  h3 {
+    margin-bottom: 2.5rem;
+  }
 }
 @media (max-width: 768px) {
   nav {
@@ -956,6 +1026,9 @@ footer p {
   }
   ul li a {
     bottom: 0.5rem;
+    text-align: left;
+    padding-left: 2rem;
+    font-size: clamp(1.4rem, 2.5vw, 3rem);
   }
   .container {
     width: 95%;
@@ -1055,5 +1128,23 @@ footer p {
   }
   to {
     background-position: -384px 0;
+  }
+}
+/* 🌊 Pohyb hejna tam a zpět */
+@keyframes shoal-move {
+  0% {
+    transform: translateX(-15vw) translateY(0vh) scale(0.7);
+  }
+  25% {
+    transform: translateX(10vw) translateY(-5vh) scale(0.9);
+  }
+  50% {
+    transform: translateX(30vw) translateY(2vh) scale(1);
+  }
+  75% {
+    transform: translateX(50vw) translateY(-3vh) scale(0.85);
+  }
+  100% {
+    transform: translateX(70vw) translateY(0vh) scale(0.8);
   }
 }/*# sourceMappingURL=style.css.map */

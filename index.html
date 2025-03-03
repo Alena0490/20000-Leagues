@@ -32,14 +32,21 @@
 </noscript>
 
 <!-- jQuery (defer kvůli výkonu) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script> -->
 
-
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
 
     <div class="depth-meter-container">
-        <div class="content">
+        <div class="depth-meter">
+            <div class="depth-indicator"></div>
+            <div class="depth-marks"></div>
+        </div>
+    </div>
+
+    <div class="content">
+
     <header>
 
         <nav>
@@ -51,19 +58,19 @@
                     </div>
                 </li>
                 <li>
-                    <a onclick="scrollToSection('#about')" href="#">About</a>
+                    <a href="javascript:void(0);" class="jq--scroll-about">About</a>
                 </li>
 
                 <li>
-                    <a onclick="scrollToSection('#features')" href="#">Discover</a>
+                    <a href="javascript:void(0);" class="jq--scroll-features">Discover</a>
                 </li>
 
                 <li>
-                    <a onclick="scrollToSection('#gallery')" href="#">Gallery</a>
+                    <a href="javascript:void(0);" class="jq--scroll-gallery">Gallery</a>
                 </li>
 
                 <li>
-                    <a onclick="scrollToSection('#contact')" href="#">Contact</a>
+                    <a href="javascript:void(0);" class="jq--scroll-contact">Contact</a>
                 </li>
             </ul>
             
@@ -75,7 +82,7 @@
 
     <div class="container">
 
-    <section id="about" class="hero">
+    <section id="about" class="hero jq--about">
         <span class="starfish">
             <h2>About the project</h2>
             <img class="left" src="img/starfish.webp" alt="a starfish" width="400" height="383">
@@ -85,15 +92,18 @@
             <div class="about-content">
                 <img src="img/nautilus.webp" alt="Nautilus Image" width="475" height="475" fetchpriority="high">
                 <div class="description">
-                    <p>The Nautilus is a masterpiece of engineering, designed to explore the uncharted depths of the ocean...</p>
+                    <p>The Nautilus is a masterpiece of engineering, a marvel of human ingenuity crafted to navigate the uncharted depths of the ocean with effortless grace. Encased in a hull of polished steel, reinforced to withstand the crushing pressures of the abyss, it glides through the water like a silent predator, undisturbed by the chaos of the waves above. Within its riveted walls, a labyrinth of intricate mechanisms hums with quiet efficiency—pistons churning, gears interlocking in perfect harmony, each component playing its part in this grand symphony of machinery.</p>
+                    <p>The very air aboard is suffused with the scent of brass and oil, a tangible reminder of the vessel’s relentless drive into the unknown. The great observation windows, thick as fortress walls, reveal landscapes unseen by any man—forests of glowing coral, grotesque creatures drifting in the eternal blackness, and towering ridges of rock, their jagged edges carved by time itself. Schools of silver-scaled fish scatter like living constellations as the Nautilus advances, its powerful electric lamps piercing the abyssal gloom, revealing the haunting beauty of a world untouched by sunlight.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <div class="shoal"></div>
+
     <hr>
 
-    <section id="features" class="section features">
+    <section id="features" class="section features jq--features">
         <h2>Features of the Nautilus</h2>
         <div class="feature-cards">
           <div class="card">
@@ -112,8 +122,8 @@
     </section>
 
     <hr>
-
-    <section id="gallery" class="content">
+    <div class="octopus"><img src="img/octopus-black.png" alt="an octopus silhouette" width="400" height="278"></div>
+    <section id="gallery" class="content jq--gallery">
         <div class="black">
             <div class="card">
             <h2>Treasures of the Deep</h2>
@@ -135,7 +145,7 @@
 
     <hr>
 
-    <section id="contact" class="section contact">
+    <section id="contact" class="section contact jq--contact">
        <span class="starfish">
             <h2>Signal the Nautilus</h2>
             <img src="img/starfish.webp" alt="a starfish" width="400" height="383" loading="lazy">
@@ -224,12 +234,12 @@ if (isset($_GET['success'])) {
     </div>
 </footer>
 
-    </div>
+    <!-- </div>
     <div class="depth-meter">
     <div class="depth-indicator"></div>
     <div class="depth-marks"></div>
     </div>
-    </div> 
+    </div>  -->
     <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script> -->
     <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script> -->
     <script src="script.js" defer></script>
