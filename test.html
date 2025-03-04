@@ -1,0 +1,29 @@
+<button popovertarget="my-popover">Open Popover</button>
+
+<div popover id="my-popover">Greetings, one and all!</div>
+
+<style>
+    button {
+        anchor-name: --test;
+    }
+
+    popover {
+        inset: 1em;
+        bottom : anchor(--test top);
+        left: anchor(center);
+        margin: 5rem;
+
+    }
+
+    @position-fallback --top-to-bottom {
+        @try {
+            bottom : anchor(--test top);
+            left: anchor(center);
+        }
+
+        @try {
+            bottom : anchor(bottom);
+            left: anchor(center);
+        }
+    }
+</style>

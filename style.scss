@@ -453,7 +453,7 @@ hr {
     background-repeat: no-repeat;
     width: 100%;
     height: 60rem;
-    max-height: 110vh;
+    max-height: 100vh;
     opacity: 0.8;
     filter: blur(2px) brightness(0.8) contrast(0.9);
     animation: shoal-move 40s infinite ease-in-out alternate;
@@ -1126,9 +1126,27 @@ header {
       padding-top: 0;
   }
 
+  section {
+    width: 95%;
+    max-width: 700px;
+  }
+
   .about-content img {
     margin: 0 auto;
     width: auto;
+    max-width: 95vw;
+    min-width: 250px
+}
+
+.description {
+  max-width: 95vw;
+  min-width: 300px;
+
+}
+
+.card {
+  max-width: 95vw;
+  min-width: 200px;
 }
 
   #gallery {
@@ -1182,6 +1200,11 @@ header {
     width: 6em;
 }
 
+section {
+  width: 95%;
+  max-width: 420px;
+}
+
   .gallery-grid {
       grid-template-columns: 1fr; /* 1 sloupec na velmi malých obrazovkách */
   }
@@ -1208,6 +1231,11 @@ header {
 .mobile-nav-back {
   width: 70%;
 }
+section {
+  width: 95%;
+  max-width: 355px;
+}
+
 }
 
 /*** Keyframes ***/
