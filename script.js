@@ -1,3 +1,13 @@
+/**LOading delay */
+// const lazy = querySelector(".delayed")
+// delayed.addEventListener("DOMContentLoaded", function() {
+//     setTimeout(function() {
+//         document.getElementById("delayedDiv").style.display = "block";
+//     }, 3000); // 3000 ms = 3 sekundy
+// });
+
+
+
 /* Video */
 const video = document.getElementById('foot-video');
 

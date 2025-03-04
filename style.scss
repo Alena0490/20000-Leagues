@@ -425,7 +425,7 @@ hr {
     height: auto;
     width: auto;
     border-radius: 10px;
-    background-image: url(img/steel.jpeg);
+    background-image: url(img/steel.webp);
     filter: sepia(.4);
     background-size: contain;
     background-repeat: repeat;
@@ -436,7 +436,7 @@ hr {
     position: absolute;
     top: 0rem;
     left: -15vw;
-    background-image: url(img/shoal.png);
+    background-image: url(img/shoal.webp);
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -464,13 +464,19 @@ hr {
   
   .card {
     filter: sepia(.4);
-    background-image: url(img/steel.jpeg);
+    background-image: url(img/steel.webp);
     background-size: contain;
     background-repeat: repeat;
     padding: 1.5rem;
     border:$dark-color 5px dotted;
     border-radius: 10px;
     box-shadow: 0 4px 6px $dark-color;;
+  }
+
+  .card {
+    width: 100%;
+    height: 40vh;
+
   }
 
   .black {
