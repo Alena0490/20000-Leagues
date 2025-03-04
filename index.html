@@ -14,8 +14,10 @@
     <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
     <link rel="manifest" href="favicon2/site.webmanifest">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lightbox.css" media="print" onload="this.onload=null;this.media='all';">
     <link rel="preload" as="image" href="img/nautilus.webp" type="image/webp">
-    <link href="lightbox.css" rel="stylesheet">
+
+
   
     <!-- Preconnect pro rychlejší DNS -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +36,7 @@
 <!-- jQuery (defer kvůli výkonu) -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script> -->
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
 </head>
 
 <body>
@@ -91,7 +93,7 @@
                 <p>Discover the story of Captain Nemo's legendary submarine.</p>
                 <div class="two">
                     <div class="about-content">
-                        <img src="img/nautilus.webp" alt="Nautilus Image" width="475" height="475" fetchpriority="high">
+                        <img src="img/nautilus.webp" alt="Nautilus Image" width="475" height="475" fetchpriority="high" decoding="async">
                         <div class="description">
                             <p>The Nautilus is a masterpiece of engineering, a marvel of human ingenuity crafted to navigate the uncharted depths of the ocean with effortless grace. Encased in a hull of polished steel, reinforced to withstand the crushing pressures of the abyss, it glides through the water like a silent predator, undisturbed by the chaos of the waves above. Within its riveted walls, a labyrinth of intricate mechanisms hums with quiet efficiency—pistons churning, gears interlocking in perfect harmony, each component playing its part in this grand symphony of machinery.</p>
                             <p>The very air aboard is suffused with the scent of brass and oil, a tangible reminder of the vessel’s relentless drive into the unknown. The great observation windows, thick as fortress walls, reveal landscapes unseen by any man—forests of glowing coral, grotesque creatures drifting in the eternal blackness, and towering ridges of rock, their jagged edges carved by time itself. Schools of silver-scaled fish scatter like living constellations as the Nautilus advances, its powerful electric lamps piercing the abyssal gloom, revealing the haunting beauty of a world untouched by sunlight.</p>
@@ -123,7 +125,7 @@
             </section>
 
             <hr>
-            <div class="octopus"><img src="img/octopus-black.png" alt="an octopus silhouette" width="400" height="278"></div>
+            <div class="octopus"><img src="img/octopus-black.webp" alt="an octopus silhouette" width="400" height="278" loading="lazy"></div>
             <section id="gallery" class="content jq--gallery">
                 <div class="black">
                     <div class="card">
@@ -211,7 +213,7 @@
         </div>
 
         <div class="vegetation">
-            <img src="img/plant1.webp" alt="water plant silhouette" width="320" height="320">
+            <img src="img/plant1.webp" alt="water plant silhouette" width="320" height="320" loading="lazy">
             <img src="img/plant2.webp" alt="water plant silhouette" width="320" height="320" loading="lazy">
             <img src="img/plant3.webp" alt="water plant silhouette" width="291" height="320" loading="lazy">
             <img src="img/plant4.webp" alt="water plant silhouette" width="320" height="320" loading="lazy">

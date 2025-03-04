@@ -393,6 +393,8 @@ hr {
 }
 
 .shoal {
+  content-visibility: auto;
+  contain-intrinsic-size: 1000px 1113px;
   position: absolute;
   top: 0rem;
   left: -15vw;
