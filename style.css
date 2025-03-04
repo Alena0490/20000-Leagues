@@ -169,7 +169,6 @@ body::-webkit-scrollbar {
 header {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   height: 4.5rem; /* Výška navigace, uprav podle potřeby */
   background-color: rgba(0, 0, 0, 0.8); /* Lehké ztmavení */
@@ -308,8 +307,12 @@ button, a, input[type=submit] {
   padding: 0.5rem 1rem;
 }
 
-.section {
-  width: 100%;
+section, header, footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 95%;
+  max-width: 1330px;
 }
 
 .hero {
@@ -361,7 +364,7 @@ hr {
 
 .about-content {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr; /* Obrázek 1/3, text 2/3 */
   gap: 1.5rem;
   max-width: 100%;
   content-visibility: auto;
@@ -370,10 +373,13 @@ hr {
 .two {
   width: 100%;
   display: flex;
+  flex-direction: row;
+  justify-content: center;
   width: 100%;
 }
 
 .about-content img {
+  width: auto;
   will-change: transform, opacity;
   height: auto;
   border-radius: 10px;
@@ -383,7 +389,11 @@ hr {
 
 .description {
   height: auto;
+  min-height: 30vh;
+  overflow-y: auto;
+  overflow-x: hidden;
   width: auto;
+  max-width: 60rem;
   border-radius: 10px;
   background-image: url(img/steel.webp);
   filter: sepia(0.4);
@@ -402,7 +412,8 @@ hr {
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 110vh;
+  height: 60rem;
+  max-height: 110vh;
   opacity: 0.8;
   filter: blur(2px) brightness(0.8) contrast(0.9);
   animation: shoal-move 40s infinite ease-in-out alternate;
@@ -422,7 +433,7 @@ hr {
 
 .feature-cards {
   content-visibility: auto;
-  contain-intrinsic-size: 900px 400px;
+  contain-intrinsic-size: 1100px 350px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
@@ -432,7 +443,6 @@ hr {
 
 .card {
   width: 100%;
-  height: 40vh;
   min-height: 300px;
   min-width: 300px;
   filter: sepia(0.4);
@@ -465,7 +475,8 @@ button:hover {
   cursor: pointer;
 }
 
-.gallery {
+#gallery {
+  min-height: 50vh;
   background-image: url(img/steel2.webp);
   background-size: cover;
 }
@@ -482,8 +493,11 @@ button:hover {
 .gallery-grid img {
   width: 100%;
   height: auto;
+  max-height: auto !important; /* Neomezuj výšku */
   -o-object-fit: cover;
-     object-fit: cover;
+     object-fit: cover; /* Zabrání deformaci */
+  border-radius: 2px;
+  filter: drop-shadow(0 0 0.3rem rgb(12, 0, 2)) sepia(0.5);
 }
 
 .starfish {
@@ -523,20 +537,11 @@ button:hover {
 .octopus img {
   width: 22%;
   height: auto;
-  filter: invert(0.95) sepia(0.5);
+  filter: invert(0.05) sepia(0.5);
   top: 77rem;
   position: absolute;
   right: 4rem;
   z-index: 100;
-}
-
-.gallery-grid img {
-  width: 100%;
-  max-height: auto; /* Neomezuj výšku */
-  -o-object-fit: cover;
-     object-fit: cover; /* Zabrání deformaci */
-  border-radius: 2px;
-  filter: drop-shadow(0 0 0.3rem rgb(12, 0, 2)) sepia(0.5);
 }
 
 .window {
@@ -918,6 +923,11 @@ footer p {
   }
 }
 @media (min-width: 768px) {
+  .about-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 768px) {
   .container {
     position: relative;
     top: 7rem;
@@ -926,11 +936,15 @@ footer p {
     position: relative;
     z-index: -1;
   }
-  .about-content {
-    grid-template-columns: 1fr 2fr;
-  }
   .gallery-grid {
     grid-template-columns: repeat(3, 1fr) !important;
+  }
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Obrázek 1/3, text 2/3 */
+    gap: 1.5rem;
+    max-width: 100%;
+    content-visibility: auto;
   }
   .burger-menu {
     display: none !important;
@@ -940,6 +954,14 @@ footer p {
   }
   h3 {
     margin-bottom: 2.5rem;
+  }
+}
+@media (max-width: 868px) {
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+  .about-content img {
+    width: auto !important;
   }
 }
 @media (max-width: 768px) {
@@ -965,7 +987,6 @@ footer p {
   header {
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
     height: 4.5rem; /* Výška navigace, uprav podle potřeby */
     background-color: rgba(0, 0, 0, 0.8); /* Lehké ztmavení */
@@ -1045,6 +1066,7 @@ footer p {
   }
   .about-content img {
     margin: 0 auto;
+    width: auto;
   }
   #gallery {
     margin-bottom: 5rem;
