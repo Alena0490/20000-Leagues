@@ -103,15 +103,23 @@ document.querySelectorAll('button, a, input, textarea').forEach((el) => {
 
 
 /*** Bubbles */
+/*** Bubbles */
 (function bubblesCursor() {
     const particles = [];
     let lastTime = 0;
+    let cursorX = 0, cursorY = 0;
+
+    // Aktualizace souřadnic kurzoru
+    document.addEventListener('mousemove', (event) => {
+        cursorX = event.pageX; // Použití pageX místo clientX
+        cursorY = event.pageY; // Použití pageY místo clientY
+    });
 
     // Generování bublin na pozici kurzoru
     document.addEventListener('mousemove', () => {
         const now = Date.now();
         if (now - lastTime > 150) { // Generování každých 150 ms
-            addParticle(cursorX-700, cursorY); // Použití stejné pozice jako kurzor
+            addParticle(cursorX, cursorY);
             lastTime = now;
         }
     });
@@ -132,24 +140,24 @@ document.querySelectorAll('button, a, input, textarea').forEach((el) => {
             }
         }
     }
+
     function loop() {
         requestAnimationFrame(loop);
         updateParticles();
     }
+
     // Vlastnosti bubliny
     function Particle() {
         this.lifeSpan = 500; // Délka života bubliny (ms)
         this.initialStyles = {
-            position: "absolute",
+            position: "absolute", // Použití absolute místo fixed pro lepší umístění
             display: "block",
-            "z-index": "9999",
-            width: "clamp(7px, .5rem, 15px)",
-            height: "clamp(7px, .5rem, 15px)",
-            "will-change": "transform",
-            "background": "#e6f1f750",
+            "z-index": "-1",
+            width: "10px", // Pevná velikost pro testování
+            height: "10px",
+            background: "#e6f1f750",
             "box-shadow": "-1px 0px rgba(160, 220, 255, 0.67), 0px -1px rgba(107, 173, 211, 0.71), 1px 0px rgba(58, 146, 197, 0.69), 0px 1px rgba(58, 146, 197, 0.69)",
             "border-radius": "50%",
-            "z-index": "-1",
             opacity: 1
         };
 
@@ -162,7 +170,10 @@ document.querySelectorAll('button, a, input, textarea').forEach((el) => {
             this.position = { x, y };
             this.element = document.createElement('span');
             Object.assign(this.element.style, this.initialStyles);
-            this.update();
+
+            // Přímé nastavení souřadnic bez translate()
+            this.element.style.left = `${x}px`;
+            this.element.style.top = `${y}px`;
 
             document.body.appendChild(this.element);
         };
@@ -172,7 +183,9 @@ document.querySelectorAll('button, a, input, textarea').forEach((el) => {
             this.position.y += this.velocity.y;
             this.lifeSpan--;
 
-            this.element.style.transform = `translate(${this.position.x}px, ${this.position.y}px)`;
+            // Aktualizace pozice bez transformace
+            this.element.style.left = `${this.position.x}px`;
+            this.element.style.top = `${this.position.y}px`;
             this.element.style.opacity = this.lifeSpan / 400;
         };
 

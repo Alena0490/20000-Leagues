@@ -377,6 +377,7 @@ h3 {
     margin-bottom: 1.5rem;
     font-family: "Cinzel", serif;
     font-size: clamp(1.4rem, 1.8vw, 2.3rem);
+    color: $text-color;
 }
 
 p {
@@ -399,15 +400,58 @@ hr {
     color: $text-color;
   }
   
-  .about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Obrázek 1/3, text 2/3 */
-    gap: 1.5rem;
-    max-width: 100%;
-    content-visibility: auto;
+  /* Základní rozvržení */
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.5rem;
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: stretch; /* Zajistí stejnou výšku sloupců */
+}
 
-  
-  }
+/* Kontejner pro obrázek a text */
+.about-content > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Obrázek */
+.about-content img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  max-width: 445px;
+  align-self: center;
+  border-radius: 10px;
+  filter: sepia(0.5);
+}
+
+/* Text */
+.about-content .description {
+  overflow-y: auto; /* Povolení scrollování při přetečení */
+  max-height: 100%; /* Maximální výška odpovídající výšce obrázku */
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: auto;
+  max-width: 60rem;
+  max-height: 445px;
+  border-radius: 10px;
+  background-image: url(img/steel.webp);
+  filter: sepia(0.4);
+  background-size: contain;
+  background-repeat: repeat;
+  padding: 20px;
+  padding-top: 50px;
+}
+
+/* Skrytí scrollbaru pro WebKit prohlížeče (Chrome, Safari, novější Edge) */
+.about-content .description::-webkit-scrollbar {
+  display: none;
+}
+
 
   .two {
     width: 100%;
@@ -415,31 +459,6 @@ hr {
     flex-direction: row;
     justify-content: center;
     width: 100%;
-  }
-  
-  .about-content img {
-    width: auto;
-    will-change: transform, opacity;
-    height: auto;
-    border-radius: 10px;
-    filter: sepia(0.5);
-    max-height: 60vh;
-  }
-
-  .description {
-    height: auto;
-    min-height: 30vh;
-    // max-height: 30rem;
-    overflow-y: auto;
-    overflow-x: hidden;
-    width: auto;
-    max-width: 60rem; 
-    border-radius: 10px;
-    background-image: url(img/steel.webp);
-    filter: sepia(.4);
-    background-size: contain;
-    background-repeat: repeat;
-    padding: 20px;  
   }
 
   .shoal {
@@ -794,7 +813,7 @@ textarea:focus {
   gap: 10rem;
   color: #e5e4e2;
   position: absolute;
-  top: .5rem;
+  bottom: 0.5rem;
   left: 10%;
   width: 80%;
   height: 60%;
@@ -803,8 +822,12 @@ textarea:focus {
 
 .medium {
   display: flex;
+  position: relative;
+  bottom: 20px;
   flex-direction: column;
   width: 40%;
+  max-width: 450px;
+  // height: 40vh;
   justify-content: center;
 }
 
@@ -928,12 +951,18 @@ textarea:focus {
   }
 
   .sea-bottom img {
+    display: block;
     position: relative;
     bottom: 0%;
     width: 100%;
     z-index: 0;
     opacity: 0.5;
     filter: blur(1px) brightness(0.5);
+  }
+
+  .sea-bottom-2 {
+    display: none !important;
+    z-index: -1;
   }
 
   /** Queries **/
@@ -948,12 +977,10 @@ textarea:focus {
       position: relative;
       top: 10rem !important;
     }
-  }
 
-  @media (min-width: 768px) {
     .about-content {
       grid-template-columns: repeat(2, 1fr);
-    }  
+    }   
   }
 
   @media (min-width: 768px) {
@@ -1003,6 +1030,7 @@ h3 {
 
   .about-content img {
     width: auto !important;
+    margin: auto;
   //   filter: none !important;
   //   box-shadow: none !important;
   //   opacity: 1 !important;
@@ -1016,6 +1044,19 @@ h3 {
     position: absolute;
     top: 0;
     height: 0rem;
+  }
+
+  .feature-cards {
+    min-height: 768px;
+
+  }
+
+  sea-bottom-2 {
+    display: block;
+  }
+
+  sea-bottom img {
+    display: none;
   }
 
     .vegetation, .vegetation-background, .sea-bottom {
@@ -1131,11 +1172,18 @@ header {
     max-width: 700px;
   }
 
+  .about-content {
+    width: 95%;
+    max-width: 730px; 
+    margin: 0 auto; 
+  }
+
   .about-content img {
     margin: 0 auto;
     width: auto;
     max-width: 95vw;
-    min-width: 250px
+    min-width: 250px;
+    aspect-ratio: 1 / 1; 
 }
 
 .description {
@@ -1173,7 +1221,7 @@ header {
   }
 
   .starfish img {
-    width: clamp(100px, 24%, 550px);
+    width: clamp(100px, 24%, 400px);
     height: auto;
   }
 
@@ -1205,17 +1253,29 @@ section {
   max-width: 420px;
 }
 
+.about-content {
+  width: 95%;
+  max-width: 456px; /* Maximální šířka pro desktop */
+  margin: 0 auto; /* Zarovnání na střed */
+}
+
+.feature-cards {
+  min-height: 1000px;
+
+}
+
   .gallery-grid {
       grid-template-columns: 1fr; /* 1 sloupec na velmi malých obrazovkách */
   }
 
-  .feature-cards {
-      grid-template-columns: 1fr;
-  }
+  // .feature-cards {
+  //     grid-template-columns: 1fr;
+  // }
 
   /* Další úpravy pro velmi malé obrazovky */
   .starfish img {
       width: 12rem;
+      max-width: 350px;
       height: auto;
   }
 }
@@ -1225,12 +1285,22 @@ section {
   padding-top: 3rem;
  }
 
+ .about-content {
+  width: 95%;
+  max-width: 332px; /* Maximální šířka pro desktop */
+  margin: 0 auto; /* Zarovnání na střed */
+}
  .foot-contact {
   gap: 3rem;
 }
 .mobile-nav-back {
   width: 70%;
 }
+
+.medium {
+  min-width: 100px;
+}
+
 section {
   width: 95%;
   max-width: 355px;

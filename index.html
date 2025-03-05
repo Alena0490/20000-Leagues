@@ -13,7 +13,7 @@
     <link rel="icon" href="favicon2/android-chrome-512x512.png" type="image/png" sizes="512x512">
     <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
     <link rel="manifest" href="favicon2/site.webmanifest">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=11">
     <link rel="stylesheet" href="lightbox.css" media="print" onload="this.onload=null;this.media='all';">
     <link rel="preload" as="image" href="img/nautilus.webp" type="image/webp">
 
@@ -57,7 +57,10 @@
                 <ul>
                     <li>
                         <div class="logo">
-                            <img src="img/compass.svg" alt="Nautilus logo" width="150" height="150">
+                            <picture>
+                                <source media="(min-width: 769px)" srcset="img/compass.svg">
+                                <img src="img/compass.svg" alt="Nautilus logo" width="150" height="150">
+                            </picture>
                         </div>
                     </li>
                     <li>
@@ -88,12 +91,12 @@
             <section id="about" class="hero jq--about">
                 <div class="starfish">
                     <h2>About the project</h2>
-                    <img class="left" src="img/starfish.webp" alt="a starfish" width="400" height="383">
+                    <img class="left" src="img/starfish.webp" alt="a starfish" width="350" height="335">
             </div> 
                 <p>Discover the story of Captain Nemo's legendary submarine.</p>
                 <div class="two">
                     <div class="about-content">
-                        <img src="img/nautilus.webp" alt="Nautilus Image" width="475" height="475" fetchpriority="high" decoding="async">
+                        <img src="img/nautilus.webp" alt="Nautilus Image" width="445" height="445" fetchpriority="high" decoding="async" loading="eager">
                         <div class="description">
                             <p>The Nautilus is a masterpiece of engineering, a marvel of human ingenuity crafted to navigate the uncharted depths of the ocean with effortless grace. Encased in a hull of polished steel, reinforced to withstand the crushing pressures of the abyss, it glides through the water like a silent predator, undisturbed by the chaos of the waves above. Within its riveted walls, a labyrinth of intricate mechanisms hums with quiet efficiency—pistons churning, gears interlocking in perfect harmony, each component playing its part in this grand symphony of machinery.</p>
                             <p>The very air aboard is suffused with the scent of brass and oil, a tangible reminder of the vessel’s relentless drive into the unknown. The great observation windows, thick as fortress walls, reveal landscapes unseen by any man—forests of glowing coral, grotesque creatures drifting in the eternal blackness, and towering ridges of rock, their jagged edges carved by time itself. Schools of silver-scaled fish scatter like living constellations as the Nautilus advances, its powerful electric lamps piercing the abyssal gloom, revealing the haunting beauty of a world untouched by sunlight.</p>
@@ -158,7 +161,7 @@
             <section id="contact" class="section contact jq--contact">
                 <div class="starfish">
                         <h2>Signal the Nautilus</h2>
-                        <img src="img/starfish.webp" alt="a starfish" width="400" height="383" loading="lazy">
+                        <img src="img/starfish.webp" alt="a starfish" width="350" height="335" loading="lazy">
                 </div> 
 
                 <div class="window">
@@ -229,17 +232,18 @@
         </div>
 
         <div class="vegetation vegetation-background">
-            <img src="img/plant8.webp" alt="water plant silhouette" width="320" height="320" loading="lazy">
-            <img src="img/plant6.webp" alt="water plant silhouette" width="320" height="320" loading="lazy">
-            <img src="img/plant3.webp" alt="water plant silhouette" width="291" height="320" loading="lazy">
-            <img src="img/plant7.webp" alt="water plant silhouette" width="320" height="320" loading="lazy">
-            <img src="img/plant5.webp" alt="water plant silhouette" width="320" height="320" loading="lazy">
-            <img src="img/plant10.webp" alt="water plant silhouette" width="228" height="320" loading="lazy">
-            <img src="img/plant9.webp" alt="water plant silhouette" width="234" height="320" loading="lazy">
+            <img src="img/plant8b.webp" alt="water plant silhouette" width="160" height="160" loading="lazy">
+            <img src="img/plant6b.webp" alt="water plant silhouette" width="160" height="160" loading="lazy">
+            <img src="img/plant3b.webp" alt="water plant silhouette" width="146" height="160" loading="lazy">
+            <img src="img/plant7b.webp" alt="water plant silhouette" width="160" height="160" loading="lazy">
+            <img src="img/plant5b.webp" alt="water plant silhouette" width="160" height="160" loading="lazy">
+            <img src="img/plant10b.webp" alt="water plant silhouette" width="114" height="160" loading="lazy">
+            <img src="img/plant9b.webp" alt="water plant silhouette" width="234" height="320" loading="lazy">
         </div>
 
         <div  class="sea-bottom">
-            <img src="img/sea-bottom.webp" alt="the sea bottom" width="1141" height="376" loading="lazy">
+            <img src="img/sea-bottom.webp" alt="the sea bottom" width="1141" height="376">
+            <img class="sea-bottom-2" src="img/sea-bottom2.webp" alt="the sea bottom" width="600" height="376">
         </div>
 
         <div class="bottom-foot">
