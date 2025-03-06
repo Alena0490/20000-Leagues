@@ -12,8 +12,6 @@
     @include hide-scrollbar;  
 }
 
-
-
 body {
   display: flex;
   justify-content: center;
@@ -30,7 +28,6 @@ body {
   cursor: none;
   @include hide-scrollbar;
 }
-
 
 /* Základní styl vlastního kurzoru */
 #customCursor {
@@ -165,7 +162,6 @@ body {
 .depth-meter::after {
   bottom: -5px;
 }
-
   
   .depth-marks {
     position: absolute;
@@ -211,7 +207,7 @@ body {
   nav {
       position: relative;
       width: 100%;
-      height: 11rem; /* Přizpůsob podle potřeby */
+      height: 11rem;
       // background-color: rgba(0, 0, 0, 0.85); /* Lehké ztmavení pro viditelnost */ 
       background-image: url(img/top.webp); 
       background-size: cover;
@@ -222,6 +218,7 @@ body {
     padding-top: 2%;
     margin-left: 10%;
     transition: transform ease, box-shadow 1s ease;
+    transition: all 0.6s ease-in-out;
 }
 
 .logo:hover {
@@ -229,7 +226,7 @@ body {
 }
 
 .logo img {
-  width: clamp(80px, 15vw, 180px); /* Minimální a maximální limity */
+  width: clamp(80px, 15vw, 180px);
   height: auto;
   margin-top: 1rem;
   height: auto;
@@ -250,7 +247,6 @@ ul li {
     position: relative;
     display: block;
     min-height: 3rem;
-    //padding: 1rem 0;
     width: auto; 
     flex: 1; /* Flexibilní rozdělení prostoru */
     height: auto;
@@ -267,19 +263,11 @@ ul li a  {
     margin-bottom: 2rem;
 }
 
-.net {
-  position: relative;
-  top: 0.35rem;
-  width: 2.3rem !important;
-  height: auto;
-  margin-right: .12rem;
-}
-
 a {
     color: $link-color;
     font-family: "Cormorant", serif;
     font-size: clamp(1rem, 1.8vw, 2rem);
-    transition: transform 0.6s ease, box-shadow 0.3s ease;
+    transition: transform 0.6s ease, box-shadow 0.3s ease, color 0.6s ease;
 }
 
 a:hover {
@@ -304,7 +292,6 @@ a:hover {
 .container {
   position: relative;
   padding: 2rem;
-  // padding-top: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -332,189 +319,10 @@ a:hover {
       $bacrkground-color-dark,
       $dark-blue
   );
-  opacity: 0.7; // Průhlednost jen pro pozadí
-  z-index: -1; // Za obsah
-  border-radius: inherit; // Pokud máš zakulacené rohy
+  opacity: 0.7;
+  z-index: -1; 
+  border-radius: inherit;
 }
-
-img {
-  width: auto;
-}
-
-button, a, input[type="submit"] {
-    min-height: 44px;
-    min-width: 44px;
-    padding: 0.5rem 1rem;
-}
-
-section, header, footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 95%;
-    max-width: 1330px;
-}
-
-.hero {
-  content-visibility: auto;
-  position: relative;
-  top: 0;
-  contain-intrinsic-size: 475px 475px;
-    // margin-top: 5rem;
-    width: 100%;
-}
-
-h2 {
-  width: 100%;
-  color:$secondary-color-light;
-  text-shadow: #013220 3px 3px 3px;
-    font-family: "Cinzel", serif;
-    font-size: clamp(1.8rem, 5vw, 3rem); /* Responsive velikost mezi limity */
-    margin-bottom: 2rem;
-}
-
-h3 {
-    margin-bottom: 1.5rem;
-    font-family: "Cinzel", serif;
-    font-size: clamp(1.4rem, 1.8vw, 2.3rem);
-    color: $text-color;
-}
-
-p {
-    @include text-basic;
-    margin-bottom: 1.3rem;
-}
-
-hr {
-    color: rgb(0 0 0);
-    width: 90%;
-    height: 2vh;
-    border: none;
-    margin-top: 10vh;
-    z-index: 10;
-}
-
-.about {
-    width: 100%;
-    background: #013220;
-    color: $text-color;
-  }
-  
-  /* Základní rozvržení */
-.about-content {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 1.5rem;
-  width: 95%;
-  max-width: 1200px;
-  margin: 0 auto;
-  align-items: stretch; /* Zajistí stejnou výšku sloupců */
-}
-
-/* Kontejner pro obrázek a text */
-.about-content > div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* Obrázek */
-.about-content img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  max-width: 445px;
-  align-self: center;
-  border-radius: 10px;
-  filter: sepia(0.5);
-}
-
-/* Text */
-.about-content .description {
-  overflow-y: auto; /* Povolení scrollování při přetečení */
-  max-height: 100%; /* Maximální výška odpovídající výšce obrázku */
-  overflow-y: auto;
-  overflow-x: hidden;
-  width: auto;
-  max-width: 60rem;
-  max-height: 445px;
-  border-radius: 10px;
-  background-image: url(img/steel.webp);
-  filter: sepia(0.4);
-  background-size: contain;
-  background-repeat: repeat;
-  padding: 20px;
-  padding-top: 50px;
-}
-
-/* Skrytí scrollbaru pro WebKit prohlížeče (Chrome, Safari, novější Edge) */
-.about-content .description::-webkit-scrollbar {
-  display: none;
-}
-
-
-  .two {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .shoal {
-    content-visibility: auto;
-    contain-intrinsic-size: 1000px 1113px; 
-    position: absolute;
-    top: 0rem;
-    left: -15vw;
-    background-image: url(img/shoal.webp);
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 60rem;
-    max-height: 100vh;
-    opacity: 0.8;
-    filter: blur(2px) brightness(0.8) contrast(0.9);
-    animation: shoal-move 40s infinite ease-in-out alternate;
-    z-index: -2;
-}
-
-  .features {
-    @include text-basic;
-    background: $dark-color;
-    padding: 10px;
-    border-radius:  10px;
-  }
-  
-  .feature-cards {
-    content-visibility: auto;
-    contain-intrinsic-size: 1100px 350px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    width: 100%;
-    box-sizing: border-box;
-}
-  
-  .card {
-    width: 100%;
-    min-height: 300px;
-    min-width: 300px;
-    filter: sepia(.4);
-    background-image: url(img/steel.webp);
-    background-size: contain;
-    background-repeat: repeat;
-    padding: 1.5rem;
-    border:$dark-color 5px dotted;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px $dark-color;;
-  }
-
-  .black {
-    background-color: $dark-color;;
-    border-radius: 10px;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.7);
-  }
 
 button {
     background: $secondary-color;
@@ -525,15 +333,36 @@ button {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
     color: $text-color;
     font-family: "Cormorant", serif;
+    transition: filter 0.3s ease-in-out;
   }
+
   button:hover {
     background: $secondary-color-light;
     text-shadow: 0 0 8px $secondary-color-light;
     cursor: pointer;
   }
+
+  #about {
+    padding: 20px 0px;
+  }
+
+  #features {
+    min-height: 350px;
+  }
+
+  .two {
+    min-height: 445px; 
+    // max-width: 1330px;
+  }
+
   #gallery {
     min-height: 50vh;
     background-image: url(img/steel2.webp);
+    background-size: cover;
+  }
+
+  #gallery .black .card {
+    background-image: url(img/blue-plate.jpeg);
     background-size: cover;
   }
 
@@ -543,15 +372,14 @@ button {
     gap: 1rem;
     width: 100%;
     overflow: visible;
-    // max-width: 100%;
     margin: 0 auto;
 }
 
 .gallery-grid img {
   width: 100%;
   height: auto;
-  max-height: auto !important; /* Neomezuj výšku */
-  object-fit: cover; /* Zabrání deformaci */
+  max-height: auto !important;
+  object-fit: cover; 
   border-radius: 2px;
   filter: drop-shadow(0 0 0.3rem rgb(12, 0, 2)) sepia(0.5);
 }
@@ -596,7 +424,6 @@ button {
   position: absolute;
   right: 4rem;
   z-index: 100;
-
 }
 
   .window {
@@ -607,6 +434,7 @@ button {
     border: 5px solid $secondary-color;
     border-radius: 10px;
     overflow: hidden; /* Skryje přetékání obsahu */
+    background-image: url('img/engine-room.webp');
     z-index: 2;
     background-color: transparent; /* Už nepotřebujeme na hlavním elementu */
 }
@@ -638,7 +466,7 @@ button {
     background: rgb(13 38 58 / 30%);
     backdrop-filter: blur(2px);
     border-radius: inherit;
-    z-index: -2; /* Mezi obrázkem a obsahem */
+    z-index: -2; 
 }
 
 #contact {
@@ -651,7 +479,7 @@ button {
     width: 100%;
     height: 100%;
     position: relative;
-    background: none; /* Odstraníme pozadí, protože ho přidáme pomocí ::before */
+    background: none; 
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -710,6 +538,7 @@ textarea:focus {
         color: $text-color;
         font-size: clamp(1.5rem, 3vw, 2rem);
         cursor: pointer;
+        transition: filter 0.3s ease-in-out;
   }
 
   input[type="submit"]:hover {
@@ -741,7 +570,7 @@ textarea:focus {
     font-weight: 600;
     font-size: clamp(1.5rem, 1.5vw, 2rem);
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.6s ease;
 }
 
 #accept-cookies:hover {
@@ -760,7 +589,10 @@ textarea:focus {
     perspective: 100px;
     transform-style: preserve-3d;
     @include hide-scrollbar;
+}
 
+form:hover {
+  filter: brightness(1.1);
 }
 
 .form-result {
@@ -773,7 +605,12 @@ textarea:focus {
   @include text-basic;
   margin: 5px;
   padding: 7px;
+}
 
+.success:hover {
+  text-shadow: 0px 0px 3px #0ad406;
+  box-shadow: 1px 1px 2px #259c08;
+  filter: brightness(1.2);
 }
 
 .success {
@@ -781,13 +618,22 @@ textarea:focus {
     background-color: #0630308a;
     box-shadow: 0px 0px 2px #259c08;
     color: #0ad406;
+    transition: filter 0.3s ease-in-out;
 }
+
+.error:hover {
+  text-shadow: 0px 0px 3px #ff0303;
+  box-shadow: 1px 0px 1px #ff0303;
+  filter: brightness(1.2);
+}
+
 
 .error {
   border: 1px solid rgba(241, 6, 6, 0.81);
     background-color: #2c1000b9;
     box-shadow: 0px 0px 2px #ff0303;
     color: #ff0303;
+    transition: filter 0.3s ease-in-out;
 }
 
 
@@ -801,9 +647,11 @@ textarea:focus {
     transform: translateZ(-100px) scale(2);
     border-bottom: solid 50px $dark-color-08;
     opacity: 0.8;
+    transition: filter 0.3s ease-in-out;
+}
 
-  
-
+#foot-video:hover {
+  filter: brightness(1.2);
 }
 
 .foot-contact {
@@ -813,11 +661,19 @@ textarea:focus {
   gap: 10rem;
   color: #e5e4e2;
   position: absolute;
-  bottom: 0.5rem;
+  top: 0rem;
   left: 10%;
   width: 80%;
-  height: 60%;
+  height: 70%;
   z-index: 100;
+}
+
+.net {
+  position: relative;
+  top: 0.35rem;
+  width: 2.3rem !important;
+  height: auto;
+  margin-right: .12rem;
 }
 
 .medium {
@@ -827,7 +683,6 @@ textarea:focus {
   flex-direction: column;
   width: 40%;
   max-width: 450px;
-  // height: 40vh;
   justify-content: center;
 }
 
@@ -867,8 +722,8 @@ textarea:focus {
     bottom: 0%;
     width: 100%;
     z-index: 20;
-    // transform: translateZ(-100px) scale(2);
 }
+
   footer p {
     position: relative;
     right: 3%;
@@ -903,8 +758,6 @@ textarea:focus {
   max-height: 100vh;
   z-index: 20;
   transform: translateZ(-0px) scale(1);
-  // transform: translateY(var(--translateY));
-  // will-change: transform;
 }
 
   .vegetation img {
@@ -1031,9 +884,6 @@ h3 {
   .about-content img {
     width: auto !important;
     margin: auto;
-  //   filter: none !important;
-  //   box-shadow: none !important;
-  //   opacity: 1 !important;
   }
 
 }
@@ -1168,7 +1018,7 @@ header {
   }
 
   section {
-    width: 95%;
+    // width: 95%;
     max-width: 700px;
   }
 
@@ -1189,7 +1039,6 @@ header {
 .description {
   max-width: 95vw;
   min-width: 300px;
-
 }
 
 .card {
@@ -1261,7 +1110,6 @@ section {
 
 .feature-cards {
   min-height: 1000px;
-
 }
 
   .gallery-grid {
@@ -1281,31 +1129,30 @@ section {
 }
 
 @media (max-width: 350px) {
- .container {
-  padding-top: 3rem;
- }
+  .container {
+    padding-top: 3rem;
+  }
 
- .about-content {
-  width: 95%;
-  max-width: 332px; /* Maximální šířka pro desktop */
-  margin: 0 auto; /* Zarovnání na střed */
-}
- .foot-contact {
-  gap: 3rem;
-}
-.mobile-nav-back {
-  width: 70%;
-}
+  .about-content {
+    width: 95%;
+    max-width: 332px; 
+    margin: 0 auto; 
+  }
+  .foot-contact {
+    gap: 3rem;
+  }
+  .mobile-nav-back {
+    width: 70%;
+  }
 
-.medium {
-  min-width: 100px;
-}
+  .medium {
+    min-width: 100px;
+  }
 
 section {
   width: 95%;
   max-width: 355px;
-}
-
+  }
 }
 
 /*** Keyframes ***/
@@ -1329,9 +1176,8 @@ section {
       background-position: -384px 0;
     }
   }
-
  
-/* 🌊 Pohyb hejna tam a zpět */
+/*Pohyb hejna tam a zpět */
 @keyframes shoal-move {
   0% {
       transform: translateX(-15vw) translateY(0vh) scale(0.7);

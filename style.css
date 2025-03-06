@@ -193,6 +193,7 @@ nav {
   padding-top: 2%;
   margin-left: 10%;
   transition: transform ease, box-shadow 1s ease;
+  transition: all 0.6s ease-in-out;
 }
 
 .logo:hover {
@@ -249,7 +250,7 @@ a {
   color: #c1f8fd;
   font-family: "Cormorant", serif;
   font-size: clamp(1rem, 1.8vw, 2rem);
-  transition: transform 0.6s ease, box-shadow 0.3s ease;
+  transition: transform 0.6s ease, box-shadow 0.3s ease, color 0.6s ease;
 }
 
 a:hover {
@@ -320,7 +321,7 @@ section, header, footer {
   position: relative;
   top: 0;
   contain-intrinsic-size: 475px 475px;
-  width: 100%;
+  width: 95%;
 }
 
 h2 {
@@ -357,10 +358,8 @@ hr {
   z-index: 10;
 }
 
-.about {
-  width: 100%;
-  background: #013220;
-  color: #e5e4e2;
+#about {
+  padding: 0px 20px;
 }
 
 /* Základní rozvržení */
@@ -389,8 +388,13 @@ hr {
      object-fit: cover;
   max-width: 445px;
   align-self: center;
-  border-radius: 10px;
+  border-radius: 5px;
   filter: sepia(0.5);
+  transition: all, 0.6s, ease-in-out;
+}
+
+img:not(.logo img):hover {
+  filter: brightness(1.1);
 }
 
 /* Text */
@@ -402,13 +406,16 @@ hr {
   width: auto;
   max-width: 60rem;
   max-height: 445px;
-  border-radius: 10px;
+  border-radius: 5px;
   background-image: url(img/steel.webp);
   filter: sepia(0.4);
   background-size: contain;
   background-repeat: repeat;
-  padding: 20px;
-  padding-top: 50px;
+  padding: 120px 20px 20px 20px;
+}
+
+.description {
+  padding-top: 100px;
 }
 
 /* Skrytí scrollbaru pro WebKit prohlížeče (Chrome, Safari, novější Edge) */
@@ -422,6 +429,11 @@ hr {
   flex-direction: row;
   justify-content: center;
   width: 100%;
+  padding: 20px 0px;
+  border-radius: 5px;
+  background-image: url(img/blue-plate.jpeg);
+  background-size: cover;
+  max-width: 1330p;
 }
 
 .shoal {
@@ -450,7 +462,7 @@ hr {
   text-align: justify;
   background: #1c1c1c;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .feature-cards {
@@ -473,13 +485,13 @@ hr {
   background-repeat: repeat;
   padding: 1.5rem;
   border: #1c1c1c 5px dotted;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 0 4px 6px #1c1c1c;
 }
 
 .black {
   background-color: #1c1c1c;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.7);
 }
 
@@ -489,6 +501,7 @@ button {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
   color: #e5e4e2;
   font-family: "Cormorant", serif;
+  transition: filter 0.3s ease-in-out;
 }
 
 button:hover {
@@ -500,6 +513,11 @@ button:hover {
 #gallery {
   min-height: 50vh;
   background-image: url(img/steel2.webp);
+  background-size: cover;
+}
+
+#gallery .black .card {
+  background-image: url(img/blue-plate.jpeg);
   background-size: cover;
 }
 
@@ -574,6 +592,7 @@ button:hover {
   border: 5px solid #ce8139;
   border-radius: 10px;
   overflow: hidden; /* Skryje přetékání obsahu */
+  background-image: url("img/engine-room.webp");
   z-index: 2;
   background-color: transparent; /* Už nepotřebujeme na hlavním elementu */
 }
@@ -687,6 +706,7 @@ input[type=submit] {
   color: #e5e4e2;
   font-size: clamp(1.5rem, 3vw, 2rem);
   cursor: pointer;
+  transition: filter 0.3s ease-in-out;
 }
 
 input[type=submit]:hover {
@@ -718,7 +738,7 @@ input[type=submit]:hover {
   font-weight: 600;
   font-size: clamp(1.5rem, 1.5vw, 2rem);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.6s ease;
 }
 
 #accept-cookies:hover {
@@ -744,6 +764,10 @@ footer::-webkit-scrollbar {
   height: 0;
 }
 
+form:hover {
+  filter: brightness(1.1);
+}
+
 .form-result {
   border-radius: 5px;
   font-weight: 600;
@@ -760,11 +784,24 @@ footer::-webkit-scrollbar {
   padding: 7px;
 }
 
+.success:hover {
+  text-shadow: 0px 0px 3px #0ad406;
+  box-shadow: 1px 1px 2px #259c08;
+  filter: brightness(1.2);
+}
+
 .success {
   border: 1px solid rgba(36, 241, 6, 0.46);
   background-color: rgba(6, 48, 48, 0.5411764706);
   box-shadow: 0px 0px 2px #259c08;
   color: #0ad406;
+  transition: filter 0.3s ease-in-out;
+}
+
+.error:hover {
+  text-shadow: 0px 0px 3px #ff0303;
+  box-shadow: 1px 0px 1px #ff0303;
+  filter: brightness(1.2);
 }
 
 .error {
@@ -772,6 +809,7 @@ footer::-webkit-scrollbar {
   background-color: rgba(44, 16, 0, 0.7254901961);
   box-shadow: 0px 0px 2px #ff0303;
   color: #ff0303;
+  transition: filter 0.3s ease-in-out;
 }
 
 #foot-video {
@@ -785,6 +823,11 @@ footer::-webkit-scrollbar {
   transform: translateZ(-100px) scale(2);
   border-bottom: solid 50px rgba(28, 28, 28, 0.7490196078);
   opacity: 0.8;
+  transition: filter 0.3s ease-in-out;
+}
+
+#foot-video:hover {
+  filter: brightness(1.2);
 }
 
 .foot-contact {
@@ -794,10 +837,10 @@ footer::-webkit-scrollbar {
   gap: 10rem;
   color: #e5e4e2;
   position: absolute;
-  bottom: 0.5rem;
+  top: 0rem;
   left: 10%;
   width: 80%;
-  height: 60%;
+  height: 70%;
   z-index: 100;
 }
 

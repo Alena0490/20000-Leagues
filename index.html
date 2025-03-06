@@ -13,12 +13,12 @@
     <link rel="icon" href="favicon2/android-chrome-512x512.png" type="image/png" sizes="512x512">
     <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
     <link rel="manifest" href="favicon2/site.webmanifest">
-    <link rel="stylesheet" href="style.css?v=11">
+    <link rel="stylesheet" href="style.css?v=12">
     <link rel="stylesheet" href="lightbox.css" media="print" onload="this.onload=null;this.media='all';">
     <link rel="preload" as="image" href="img/nautilus.webp" type="image/webp">
+    <link rel="preload" href="img/steel.webp" as="image">
+    <link rel="preload" href="img/blue-plate.jpeg" as="image">
 
-
-  
     <!-- Preconnect pro rychlejší DNS -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -59,10 +59,12 @@
                         <div class="logo">
                             <picture>
                                 <source media="(min-width: 769px)" srcset="img/compass.svg">
-                                <img src="img/compass.svg" alt="Nautilus logo" width="150" height="150">
+                                <source media="(max-width: 768px)" srcset="data:,">
+                                <img alt="Nautilus logo" width="150" height="150">
                             </picture>
                         </div>
                     </li>
+
                     <li>
                         <a href="#" class="jq--scroll-about">About</a>
                     </li>
@@ -242,8 +244,19 @@
         </div>
 
         <div  class="sea-bottom">
-            <img src="img/sea-bottom.webp" alt="the sea bottom" width="1141" height="376">
-            <img class="sea-bottom-2" src="img/sea-bottom2.webp" alt="the sea bottom" width="600" height="376">
+            <img src="img/sea-bottom.webp" 
+                alt="the sea bottom" 
+                width="1141" 
+                height="376">
+                
+            <img class="sea-bottom-2" 
+                src="img/sea-bottom2.webp" 
+                data-src="img/sea-bottom2.webp" 
+                alt="the sea bottom" 
+                width="600" 
+                height="376"
+                loading="lazy"
+                onload="if(window.innerWidth <= 768) this.setAttribute('src', this.getAttribute('data-src'))">
         </div>
 
         <div class="bottom-foot">
