@@ -72,7 +72,6 @@ body {
   background: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   z-index: 1000;
-  // pointer-events: none; /* Neblokuje klikání */
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -346,14 +345,191 @@ button {
     padding: 20px 0px;
   }
 
-  #features {
-    min-height: 350px;
+  img {
+    width: auto;
   }
-
-  .two {
-    min-height: 445px; 
-    // max-width: 1330px;
+  
+  button, a, input[type="submit"] {
+      min-height: 44px;
+      min-width: 44px;
+      padding: 0.5rem 1rem;
   }
+  
+  section, header, footer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 95%;
+      max-width: 1330px;
+  }
+  
+  .hero {
+    content-visibility: auto;
+    position: relative;
+    top: 0;
+    contain-intrinsic-size: 475px 475px;
+    width: 95%;
+  }
+  
+  h2 {
+    width: 100%;
+    color:$secondary-color-light;
+    text-shadow: #013220 3px 3px 3px;
+      font-family: "Cinzel", serif;
+      font-size: clamp(1.8rem, 5vw, 3rem); 
+      margin-bottom: 2rem;
+  }
+  
+  h3 {
+      margin-bottom: 1.5rem;
+      font-family: "Cinzel", serif;
+      font-size: clamp(1.4rem, 1.8vw, 2.3rem);
+      color: $text-color;
+  }
+  
+  p {
+      @include text-basic;
+      margin-bottom: 1.3rem;
+  }
+  
+  hr {
+      color: rgb(0 0 0);
+      width: 90%;
+      height: 2vh;
+      border: none;
+      margin-top: 10vh;
+      z-index: 10;
+  }
+  
+    /* Základní rozvržení */
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: stretch;
+  }
+  
+  /* Kontejner pro obrázek a text */
+  .about-content > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  /* Obrázek */
+  .about-content img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    max-width: 445px;
+    align-self: center;
+    border-radius: 5px;
+    filter: sepia(0.5);
+    transition: all, 0.6s, ease-in-out;
+  }
+  
+  img:not(.logo img):hover {
+    filter: brightness(1.1);
+  }
+  
+  /* Text */
+  .about-content .description {
+    overflow-y: auto;
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: auto;
+    max-width: 60rem;
+    max-height: 445px;
+    border-radius: 5px;
+    background-image: url(img/steel.webp);
+    filter: sepia(0.4);
+    background-size: contain;
+    background-repeat: repeat;
+    padding: 120px 20px 20px 20px;
+  }
+  
+  .description {
+    padding-top: 100px;
+  }
+  
+  /* Skrytí scrollbaru pro WebKit prohlížeče (Chrome, Safari, novější Edge) */
+  .about-content .description::-webkit-scrollbar {
+    display: none;
+  }
+  
+    .two {
+      width: 100%;
+      display: flex;
+      min-height: 445px; 
+      flex-direction: row;
+      justify-content: center;
+      width: 100%;
+      padding: 20px 0px;
+      border-radius:5px;
+      background-image: url(img/blue-plate.jpeg);
+      background-size: cover;
+      max-width: 1330p
+    }
+  
+    .shoal {
+      content-visibility: auto;
+      contain-intrinsic-size: 1000px 1113px; 
+      position: absolute;
+      top: 0rem;
+      left: -15vw;
+      background-image: url(img/shoal.webp);
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 60rem;
+      max-height: 100vh;
+      opacity: 0.8;
+      filter: blur(2px) brightness(0.8) contrast(0.9);
+      animation: shoal-move 40s infinite ease-in-out alternate;
+      z-index: -2;
+  }
+  
+    .features {
+      @include text-basic;
+      background: $dark-color;
+      padding: 10px;
+      border-radius:  5px;
+    }
+  
+    .feature-cards {
+      content-visibility: auto;
+      contain-intrinsic-size: 1100px 350px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+      box-sizing: border-box;
+      min-height: 350px;
+  }
+  
+    .card {
+      width: 100%;
+      min-height: 300px;
+      min-width: 300px;
+      filter: sepia(.4);
+      background-image: url(img/steel.webp);
+      background-size: contain;
+      background-repeat: repeat;
+      padding: 1.5rem;
+      border:$dark-color 5px dotted;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px $dark-color;;
+    }
+  
+    .black {
+      background-color: $dark-color;;
+      border-radius: 5px;
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.7);
+    }
 
   #gallery {
     min-height: 50vh;
@@ -433,10 +609,10 @@ button {
     position: relative;
     border: 5px solid $secondary-color;
     border-radius: 10px;
-    overflow: hidden; /* Skryje přetékání obsahu */
+    overflow: hidden; 
     background-image: url('img/engine-room.webp');
     z-index: 2;
-    background-color: transparent; /* Už nepotřebujeme na hlavním elementu */
+    background-color: transparent;
 }
 
 /* Obrázek na pozadí */
@@ -636,7 +812,6 @@ form:hover {
     transition: filter 0.3s ease-in-out;
 }
 
-
 #foot-video {
     position: relative;
     width: 100%;
@@ -711,7 +886,6 @@ form:hover {
   height: auto;
 }
 
-
 .bottom-foot {
   background: linear-gradient(180deg, #00000000, $dark-color-08);
   display: flex;
@@ -735,9 +909,9 @@ form:hover {
   #overlay {
     position: absolute;
     top: 0;
-    left: 50%; /* Přidá se left 50% */
-    transform: translateX(-50%); /* Přidá se transform pro vycentrování */
-    width: 100%; /* Změní se na 100% protože je uvnitř footeru */
+    left: 50%;
+    transform: translateX(-50%); 
+    width: 100%;
     height: 100%;
     background: radial-gradient(transparent, transparent, rgba(0, 0, 0, 0.463), black);
     opacity: 0.8;
@@ -852,8 +1026,7 @@ form:hover {
     .gallery-grid {
       grid-template-columns: repeat(3, 1fr) !important;
   }
-
-    
+ 
   .about-content {
     display: grid;
     grid-template-columns: 1fr 2fr; /* Obrázek 1/3, text 2/3 */
@@ -873,7 +1046,6 @@ nav ul {
 h3 {
   margin-bottom: 2.5rem;
 }
-
 }
 
 @media (max-width: 868px) {
@@ -882,10 +1054,8 @@ h3 {
   }
 
   .about-content img {
-    width: auto !important;
     margin: auto;
   }
-
 }
 
   @media (max-width: 768px) {
@@ -894,6 +1064,10 @@ h3 {
     position: absolute;
     top: 0;
     height: 0rem;
+  }
+
+  .features {
+    min-height: 870px;
   }
 
   .feature-cards {
@@ -923,17 +1097,16 @@ h3 {
 #foot-video, 
 .bottom-foot {
     transform: none !important; /* Zruší `translateZ()` */
-    scale: 1 !important; /* Vrátí původní velikost */
+    scale: 1 !important;
 }
-
 
 header {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 4.5rem; /* Výška navigace, uprav podle potřeby */
-  background-color: rgba(0, 0, 0, 0.8); /* Lehké ztmavení */
-  z-index: 1000; /* Aby byla vždy nahoře */
+  height: 4.5rem; 
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -952,6 +1125,10 @@ header {
 
     .logo {
       display: none;
+    }
+
+    .depth-meter-container {
+       width: 30px;
     }
 
     .depth-meter {
@@ -1018,7 +1195,6 @@ header {
   }
 
   section {
-    // width: 95%;
     max-width: 700px;
   }
 
@@ -1030,9 +1206,7 @@ header {
 
   .about-content img {
     margin: 0 auto;
-    width: auto;
     max-width: 95vw;
-    min-width: 250px;
     aspect-ratio: 1 / 1; 
 }
 
@@ -1043,7 +1217,7 @@ header {
 
 .card {
   max-width: 95vw;
-  min-width: 200px;
+  min-width: 200px !important;
 }
 
   #gallery {
@@ -1051,13 +1225,7 @@ header {
   }
 
   .gallery-grid {
-      grid-template-columns: repeat(2, 1fr); /* 2 sloupce na menších obrazovkách */
-  }
-
-  /* Zmenšení mezer */
-
-  hr {
-      margin-top: 5vh;
+      grid-template-columns: repeat(2, 1fr);
   }
 
     hr {
@@ -1085,7 +1253,7 @@ header {
 
 @media screen and (max-width: 480px) {
 
-  .depth-meter {
+  .depth-meter, .depth-meter-container {
     display: none;
   }
 
@@ -1104,8 +1272,16 @@ section {
 
 .about-content {
   width: 95%;
-  max-width: 456px; /* Maximální šířka pro desktop */
-  margin: 0 auto; /* Zarovnání na střed */
+  max-width: 456px; 
+  margin: 0 auto;
+}
+
+.about-content .description {
+  padding: 460px 20px 20px 20px;
+}
+
+.features {
+  min-height: 1100px;
 }
 
 .feature-cards {
@@ -1113,14 +1289,9 @@ section {
 }
 
   .gallery-grid {
-      grid-template-columns: 1fr; /* 1 sloupec na velmi malých obrazovkách */
+      grid-template-columns: 1fr;
   }
 
-  // .feature-cards {
-  //     grid-template-columns: 1fr;
-  // }
-
-  /* Další úpravy pro velmi malé obrazovky */
   .starfish img {
       width: 12rem;
       max-width: 350px;
@@ -1138,6 +1309,19 @@ section {
     max-width: 332px; 
     margin: 0 auto; 
   }
+
+  .description {
+    min-width: 200px;
+  }
+
+  .about-content .description {
+    padding: 600px 20px 20px 20px;
+  }
+
+  .features {
+    min-height: 1200px;
+  }
+
   .foot-contact {
     gap: 3rem;
   }

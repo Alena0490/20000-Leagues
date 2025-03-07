@@ -183,7 +183,7 @@ header {
 nav {
   position: relative;
   width: 100%;
-  height: 11rem; /* Přizpůsob podle potřeby */
+  height: 11rem;
   background-image: url(img/top.webp);
   background-size: cover;
   z-index: 100;
@@ -201,7 +201,7 @@ nav {
 }
 
 .logo img {
-  width: clamp(80px, 15vw, 180px); /* Minimální a maximální limity */
+  width: clamp(80px, 15vw, 180px);
   height: auto;
   margin-top: 1rem;
   height: auto;
@@ -236,14 +236,6 @@ ul li a {
   color: #c1f8fd;
   font-weight: 600;
   margin-bottom: 2rem;
-}
-
-.net {
-  position: relative;
-  top: 0.35rem;
-  width: 2.3rem !important;
-  height: auto;
-  margin-right: 0.12rem;
 }
 
 a {
@@ -298,6 +290,25 @@ a:hover {
   border-radius: inherit;
 }
 
+button {
+  background: #ce8139;
+  border: 2px solid #594000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+  color: #e5e4e2;
+  font-family: "Cormorant", serif;
+  transition: filter 0.3s ease-in-out;
+}
+
+button:hover {
+  background: #f3a760;
+  text-shadow: 0 0 8px #f3a760;
+  cursor: pointer;
+}
+
+#about {
+  padding: 20px 0px;
+}
+
 img {
   width: auto;
 }
@@ -329,7 +340,7 @@ h2 {
   color: #f3a760;
   text-shadow: #013220 3px 3px 3px;
   font-family: "Cinzel", serif;
-  font-size: clamp(1.8rem, 5vw, 3rem); /* Responsive velikost mezi limity */
+  font-size: clamp(1.8rem, 5vw, 3rem);
   margin-bottom: 2rem;
 }
 
@@ -344,7 +355,7 @@ p {
   color: #e5e4e2;
   font-family: "Cormorant", serif;
   font-size: clamp(1.2rem, 1.5vw, 2.5rem);
-  text-shadow: #1c1c1c 1px 1px 2px;
+  text-shadow: #1c1c1c 2px 2px 1px;
   text-align: justify;
   margin-bottom: 1.3rem;
 }
@@ -358,10 +369,6 @@ hr {
   z-index: 10;
 }
 
-#about {
-  padding: 0px 20px;
-}
-
 /* Základní rozvržení */
 .about-content {
   display: grid;
@@ -370,7 +377,7 @@ hr {
   width: 95%;
   max-width: 1200px;
   margin: 0 auto;
-  align-items: stretch; /* Zajistí stejnou výšku sloupců */
+  align-items: stretch;
 }
 
 /* Kontejner pro obrázek a text */
@@ -399,8 +406,8 @@ img:not(.logo img):hover {
 
 /* Text */
 .about-content .description {
-  overflow-y: auto; /* Povolení scrollování při přetečení */
-  max-height: 100%; /* Maximální výška odpovídající výšce obrázku */
+  overflow-y: auto;
+  max-height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
   width: auto;
@@ -426,6 +433,7 @@ img:not(.logo img):hover {
 .two {
   width: 100%;
   display: flex;
+  min-height: 445px;
   flex-direction: row;
   justify-content: center;
   width: 100%;
@@ -458,7 +466,7 @@ img:not(.logo img):hover {
   color: #e5e4e2;
   font-family: "Cormorant", serif;
   font-size: clamp(1.2rem, 1.5vw, 2.5rem);
-  text-shadow: #1c1c1c 1px 1px 2px;
+  text-shadow: #1c1c1c 2px 2px 1px;
   text-align: justify;
   background: #1c1c1c;
   padding: 10px;
@@ -473,6 +481,7 @@ img:not(.logo img):hover {
   gap: 1.5rem;
   width: 100%;
   box-sizing: border-box;
+  min-height: 350px;
 }
 
 .card {
@@ -493,21 +502,6 @@ img:not(.logo img):hover {
   background-color: #1c1c1c;
   border-radius: 5px;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.7);
-}
-
-button {
-  background: #ce8139;
-  border: 2px solid #594000;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
-  color: #e5e4e2;
-  font-family: "Cormorant", serif;
-  transition: filter 0.3s ease-in-out;
-}
-
-button:hover {
-  background: #f3a760;
-  text-shadow: 0 0 8px #f3a760;
-  cursor: pointer;
 }
 
 #gallery {
@@ -533,9 +527,9 @@ button:hover {
 .gallery-grid img {
   width: 100%;
   height: auto;
-  max-height: auto !important; /* Neomezuj výšku */
+  max-height: auto !important;
   -o-object-fit: cover;
-     object-fit: cover; /* Zabrání deformaci */
+     object-fit: cover;
   border-radius: 2px;
   filter: drop-shadow(0 0 0.3rem rgb(12, 0, 2)) sepia(0.5);
 }
@@ -591,10 +585,10 @@ button:hover {
   position: relative;
   border: 5px solid #ce8139;
   border-radius: 10px;
-  overflow: hidden; /* Skryje přetékání obsahu */
+  overflow: hidden;
   background-image: url("img/engine-room.webp");
   z-index: 2;
-  background-color: transparent; /* Už nepotřebujeme na hlavním elementu */
+  background-color: transparent;
 }
 
 /* Obrázek na pozadí */
@@ -624,7 +618,7 @@ button:hover {
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px);
   border-radius: inherit;
-  z-index: -2; /* Mezi obrázkem a obsahem */
+  z-index: -2;
 }
 
 #contact {
@@ -637,7 +631,7 @@ button:hover {
   width: 100%;
   height: 100%;
   position: relative;
-  background: none; /* Odstraníme pozadí, protože ho přidáme pomocí ::before */
+  background: none;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -778,7 +772,7 @@ form:hover {
   color: #e5e4e2;
   font-family: "Cormorant", serif;
   font-size: clamp(1.2rem, 1.5vw, 2.5rem);
-  text-shadow: #1c1c1c 1px 1px 2px;
+  text-shadow: #1c1c1c 2px 2px 1px;
   text-align: justify;
   margin: 5px;
   padding: 7px;
@@ -844,6 +838,14 @@ form:hover {
   z-index: 100;
 }
 
+.net {
+  position: relative;
+  top: 0.35rem;
+  width: 2.3rem !important;
+  height: auto;
+  margin-right: 0.12rem;
+}
+
 .medium {
   display: flex;
   position: relative;
@@ -902,9 +904,9 @@ footer p {
 #overlay {
   position: absolute;
   top: 0;
-  left: 50%; /* Přidá se left 50% */
-  transform: translateX(-50%); /* Přidá se transform pro vycentrování */
-  width: 100%; /* Změní se na 100% protože je uvnitř footeru */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
   height: 100%;
   background: radial-gradient(transparent, transparent, rgba(0, 0, 0, 0.463), black);
   opacity: 0.8;
@@ -1033,7 +1035,6 @@ footer p {
     grid-template-columns: 1fr;
   }
   .about-content img {
-    width: auto !important;
     margin: auto;
   }
 }
@@ -1042,6 +1043,9 @@ footer p {
     position: absolute;
     top: 0;
     height: 0rem;
+  }
+  .features {
+    min-height: 870px;
   }
   .feature-cards {
     min-height: 768px;
@@ -1064,15 +1068,15 @@ footer p {
   #foot-video,
   .bottom-foot {
     transform: none !important; /* Zruší `translateZ()` */
-    scale: 1 !important; /* Vrátí původní velikost */
+    scale: 1 !important;
   }
   header {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 4.5rem; /* Výška navigace, uprav podle potřeby */
-    background-color: rgba(0, 0, 0, 0.8); /* Lehké ztmavení */
-    z-index: 1000; /* Aby byla vždy nahoře */
+    height: 4.5rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1089,6 +1093,9 @@ footer p {
   }
   .logo {
     display: none;
+  }
+  .depth-meter-container {
+    width: 30px;
   }
   .depth-meter {
     position: fixed;
@@ -1147,7 +1154,6 @@ footer p {
     padding-top: 0;
   }
   section {
-    width: 95%;
     max-width: 700px;
   }
   .about-content {
@@ -1157,9 +1163,7 @@ footer p {
   }
   .about-content img {
     margin: 0 auto;
-    width: auto;
     max-width: 95vw;
-    min-width: 250px;
     aspect-ratio: 1/1;
   }
   .description {
@@ -1168,17 +1172,13 @@ footer p {
   }
   .card {
     max-width: 95vw;
-    min-width: 200px;
+    min-width: 200px !important;
   }
   #gallery {
     margin-bottom: 5rem;
   }
   .gallery-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 sloupce na menších obrazovkách */
-  }
-  /* Zmenšení mezer */
-  hr {
-    margin-top: 5vh;
+    grid-template-columns: repeat(2, 1fr);
   }
   hr {
     margin-top: 3vh;
@@ -1199,7 +1199,7 @@ footer p {
   }
 }
 @media screen and (max-width: 480px) {
-  .depth-meter {
+  .depth-meter, .depth-meter-container {
     display: none;
   }
   ul li a {
@@ -1214,16 +1214,21 @@ footer p {
   }
   .about-content {
     width: 95%;
-    max-width: 456px; /* Maximální šířka pro desktop */
-    margin: 0 auto; /* Zarovnání na střed */
+    max-width: 456px;
+    margin: 0 auto;
+  }
+  .about-content .description {
+    padding: 460px 20px 20px 20px;
+  }
+  .features {
+    min-height: 1100px;
   }
   .feature-cards {
     min-height: 1000px;
   }
   .gallery-grid {
-    grid-template-columns: 1fr; /* 1 sloupec na velmi malých obrazovkách */
+    grid-template-columns: 1fr;
   }
-  /* Další úpravy pro velmi malé obrazovky */
   .starfish img {
     width: 12rem;
     max-width: 350px;
@@ -1236,8 +1241,17 @@ footer p {
   }
   .about-content {
     width: 95%;
-    max-width: 332px; /* Maximální šířka pro desktop */
-    margin: 0 auto; /* Zarovnání na střed */
+    max-width: 332px;
+    margin: 0 auto;
+  }
+  .description {
+    min-width: 200px;
+  }
+  .about-content .description {
+    padding: 600px 20px 20px 20px;
+  }
+  .features {
+    min-height: 1200px;
   }
   .foot-contact {
     gap: 3rem;
@@ -1284,7 +1298,7 @@ footer p {
     background-position: -384px 0;
   }
 }
-/* 🌊 Pohyb hejna tam a zpět */
+/*Pohyb hejna tam a zpět */
 @keyframes shoal-move {
   0% {
     transform: translateX(-15vw) translateY(0vh) scale(0.7);
