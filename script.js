@@ -6,7 +6,46 @@
 //     }, 3000); // 3000 ms = 3 sekundy
 // });
 
+/***Morse code */
+document.addEventListener("DOMContentLoaded", () => {
+    const morseCode = {
+        "N": "-.",
+        "A": ".-",
+        "U": "..-",
+        "T": "-",
+        "I": "..",
+        "L": ".-..",
+        "U": "..-",
+        "S": "..."
+    };
 
+    const sequence = "NAUTILUS".split("").map(letter => morseCode[letter]).join(" ");
+    const morseText = document.getElementById("morse-code");
+
+    function playMorse(index = 0) {
+        if (index >= sequence.length) {
+            setTimeout(() => playMorse(0), 2000); // Pauza mezi cykly
+            return;
+        }
+
+        let symbol = sequence[index];
+
+        if (symbol === ".") {
+            morseText.textContent += "•"; // Krátká tečka
+            setTimeout(() => morseText.textContent += " ", 200); // Pauza po tečce
+        } else if (symbol === "-") {
+            morseText.textContent += "—"; // Dlouhá čárka
+            setTimeout(() => morseText.textContent += " ", 600); // Pauza po čárce
+        } else if (symbol === " ") {
+            setTimeout(() => morseText.textContent += "   ", 400); // Pauza mezi písmeny
+        }
+
+        setTimeout(() => playMorse(index + 1), 200);
+    }
+
+    morseText.textContent = ""; // Vymazání textu na začátku
+    playMorse();
+});
 
 /* Video */
 const video = document.getElementById('foot-video');
