@@ -207,6 +207,7 @@ body {
       position: relative;
       width: 100%;
       height: 11rem;
+      margin-top: 10remgit ;
       background-image: url(img/top.webp); 
       background-size: cover;
       z-index: 201;  
@@ -250,21 +251,16 @@ ul li {
     height: auto;
 }
 
-ul li a  {
+ul li p  {
     width: 100%;
-    position: absolute;
-    bottom: 2.5rem;
-    text-decoration: none;
-    text-align: center;
-    color: $link-color;
+    position: relative;
+    bottom: 0rem;
+    text-align: left;
     font-weight: 600;
-    margin-bottom: 2rem;
-}
-
-ul li p {
-  position: relative;
-  bottom: 2.5rem;
-  margin-bottom: 0rem;
+    margin-bottom: 0rem;
+    padding-left: 1rem;
+    text-shadow: none;
+    word-break: break-word;
 }
 
 a {
@@ -272,6 +268,7 @@ a {
     font-family: "Cormorant", serif;
     font-size: clamp(1rem, 1.8vw, 2rem);
     transition: transform 0.6s ease, box-shadow 0.3s ease, color 0.6s ease;
+    padding: 0;
 }
 
 a:hover {
@@ -386,7 +383,7 @@ button {
   }
   
   h3 {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       font-family: "Cinzel", serif;
       font-size: clamp(1.4rem, 1.8vw, 2.3rem);
       color: $text-color;
@@ -842,23 +839,48 @@ textarea:focus {
 }
 
 .morse-container {
+  display: block;
+  position: relative;
+  left: 0%;
+  width: 500px;
+  height: 100px;
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 4.8rem;
   font-family: "Courier New", monospace;
   color: #e5e4e2;
-  background: rgba(0, 0, 0, 0.5);
+  // background: rgba(0, 0, 0, 0.2);
   padding: 10px;
-  border-radius: 5px;
   width: fit-content;
   margin: 0 auto;
+  z-index: 300;
+}
+
+.morse-dot, .morse-dash {
+  color: rgb(244, 244, 240);
+  text-shadow: 
+  0 0 10px #b1fdfe,
+  0 0 20px #80fdff,
+  0 0 40px #4ffcff,
+  0 0 80px #1efbff,
+  0 0 100px #00e9ec,
+  0 0 200px #00cccf,
+  0 0 300px #8ff9fa,
+  0 0 500px #e0feffd8;
+  // border-bottom: 2px solid yellow; /* „Kurzor“ pod aktivním znakem */
 }
 
 .morse-dot {
-  animation: morseBlink 0.2s infinite alternate;
+  animation: morseBlink 0.3s infinite alternate;
 }
 
 .morse-dash {
-  animation: morseBlink 0.6s infinite alternate;
+  animation: morseBlink 0.8s infinite alternate;
+  font-weight: 900;
+}
+
+.morse-space {
+  display: inline-block;
+  width: 15px; /* Delší mezera pro lepší čitelnost */
 }
 
 #foot-video {
@@ -921,6 +943,7 @@ textarea:focus {
 
 .medium ul li a {
   position: relative;
+  bottom: 0rem;
   width: auto;
   text-align: left;
   margin-bottom: 0% !important;
@@ -1331,7 +1354,7 @@ section {
 }
 
 .about-content .description {
-  padding: 460px 20px 20px 20px;
+  padding: 40px 20px 20px 20px;
 }
 
 .features {
@@ -1351,6 +1374,64 @@ section {
       max-width: 350px;
       height: auto;
   }
+
+.medium {
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: 15px;
+  flex-direction: column;
+  width: 30%;
+  max-width: 220px;
+  justify-content: flex-start;
+}
+
+h3 {
+  margin-bottom: .2rem;
+  text-align: center;
+  font-size: clamp(1.2rem, 1.7vw, 2.3rem);
+}
+
+.medium ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.medium ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style-type: none;
+  word-wrap: break-word;
+  // max-width: 48%;
+}
+
+.medium ul li a {
+  position: relative;
+  margin-bottom: 0% !important;
+  padding: 0 !important;
+  text-align: center !important;
+  word-break: break-word;
+  font-size: clamp(1.1rem, 2.5vw, 3rem);
+}
+
+.icon {
+  padding: 0;
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+
+ul li p {
+  top: 0rem;
+  padding: 0%;
+  text-align: center;
+}
+
+  .morse-container {
+    max-width: 450px;
+  }
 }
 
 @media (max-width: 350px) {
@@ -1364,12 +1445,9 @@ section {
     margin: 0 auto; 
   }
 
-  .description {
-    min-width: 200px;
-  }
-
   .about-content .description {
-    padding: 600px 20px 20px 20px;
+    padding: 20px;
+    min-width: 200px;
   }
 
   .features {
@@ -1434,10 +1512,6 @@ section {
   }
 }
 
-@keyframes morseBlink {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
-}
 
 
 

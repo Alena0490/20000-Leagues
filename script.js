@@ -1,4 +1,4 @@
-/**LOading delay */
+/**Loading delay */
 // const lazy = querySelector(".delayed")
 // delayed.addEventListener("DOMContentLoaded", function() {
 //     setTimeout(function() {
@@ -19,33 +19,46 @@ document.addEventListener("DOMContentLoaded", () => {
         "S": "..."
     };
 
-    const sequence = "NAUTILUS".split("").map(letter => morseCode[letter]).join(" ");
+    const sequence = "NAUTILUS".split("").map(letter => morseCode[letter]).join(" "); // Morseovka pro celé slovo
     const morseText = document.getElementById("morse-code");
 
     function playMorse(index = 0) {
         if (index >= sequence.length) {
-            setTimeout(() => playMorse(0), 2000); // Pauza mezi cykly
+            setTimeout(() => {
+                morseText.innerHTML = ""; // Po vyslání celého slova se text smaže
+                playMorse(0); // Restart Morseovky
+            }, 1200);
             return;
         }
 
         let symbol = sequence[index];
+        let span = document.createElement("span");
 
         if (symbol === ".") {
-            morseText.textContent += "•"; // Krátká tečka
-            setTimeout(() => morseText.textContent += " ", 200); // Pauza po tečce
+            span.textContent = "•";
+            span.classList.add("morse-dot"); // Přidání třídy pro stylování
+            morseText.appendChild(span);
+            setTimeout(() => {
+                span.remove(); // Po době trvání zmizí
+                setTimeout(() => playMorse(index + 1), 200);
+            }, 200);
         } else if (symbol === "-") {
-            morseText.textContent += "—"; // Dlouhá čárka
-            setTimeout(() => morseText.textContent += " ", 600); // Pauza po čárce
+            span.textContent = "•";
+            span.classList.add("morse-dash");
+            morseText.appendChild(span);
+            setTimeout(() => {
+                span.remove(); // Po době trvání zmizí
+                setTimeout(() => playMorse(index + 1), 600);
+            }, 600);
         } else if (symbol === " ") {
-            setTimeout(() => morseText.textContent += "   ", 400); // Pauza mezi písmeny
+            setTimeout(() => playMorse(index + 1), 400); // Pauza mezi písmeny
         }
-
-        setTimeout(() => playMorse(index + 1), 200);
     }
 
-    morseText.textContent = ""; // Vymazání textu na začátku
+    morseText.innerHTML = "";
     playMorse();
 });
+
 
 /* Video */
 const video = document.getElementById('foot-video');
