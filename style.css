@@ -406,7 +406,9 @@ hr {
 }
 
 img:not(.logo img):hover {
-  filter: brightness(1.1);
+  filter: brightness(1.1) saturate(1.5);
+  border: none;
+  border-radius: 2px;
 }
 
 /* Text */
@@ -520,14 +522,13 @@ img:not(.logo img):hover {
   background-size: contain;
   background-repeat: repeat;
   padding: 1.5rem;
-  border: #1c1c1c 5px dotted;
   border-radius: 5px;
   box-shadow: 0 4px 6px #1c1c1c;
 }
 
 .black {
   background-color: #1c1c1c;
-  border-radius: 5px;
+  border-radius: 2px;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.7);
 }
 
@@ -557,8 +558,9 @@ img:not(.logo img):hover {
   max-height: auto !important;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 2px;
-  filter: drop-shadow(0 0 0.3rem rgb(12, 0, 2)) sepia(0.5);
+  border: 2px solid #27F2DE;
+  border-radius: 5px;
+  filter: drop-shadow(0 0 0.3rem rgb(12, 0, 2)) sepia(0.7);
 }
 
 .starfish {
@@ -606,16 +608,24 @@ img:not(.logo img):hover {
 }
 
 .window {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  margin: 0 auto;
-  padding: 5%;
+  padding: 2%;
   position: relative;
-  border: 5px solid #ce8139;
-  border-radius: 10px;
+  border: 1px solid #ce8139;
+  border-radius: 2px;
   overflow: hidden;
-  background-image: url("img/engine-room.webp");
+  background: none;
   z-index: 2;
   background-color: transparent;
+}
+
+.window:hover::before {
+  border: 1px solid #c1f8fd;
+  filter: brightness(1.3);
 }
 
 /* Obrázek na pozadí */
@@ -626,9 +636,11 @@ img:not(.logo img):hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("img/engine-room.webp");
-  background-size: contain;
+  background-image: url("img/room1.webp");
+  border: 1px solid #ce8139;
+  background-size: cover;
   background-repeat: no-repeat;
+  filter: blur(0px);
   border-radius: inherit;
   z-index: -3; /* Pod vším */
 }
@@ -641,11 +653,16 @@ img:not(.logo img):hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(13, 38, 58, 0.3);
-  -webkit-backdrop-filter: blur(2px);
-          backdrop-filter: blur(2px);
+  background: rgba(13, 38, 58, 0.4);
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
   border-radius: inherit;
   z-index: -2;
+}
+
+.window:hover::after {
+  -webkit-backdrop-filter: blur(0px);
+          backdrop-filter: blur(0px);
 }
 
 #contact {
@@ -655,15 +672,17 @@ img:not(.logo img):hover {
 }
 
 .contact form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
   position: relative;
   background: none;
-  display: flex;
-  flex-direction: column;
   gap: 1rem;
   border-radius: inherit;
-  padding: 5vh;
+  padding: 5vh 0vh;
   overflow: hidden;
   z-index: 1;
 }
@@ -678,14 +697,19 @@ img:not(.logo img):hover {
   background: none;
   filter: blur(1px);
   z-index: -1;
-  border-radius: 10px;
+  border-radius: 2px;
 }
 
 .contact form label {
+  width: 80%;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-bottom: 10px;
   font-family: "Cormorant", serif;
   color: #e5e4e2;
   font-size: clamp(1.5rem, 2vw, 2rem);
   font-weight: 600;
+  margin-bottom: 0 !important;
 }
 
 form:hover {
@@ -693,22 +717,28 @@ form:hover {
 }
 
 .form-result {
-  border-radius: 5px;
+  cursor: none !important;
+  width: 80%;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-bottom: 10px;
   font-weight: 600;
   text-shadow: 2px 1px #00040a;
   transition: 0.5s;
   cursor: pointer;
-  text-align: center;
+  text-align: center !important;
   color: #e5e4e2;
   font-family: "Cormorant", serif;
   font-size: clamp(1.2rem, 1.5vw, 2.5rem);
   text-shadow: #1c1c1c 2px 2px 1px;
   text-align: justify;
-  margin: 5px;
-  padding: 7px;
+  margin: 10px;
+  margin-bottom: -10px;
+  padding: 1rem;
 }
 
 .success:hover {
+  border: 2px solid #0ad406;
   text-shadow: 0px 0px 3px #0ad406;
   box-shadow: 1px 1px 2px #259c08;
   filter: brightness(1.2);
@@ -716,65 +746,74 @@ form:hover {
 
 .success {
   border: 1px solid rgba(36, 241, 6, 0.46);
-  background-color: rgba(6, 48, 48, 0.5411764706);
+  background-color: rgba(6, 48, 48, 0.5882352941);
   box-shadow: 0px 0px 2px #259c08;
   color: #0ad406;
   transition: filter 0.3s ease-in-out;
 }
 
 .error:hover {
+  border: 2px solid rgba(241, 6, 6, 0.81);
   text-shadow: 0px 0px 3px #ff0303;
-  box-shadow: 1px 0px 1px #ff0303;
+  box-shadow: 1px 1px 2px #ff0303;
   filter: brightness(1.2);
 }
 
 .error {
-  border: 1px solid rgba(241, 6, 6, 0.81);
-  background-color: rgba(44, 16, 0, 0.7254901961);
+  display: none;
+  border: 1px solid #ff0303 241, 6, 6, 0.81;
+  background-color: rgba(44, 16, 0, 0.5882352941);
   box-shadow: 0px 0px 2px #ff0303;
   color: #ff0303;
   transition: filter 0.3s ease-in-out;
 }
 
 input {
+  width: 80%;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-bottom: 10px;
   background-color: rgba(255, 255, 255, 0.432);
-  border-radius: 3px;
   border: 1px #ce8139 solid;
   color: #594000;
-  padding: 0.8rem;
+  padding: 1rem;
   outline: none;
-  width: 100%;
-  outline: none;
-  cursor: pointer;
 }
 
 input:focus {
   background-color: rgba(255, 255, 255, 0.732);
+  border: 2px solid #c1f8fd;
 }
 
 textarea {
+  width: 80%;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-bottom: 10px;
   background-color: rgba(255, 255, 255, 0.432);
-  border-radius: 3px;
   border: 1px #ce8139 solid;
   color: #594000;
-  padding: 0.8rem;
+  padding: 1rem;
   outline: none;
 }
 
 textarea:focus {
   background-color: rgba(255, 255, 255, 0.732);
+  border: 2px solid #c1f8fd;
 }
 
 input[type=submit] {
+  width: 80%;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-bottom: 10px;
   font-family: "Cormorant", serif;
   font-weight: 600;
-  width: 100%;
   background: #ce8139;
   border: none;
   padding: 0.8rem;
   color: #e5e4e2;
   font-size: clamp(1.5rem, 3vw, 2rem);
-  cursor: pointer;
   transition: filter 0.3s ease-in-out;
 }
 
@@ -1095,6 +1134,10 @@ footer p {
   h3 {
     margin-bottom: 2.5rem;
   }
+  .bottom-foot {
+    position: absolute;
+    bottom: -5%;
+  }
 }
 @media (max-width: 868px) {
   .about-content {
@@ -1110,6 +1153,7 @@ footer p {
 }
 @media (max-width: 768px) {
   nav {
+    margin-top: 0rem;
     position: absolute;
     top: 0;
     height: 7rem;

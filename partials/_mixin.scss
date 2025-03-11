@@ -1,10 +1,16 @@
 @mixin contact-form {
     background-color: rgba(255, 255, 255, 0.432);
-    border-radius: 3px;
     border: 1px $secondary-color solid;
     color: #594000;
-    padding: 0.8rem;
+    padding: 1rem;
     outline: none;
+}
+
+@mixin form-item {
+    width: 80%;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-bottom: 10px;
 }
 
 @mixin text-basic {
