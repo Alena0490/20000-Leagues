@@ -21,6 +21,10 @@
     text-align: justify;
 }
 
+@mixin shadow {
+    box-shadow:#1c1c1c75 5px 3px 15px;
+}
+
 @mixin hide-scrollbar {
     scrollbar-width: none; 
     -ms-overflow-style: none;

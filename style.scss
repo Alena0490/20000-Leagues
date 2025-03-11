@@ -51,6 +51,9 @@ body {
 /*** Hloubkoměr ***/
 
 .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   // height: 100vh; /* Kontejner bude přes celou obrazovku */
   overflow-y: scroll !important; /* Umožní skrytý scrollbar */
   scroll-behavior: smooth;
@@ -71,7 +74,7 @@ body {
   height: 90vh;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
-  z-index: 1000;
+  z-index: 2000;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -229,7 +232,6 @@ body {
 .logo img {
   width: clamp(80px, 15vw, 180px);
   height: auto;
-  margin-top: 1rem;
   height: auto;
 filter:invert(1);
 animation: gear-spin 5s linear infinite;
@@ -346,7 +348,7 @@ button {
   }
 
   #about {
-    padding: 20px 0px;
+    padding: 40px 0px 20px 0px;
   }
 
   img {
@@ -404,6 +406,15 @@ button {
       margin-top: 10vh;
       z-index: 10;
   }
+
+  .introduction {
+    display: block;
+    padding: 1rem 3rem !important;
+    background-color: #1c1c1cB5 !important;
+    margin: 0;
+    min-height: 100px !important;
+    
+  }
   
     /* Základní rozvržení */
   .about-content {
@@ -422,6 +433,7 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    @include shadow;
   }
   
   /* Obrázek */
@@ -435,6 +447,7 @@ button {
     border-radius: 5px;
     filter: sepia(0.5);
     transition: all, 0.6s, ease-in-out;
+    @include shadow;
   }
   
   img:not(.logo img):hover {
@@ -445,6 +458,7 @@ button {
   
   /* Text */
   .description {
+    @include shadow;
     display: flex;
     align-items: flex-start;
     position: relative;
@@ -457,6 +471,7 @@ button {
     background: none; /* Zabrání překrytí pozadí */
     max-width: 60rem;
     will-change: transform; /* Optimalizace vykreslování */
+    filter: sepia(.4)
 }
 
 /* Pseudo-prvek pro aplikaci filtru pouze na pozadí */
@@ -470,7 +485,7 @@ button {
     background-image: url(img/steel.webp);
     background-size: contain;
     background-repeat: repeat;
-    filter: sepia(0.4); /* Filtr se aplikuje jen na pozadí */
+    // filter: sepia(0.4); /* Filtr se aplikuje jen na pozadí */
     z-index: -1; /* Udrží pozadí pod textem */
 }
 
@@ -509,7 +524,7 @@ button {
       content-visibility: auto;
       contain-intrinsic-size: 1000px 1113px; 
       position: absolute;
-      top: 0rem;
+      top: 15rem;
       left: -15vw;
       background-image: url(img/shoal.webp);
       background-size: cover;
@@ -589,6 +604,7 @@ button {
   border: 2px solid $first-color-light;
   border-radius: 5px;
   filter: drop-shadow(0 0 0.3rem rgb(12, 0, 2)) sepia(0.7);
+  @include shadow;
 }
 
   .starfish {
@@ -1097,6 +1113,13 @@ textarea:focus {
 
   /** Queries **/
 
+  @media (min-width: 940px) {
+    .logo {
+      position: relative;
+      top: -5rem
+    }
+  }
+
   @media (min-width: 868px) {
     nav {
       padding-top: 11rem;
@@ -1168,6 +1191,7 @@ h3 {
 
   .about-content img {
     margin: auto;
+    @include shadow;
   }
 }
 
@@ -1220,6 +1244,7 @@ header {
   width: 100%;
   height: 4.5rem; 
   background-color: rgba(0, 0, 0, 0.8);
+  background-image: url(img/top2.webp);
   z-index: 1000;
   display: flex;
   justify-content: center;
@@ -1322,16 +1347,19 @@ header {
     margin: 0 auto;
     max-width: 95vw;
     aspect-ratio: 1 / 1; 
+    @include shadow;
 }
 
 .description {
   max-width: 95vw;
   min-width: 300px;
+  @include shadow;
 }
 
 .card {
   max-width: 95vw;
   min-width: 200px !important;
+  @include shadow;
 }
 
   #gallery {
