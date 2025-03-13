@@ -15,11 +15,13 @@
     <link rel="icon" href="favicon2/android-chrome-512x512.png" type="image/png" sizes="512x512">
     <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
     <link rel="manifest" href="favicon2/site.webmanifest">
-    <link rel="stylesheet" href="style.css?v=14">
+    <link rel="stylesheet" href="style.css?v=16">
     <link rel="stylesheet" href="lightbox.css" media="print" onload="this.onload=null;this.media='all';">
     <link rel="preload" as="image" href="img/nautilus.webp" type="image/webp">
     <link rel="preload" href="img/steel.webp" as="image">
     <link rel="preload" href="img/blue-plate.jpeg" as="image">
+    <link rel="preload" href="img/shoal.webp" as="image">
+    <link rel="preload" href="img/shoal2.webp" as="image">
 
     <!-- Preconnect pro rychlejší DNS -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,9 +36,6 @@
 <noscript>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant:ital,wght@0,400;1,400&family=Merriweather+Sans:wght@400;700&display=swap" rel="stylesheet">
 </noscript>
-
-<!-- jQuery (defer kvůli výkonu) -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script> -->
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
 </head>
@@ -53,11 +52,11 @@
     <div class="content">
 
         <header>
-
+            <h1>20 000 Leagues under the sea</h1>
             <nav>
                 
                 <ul>
-                    <li>
+                    <li class="logo-wrap">
                         <div class="logo">
                             <picture>
                                 <source media="(min-width: 769px)" srcset="img/compass.svg">
@@ -118,7 +117,6 @@
                 <h2>Features of&nbsp;the&nbsp;Nautilus</h2>
 
                 <div class="feature-cards">
-
                     <div class="card">
                         <h3>Advanced Navigation</h3>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae, quis sapiente quo asperiores quam cum rem officia quos nulla ipsa itaque quod est, eum quisquam, ratione voluptatum ad iure necessitatibus?</p>
@@ -137,8 +135,7 @@
             </section>
 
             <hr>
-            <!-- <div class="octopus"><img src="img/octopus-black.png" alt="an octopus silhouette" width="300" height="209" loading="lazy"></div> -->
-            
+         
             <section id="gallery" class="content jq--gallery">
                 <div class="black">
                     <div class="card">
@@ -156,7 +153,6 @@
                             <a aria-label="lightbox" href="img/nautilus1.webp" data-lightbox="roadtrip" data-title="The Nautilus"><img src="img/nautilus1a.webp" alt="The Nautilus" width="400" height="267" loading="lazy"></a>
                             <a aria-label="lightbox" href="img/monster.webp" data-lightbox="roadtrip" data-title="Monster attacks"><img src="img/monstera.webp" alt="Monster attacks" width="400" height="267" loading="lazy"></a>
                         </div>
-
                     </div>
                 </div>
             </section>
@@ -179,7 +175,6 @@
                 }
             }
             ?> -->
-
                     <div class="form-result success">Message received. The&nbsp;Nautilus acknowledges.</div>
                     <div class="form-result error">Signal lost. Try again later.</div>
 
@@ -218,8 +213,7 @@
                 </ul>
             </div>
 
-            <div class="write-me medium">
-                
+            <div class="write-me medium">             
                 <h3>Contact:</h3>
                 <ul>
                     <li><a href="tel:+420732746628"><img class="icon"  src="img/phone.webp" alt="Phone icon" width="250" height="250" loading="lazy"></a><p>Phone: <a href="tel:+420732746628">+420 732 746 628</a></p></li>
@@ -233,25 +227,25 @@
         </div>
 
         <div class="vegetation">
-            <img src="img/plant1.webp" alt="water plant silhouette" width="320" height="320" loading="lazy">
-            <img src="img/plant2.webp" alt="water plant silhouette" width="320" height="320" loading="lazy">
-            <img src="img/plant3.webp" alt="water plant silhouette" width="291" height="320" loading="lazy">
-            <img src="img/plant4.webp" alt="water plant silhouette" width="320" height="320" loading="lazy">
-            <img src="img/plant5.webp" alt="water plant silhouette" width="320" height="320" loading="lazy">
+            <img id="a1" src="img/plant1.webp" alt="water plant silhouette" width="320" height="320" loading="lazy">
+            <img id="a2" src="img/plant2.webp" alt="water plant silhouette" width="320" height="320" loading="lazy">
+            <img id="a3" src="img/plant3.webp" alt="water plant silhouette" width="291" height="320" loading="lazy">
+            <img id="a4"src="img/plant4.webp" alt="water plant silhouette" width="320" height="320" loading="lazy">
+            <img id="a5" src="img/plant5.webp" alt="water plant silhouette" width="320" height="320" loading="lazy">
         </div>
 
         <div class="vegetation vegetation-background">
-            <img src="img/plant8b.webp" alt="water plant silhouette" width="160" height="160" loading="lazy">
-            <img src="img/plant6b.webp" alt="water plant silhouette" width="160" height="160" loading="lazy">
-            <img src="img/plant3b.webp" alt="water plant silhouette" width="146" height="160" loading="lazy">
-            <img src="img/plant7b.webp" alt="water plant silhouette" width="160" height="160" loading="lazy">
-            <img src="img/plant5b.webp" alt="water plant silhouette" width="160" height="160" loading="lazy">
-            <img src="img/plant10b.webp" alt="water plant silhouette" width="114" height="160" loading="lazy">
-            <img src="img/plant9b.webp" alt="water plant silhouette" width="234" height="320" loading="lazy">
+            <img id="b1" src="img/plant8b.webp" alt="water plant silhouette" width="160" height="160" loading="lazy">
+            <img id="b2" src="img/plant6b.webp" alt="water plant silhouette" width="160" height="160" loading="lazy">
+            <img id="b3" src="img/plant3b.webp" alt="water plant silhouette" width="146" height="160" loading="lazy">
+            <img id="b4" src="img/plant7b.webp" alt="water plant silhouette" width="160" height="160" loading="lazy">
+            <img id="b5" src="img/plant5b.webp" alt="water plant silhouette" width="160" height="160" loading="lazy">
+            <img id="b6" src="img/plant10b.webp" alt="water plant silhouette" width="114" height="160" loading="lazy">
+            <img id="b7" src="img/plant9b.webp" alt="water plant silhouette" width="234" height="320" loading="lazy">
         </div>
 
-        <div  class="sea-bottom">
-            <img src="img/sea-bottom.webp" 
+        <div  class="sea-bottom-div">
+            <img class="sea-bottom" src="img/sea-bottom.webp" 
                 alt="the sea bottom" 
                 width="1141" 
                 height="376">
@@ -271,8 +265,6 @@
         </div>
     </footer>
 
-    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script> -->
-    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script> -->
     <script src="script.js" defer></script>
 </body>
 
