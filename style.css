@@ -993,7 +993,7 @@ footer::-webkit-scrollbar {
 .net {
   position: relative;
   top: 0.35rem;
-  width: 2.3rem !important;
+  width: 2.8rem !important;
   height: auto;
   margin-right: 0.12rem;
 }
@@ -1029,13 +1029,13 @@ footer::-webkit-scrollbar {
 .icon {
   position: relative;
   bottom: 0%;
-  padding: 5px;
-  width: 35px;
+  padding: 7px;
+  width: 45px;
   height: auto;
 }
 
 .bottom-foot {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(28, 28, 28, 0.7490196078));
+  background-color: black;
   display: flex;
   padding: 1rem 2rem;
   justify-content: end;
@@ -1056,7 +1056,7 @@ footer p {
 }
 
 .vegetation {
-  background: linear-gradient(rgba(28, 28, 28, 0), rgba(28, 28, 28, 0), rgba(28, 28, 28, 0), #1c1c1c);
+  background: linear-gradient(rgba(28, 28, 28, 0), rgba(28, 28, 28, 0), rgba(28, 28, 28, 0), #000000);
   width: 100%;
   height: auto;
   min-height: 20em;
@@ -1477,7 +1477,7 @@ footer p {
     font-size: clamp(1.1rem, 2.5vw, 3rem);
   }
   .icon {
-    padding: 0;
+    padding: 5px;
     margin-top: 0.5rem;
     margin-bottom: 0.2rem;
   }

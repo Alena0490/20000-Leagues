@@ -997,7 +997,7 @@ width: 100%;
 .net {
   position: relative;
   top: 0.35rem;
-  width: 2.3rem !important;
+  width: 2.8rem !important;
   height: auto;
   margin-right: .12rem;
 }
@@ -1033,13 +1033,13 @@ width: 100%;
 .icon {
   position: relative;
   bottom: 0%;
-  padding: 5px;
-  width: 35px;
+  padding: 7px;
+  width: 45px;
   height: auto;
 }
 
 .bottom-foot {
-  background: linear-gradient(180deg, #00000000, $dark-color-08);
+  background-color: black;
   display: flex;
   padding: 1rem 2rem;
   justify-content: end;
@@ -1060,7 +1060,7 @@ footer p {
 }
 
 .vegetation {
-  background: linear-gradient(rgba(28, 28, 28, 0), rgba(28, 28, 28, 0), rgba(28, 28, 28, 0), #1c1c1c);
+  background: linear-gradient(rgba(28, 28, 28, 0), rgba(28, 28, 28, 0), rgba(28, 28, 28, 0), #000000);
   width: 100%;
   height: auto;
   min-height: 20em;
@@ -1563,7 +1563,7 @@ header {
   }
 
   .icon {
-    padding: 0;
+    padding: 5px;
     margin-top: 0.5rem;
     margin-bottom: 0.2rem;
   }
