@@ -317,6 +317,10 @@ button, a, input[type=submit] {
   padding: 0.5rem 1rem;
 }
 
+section {
+  margin: 20px 0px;
+}
+
 section, header, footer {
   display: flex;
   flex-direction: column;
@@ -431,7 +435,7 @@ hr {
   box-shadow: rgba(28, 28, 28, 0.4588235294) 5px 3px 15px;
 }
 
-img:not(.logo img):hover {
+img:not(.logo img, .seahorse):hover {
   filter: brightness(1.2) saturate(1.5);
   border: none;
   border-radius: 2px;
@@ -590,10 +594,13 @@ img:not(.logo img):hover {
   transition: all 1s ease-in;
 }
 
+.first {
+  margin-top: 10rem;
+}
+
 .starfish {
   width: 100%;
   height: auto;
-  margin-top: 10rem;
   display: flex;
   position: relative;
 }
@@ -617,6 +624,24 @@ img:not(.logo img):hover {
   height: auto;
   z-index: -1;
   animation: starfish 10s ease reverse infinite;
+}
+
+.seahorse-div {
+  position: relative;
+  top: -4.2%;
+  max-height: 1vh;
+  width: 100%;
+  overflow: visible;
+}
+
+.seahorse {
+  width: 11rem;
+  height: auto;
+  position: absolute;
+  left: 90%;
+  top: 0%;
+  opacity: 1;
+  animation: seahorseFloat 5s ease-in-out infinite;
 }
 
 .left {
@@ -891,7 +916,7 @@ footer {
   position: relative;
   width: 95%;
   height: 100vh;
-  background-color: #1c1c1c;
+  background-color: black;
   max-width: 1400px;
   margin: 0 auto;
   overflow-y: auto;
@@ -1245,6 +1270,9 @@ footer p {
     justify-content: center;
     align-items: center;
   }
+  .seahorse {
+    width: 8rem;
+  }
   .features {
     min-height: 870px;
   }
@@ -1325,6 +1353,7 @@ footer p {
   }
   section {
     max-width: 700px;
+    padding: 20px 0px;
   }
   .about-content {
     width: 95%;
@@ -1598,5 +1627,22 @@ footer p {
   }
   100% {
     transform: translateX(35vw) translateY(0vh) scale(0.8);
+  }
+}
+@keyframes seahorseFloat {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(10px) rotate(2deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
   }
 }/*# sourceMappingURL=style.css.map */
