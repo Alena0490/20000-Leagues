@@ -32,7 +32,7 @@ body.lb-disable-scrolling {
   max-width: inherit;
   max-height: none;
   border-radius: 3px;
-  border: 4px solid #e5e4e2;
+  border: 2px solid #ce8139;
 }
 
 .lightbox a img {
@@ -45,7 +45,7 @@ body.lb-disable-scrolling {
   height: 250px;
   margin: 0 auto;
   border-radius: 4px;
-  background-color: #e5e4e2;
+  background-color: #ce8139;
 }
 
 .lb-loader, .lb-nav {

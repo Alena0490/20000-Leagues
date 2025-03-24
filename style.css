@@ -251,6 +251,7 @@ a {
   transition: transform 0.6s ease, box-shadow 0.3s ease, color 0.6s ease;
   padding: 0;
   text-decoration: none;
+  text-shadow: #000000 3px 3px 5px;
 }
 
 a:not(.burger-menu, .jq--nav-icon, .mobile-nav-icon):hover {
@@ -401,6 +402,7 @@ hr {
   padding: 1rem 3rem !important;
   background-color: rgba(28, 28, 28, 0.7098039216) !important;
   margin: 0;
+  border-radius: 25px !important;
   min-height: 100px !important;
 }
 
@@ -430,7 +432,7 @@ hr {
      object-fit: cover;
   max-width: 445px;
   align-self: center;
-  border-radius: 5px;
+  border-radius: 25px;
   filter: sepia(0.5);
   transition: all, 0.8s, ease-in;
   box-shadow: rgba(28, 28, 28, 0.4588235294) 5px 3px 15px;
@@ -451,7 +453,7 @@ img:not(.logo img, .seahorse):hover {
   overflow-y: auto;
   width: auto;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 25px;
   max-height: inherit;
   background: none; /* Zabrání překrytí pozadí */
   max-width: 60rem;
@@ -553,7 +555,7 @@ img:not(.logo img, .seahorse):hover {
   background-size: contain;
   background-repeat: repeat;
   padding: 1.5rem;
-  border-radius: 5px;
+  border-radius: 25px;
   box-shadow: 0 4px 6px #1c1c1c;
 }
 
@@ -594,8 +596,8 @@ img:not(.logo img, .seahorse):hover {
   max-height: auto !important;
   -o-object-fit: cover;
      object-fit: cover;
-  border: 2px solid #2fffea;
-  border-radius: 5px;
+  border: 2px solid #ce8139;
+  border-radius: 25px;
   filter: drop-shadow(0 0 0.3rem rgb(12, 0, 2)) sepia(0.6);
   transition: all 1s ease-in;
 }
@@ -922,7 +924,7 @@ footer {
   position: relative;
   width: 95%;
   height: 100vh;
-  background-color: black;
+  background: linear-gradient(rgba(4, 57, 64, 0.8352941176), black);
   max-width: 1400px;
   margin: 0 auto;
   overflow-y: auto;
@@ -996,10 +998,10 @@ footer::-webkit-scrollbar {
   -o-object-fit: cover;
      object-fit: cover;
   overflow: hidden;
+  filter: opacity(0.8) brightness(0.8) contrast(1.2) !important;
   z-index: 0;
   transform: translateZ(-100px) scale(2);
   border-bottom: solid 50px rgba(28, 28, 28, 0.7490196078);
-  opacity: 0.8;
   transition: filter 0.3s ease-in-out;
 }
 
@@ -1153,13 +1155,13 @@ footer p {
   width: 100%;
   z-index: 0;
   opacity: 1;
-  filter: blur(1.5px) brightness(0.3);
+  filter: blur(1px) brightness(0.4) hue-rotate(350deg);
 }
 
 .sea-bottom-2 {
   display: none;
   width: 100%;
-  filter: brightness(0.3) blur(1.5px);
+  filter: brightness(0.4) blur(1px) hue-rotate(350deg);
   z-index: -2;
 }
 
@@ -1235,9 +1237,11 @@ footer p {
   }
   .about-content {
     grid-template-columns: 1fr;
+    border-radius: 25px;
   }
   .about-content img {
     margin: auto;
+    border-radius: 25px;
     box-shadow: rgba(28, 28, 28, 0.4588235294) 5px 3px 15px;
   }
   .seahorse {
