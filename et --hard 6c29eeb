@@ -1,0 +1,61 @@
+[33m6c29eeb[m[33m ([m[1;36mHEAD[m[33m)[m HEAD@{0}: rebase (abort): returning to 6c29eebd2a710f4e4c57d74f672e50060925f16d
+[33m2446fda[m HEAD@{1}: rebase (continue): LCP optimalization
+[33m97a8297[m HEAD@{2}: commit: update
+[33md8017be[m HEAD@{3}: checkout: moving from 6c29eebd2a710f4e4c57d74f672e50060925f16d to d8017be2dc3e7c149b2eea568ab17b210bfb694e
+[33m6c29eeb[m[33m ([m[1;36mHEAD[m[33m)[m HEAD@{4}: reset: moving to ORIG_HEAD
+[33md8017be[m HEAD@{5}: pull origin main --rebase (start): checkout d8017be2dc3e7c149b2eea568ab17b210bfb694e
+[33m6c29eeb[m[33m ([m[1;36mHEAD[m[33m)[m HEAD@{6}: commit (merge): solving the conflict
+[33mde5d326[m HEAD@{7}: commit: boders, border radius
+[33m312adc9[m HEAD@{8}: commit: changing link color
+[33m7986ab2[m HEAD@{9}: commit: adding a starfish
+[33mb446e56[m HEAD@{10}: commit: bottom-foot black
+[33m8ee579c[m HEAD@{11}: commit: sea-bottom adjustments
+[33m71df2cf[m HEAD@{12}: commit: shadows, navigation background, fixing scrollbar z-index
+[33m904f498[m HEAD@{13}: commit: contact form styling
+[33m6c1b1cd[m HEAD@{14}: commit: footer, header padding
+[33mabfe1f2[m HEAD@{15}: commit: under 480px footer optimalization
+[33m79c6962[m HEAD@{16}: commit: fixing layout
+[33m1b85afe[m HEAD@{17}: commit: adding fixed spaces to the text
+[33m0215830[m HEAD@{18}: commit: gi
+[33mc128cc7[m HEAD@{19}: commit: mobile optimalization-success
+[33m158efe8[m HEAD@{20}: commit: CLS optimalization
+[33m9e54d67[m HEAD@{21}: commit: fixing zoomed out layout
+[33m8d498c4[m HEAD@{22}: commit: layout changes optimalization
+[33m9cef091[m HEAD@{23}: commit: LCP optimalization
+[33m9443e60[m HEAD@{24}: commit: code review
+[33m0918660[m HEAD@{25}: commit: it works
+[33ma45aa97[m[33m ([m[1;32mmain[m[33m)[m HEAD@{26}: checkout: moving from main to a45aa9757e1182211d79ed2987965185603d2ffb
+[33ma45aa97[m[33m ([m[1;32mmain[m[33m)[m HEAD@{27}: commit: adding backgrounds
+[33m63af570[m HEAD@{28}: commit: contact form - sending result
+[33mce70e5a[m HEAD@{29}: commit: bugfixing
+[33m71420ee[m HEAD@{30}: commit: js renewind
+[33m51d928c[m HEAD@{31}: commit: content visibility
+[33m0e75b1f[m HEAD@{32}: commit: removing fetch priority for mobiles
+[33m4b2b564[m HEAD@{33}: commit: fixing burger menu bug - menu opened automatically after loading
+[33m29e6956[m HEAD@{34}: commit: optialization
+[33m5686420[m HEAD@{35}: commit: js review
+[33m1822e93[m HEAD@{36}: commit: js defer
+[33m99ae182[m HEAD@{37}: commit: fetchpriority
+[33me1a6646[m HEAD@{38}: commit: preload
+[33m3d08f2b[m HEAD@{39}: commit: LCP optimalization
+[33macb4bfe[m HEAD@{40}: commit: adjusting background size
+[33m18252fb[m HEAD@{41}: commit: video optimalization
+[33m2195f4e[m HEAD@{42}: commit: picture optimalization
+[33m348199f[m HEAD@{43}: commit: adding parallax effect
+[33ma99904c[m HEAD@{44}: commit: contact form focus
+[33mee0d51d[m HEAD@{45}: commit: animation cursor rotation
+[33m1f82f53[m HEAD@{46}: commit: fixing social media icons, adjusting cursor bubbles
+[33mf02b550[m HEAD@{47}: commit: link optimalization
+[33m9c8cafc[m HEAD@{48}: commit: adding favicons
+[33m94ebcef[m HEAD@{49}: commit: adding the customized cursor
+[33m8b9808a[m HEAD@{50}: commit: adding bubble effect
+[33m5b829ff[m HEAD@{51}: commit: preparing the footer contacts
+[33mb1eee29[m HEAD@{52}: commit: video - z-index
+[33m57b0527[m HEAD@{53}: commit: changing burger menu icons color, hiding scrollbar on small screens
+[33m6745c52[m HEAD@{54}: commit: adding burger menu background and animation
+[33m2e0b765[m HEAD@{55}: commit: fixing layout bugs
+[33m26cbe17[m HEAD@{56}: commit: saving color pallets
+[33mbc81598[m HEAD@{57}: commit: ceating the burger menu
+[33m7f97cc2[m HEAD@{58}: commit: changing language to english
+[33m7dca2f8[m HEAD@{59}: Branch: renamed refs/heads/master to refs/heads/main
+[33m7dca2f8[m HEAD@{61}: commit (initial): creating a web structure

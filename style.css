@@ -402,10 +402,7 @@ hr {
   padding: 1rem 3rem !important;
   background-color: rgba(28, 28, 28, 0.7098039216) !important;
   margin: 0;
-<<<<<<< HEAD
   border-radius: 25px !important;
-=======
->>>>>>> d8017be2dc3e7c149b2eea568ab17b210bfb694e
   min-height: 100px !important;
 }
 
@@ -435,11 +432,7 @@ hr {
      object-fit: cover;
   max-width: 445px;
   align-self: center;
-<<<<<<< HEAD
   border-radius: 25px;
-=======
-  border-radius: 5px;
->>>>>>> d8017be2dc3e7c149b2eea568ab17b210bfb694e
   filter: sepia(0.5);
   transition: all, 0.8s, ease-in;
   box-shadow: rgba(28, 28, 28, 0.4588235294) 5px 3px 15px;
@@ -460,11 +453,7 @@ img:not(.logo img, .seahorse):hover {
   overflow-y: auto;
   width: auto;
   height: 100%;
-<<<<<<< HEAD
   border-radius: 25px;
-=======
-  border-radius: 5px;
->>>>>>> d8017be2dc3e7c149b2eea568ab17b210bfb694e
   max-height: inherit;
   background: none; /* Zabrání překrytí pozadí */
   max-width: 60rem;
@@ -566,11 +555,7 @@ img:not(.logo img, .seahorse):hover {
   background-size: contain;
   background-repeat: repeat;
   padding: 1.5rem;
-<<<<<<< HEAD
   border-radius: 25px;
-=======
-  border-radius: 5px;
->>>>>>> d8017be2dc3e7c149b2eea568ab17b210bfb694e
   box-shadow: 0 4px 6px #1c1c1c;
 }
 
@@ -611,13 +596,8 @@ img:not(.logo img, .seahorse):hover {
   max-height: auto !important;
   -o-object-fit: cover;
      object-fit: cover;
-<<<<<<< HEAD
   border: 2px solid #ce8139;
   border-radius: 25px;
-=======
-  border: 2px solid #2fffea;
-  border-radius: 5px;
->>>>>>> d8017be2dc3e7c149b2eea568ab17b210bfb694e
   filter: drop-shadow(0 0 0.3rem rgb(12, 0, 2)) sepia(0.6);
   transition: all 1s ease-in;
 }
@@ -1257,17 +1237,11 @@ footer p {
   }
   .about-content {
     grid-template-columns: 1fr;
-<<<<<<< HEAD
     border-radius: 25px;
   }
   .about-content img {
     margin: auto;
     border-radius: 25px;
-=======
-  }
-  .about-content img {
-    margin: auto;
->>>>>>> d8017be2dc3e7c149b2eea568ab17b210bfb694e
     box-shadow: rgba(28, 28, 28, 0.4588235294) 5px 3px 15px;
   }
   .seahorse {
